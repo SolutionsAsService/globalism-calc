@@ -1,36 +1,38 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const port = 3000;
 
+// Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+// Read JSON data from files
+const foodImportsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'foodImports.json')));
+const gdpExportsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'gdpExports.json')));
+const localFoodData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'localFood.json')));
 
 app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.post('/calculate', async (req, res) => {
+app.post('/calculate', (req, res) => {
     const { country } = req.body;
 
     try {
-        // Replace with actual API endpoints
-        const foodImportsResponse = await axios.get(`https://api.example.com/food-imports?country=${country}`);
-        const gdpExportsResponse = await axios.get(`https://api.example.com/gdp-exports?country=${country}`);
-        const localFoodResponse = await axios.get(`https://api.example.com/local-food?country=${country}`);
-
-        // Extract data from responses
-        const foodImports = foodImportsResponse.data.value;
-        const gdpFromExports = gdpExportsResponse.data.value;
-        const localFood = localFoodResponse.data.value;
+        // Extract data from JSON
+        const foodImports = foodImportsData[country] || 0;
+        const gdpFromExports = gdpExportsData[country] || 0;
+        const localFood = localFoodData[country] || 0;
 
         // Perform calculations
         const calculatedData = calculateDependencyMetrics(foodImports, gdpFromExports, localFood);
 
         // Render the result view with the calculated data
-        res.render('result', { data: calculatedData });
+        res.render('result', { data: calculatedData, country });
     } catch (error) {
         console.error('Error fetching data:', error.message);
         res.status(500).send('An error occurred while fetching data. Please try again later.');
