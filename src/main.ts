@@ -1,7 +1,7 @@
 import './styles.css';
 import { scaleSequential, scaleSequentialLog, scaleSequentialSymlog, scaleDivergingSymlog } from 'd3-scale';
 import { interpolateYlOrRd, interpolateBlues, interpolateRdBu } from 'd3-scale-chromatic';
-import { balanceTable, defaultIndicator, FLAG_TITLE, hasViews, picker, sourcesCard, trendCard, unitText, valueText } from './app/energy';
+import { balanceTable, defaultIndicator, electricityPanel, ELECTRICITY, FLAG_TITLE, hasViews, picker, sourcesCard, trendCard, unitText, valueText } from './app/energy';
 import { loadModel, compositeFor, hasAnyRow, type Model } from './app/model';
 import { createMap, legend, type Metric, type MapView } from './app/map';
 import { el, fmtScore, fmtValue, typeLabel } from './app/format';
@@ -63,14 +63,15 @@ function rawMetric(ind: IndicatorScores): Metric {
     return { ...base, label: `${name} (${unitText(d)}; red = net importer, blue = net exporter; symmetric log scale)`,
       color: (v) => scale(v), gradient: samples(interp), ticks: [min, 0, max].map((v) => ({ v, label: fmt(v) })) };
   }
-  if (min >= 0 && max > 0 && min === 0 && vals.some((v) => v > 0 && max / v > 1000)) {
+  const isShare = unit.startsWith('%');
+  if (!isShare && min >= 0 && max > 0 && min === 0 && vals.some((v) => v > 0 && max / v > 1000)) {
     // Heavy-tailed with zeros (most countries import little, a few import a lot): symlog keeps 0 and small values visible.
     const scale = scaleSequentialSymlog(interpolateBlues).domain([0, max]);
     const mid = symexp(symlog(max) / 2);
     return { ...base, label: `${name} (${unitText(d)}, raw value, symmetric log scale)`, color: (v) => scale(v),
       gradient: samples(interpolateBlues), ticks: [0, mid, max].map((v) => ({ v, label: fmt(v) })) };
   }
-  const useLog = min > 0 && max / min > 1000;
+  const useLog = !isShare && min > 0 && max / min > 1000; // shares (%) always read linearly
   const scale = useLog ? scaleSequentialLog(interpolateBlues).domain([min, max]) : scaleSequential(interpolateBlues).domain([min, max]);
   const ticks = useLog
     ? [min, Math.sqrt(min * max), max].map((v) => ({ v, label: fmt(v) }))
@@ -171,10 +172,12 @@ function renderAtlas(main: HTMLElement) {
   const mapCard = el('section', { class: 'card map-card', 'aria-labelledby': 'map-title' });
   const head = el('div', { class: 'map-head' }, el('h2', { id: 'map-title' }, S.cat === 'composite' ? 'Composite dependence index' : cat!.label));
   if (cat) head.append(el('p', { class: 'muted' }, cat.description));
-  const viewMode = inds.length > 0 && hasViews(inds) && !(M.status[cat!.id] === 'scored' && !S.indicator);
+  const viewMode = inds.length > 0 && hasViews(inds);
   const shown = cat ? shownIndicator(cat.id) : undefined;
   if (viewMode && shown?.dataset.view) {
-    head.append(picker(inds, shown, (id) => navigate({ indicator: id })));
+    const scored = M.status[cat!.id] === 'scored';
+    head.append(picker(inds, shown, (id) => navigate({ indicator: id }),
+      scored ? { active: !S.indicator, onScore: () => navigate({ indicator: undefined }) } : undefined));
   } else if (inds.length) {
     const sel = el('select', { id: 'indicator-select', onchange: (ev: Event) => navigate({ indicator: (ev.target as HTMLSelectElement).value || undefined }) });
     if (M.status[cat!.id] === 'scored') sel.append(el('option', { value: '' }, 'Category score (0–100)'));
@@ -188,6 +191,13 @@ function renderAtlas(main: HTMLElement) {
     mapCard.append(el('div', { class: 'banner warn', role: 'note' },
       el('strong', {}, 'Context only. '), 'No dataset in this category is used in the dependence score yet, so there is no category score. The map shows raw values. ',
       ...(shown?.dataset.caveats?.slice(0, 1) ?? []), ' ', el('a', { href: '#need-' + cat.id, onclick: (ev: Event) => { ev.preventDefault(); document.getElementById('need-' + cat.id)?.scrollIntoView({ behavior: 'smooth' }); } }, 'Data needed ↓')));
+  }
+  if (cat && M.status[cat.id] === 'scored' && !S.indicator) {
+    const scoredInds = inds.filter((i) => i.dataset.scoring.include);
+    const n = (i: IndicatorScores) => [...i.raw.values()].filter((v) => v != null).length;
+    mapCard.append(el('div', { class: 'banner', role: 'note', id: 'score-note' },
+      el('strong', {}, 'Score = '), scoredInds.map((i) => `${i.dataset.indicator.name} (${n(i)} entities with a value)`).join(' + '), '. ',
+      ...(scoredInds[0]?.dataset.caveats?.slice(-1) ?? []), ' ', el('a', { href: toHash({ ...S, view: 'method' }) + '' }, 'Method')));
   }
   if (S.cat === 'composite') {
     const used = M.categories.filter((c) => M.status[c.id] === 'scored' && (S.weights[c.id] ?? 0) > 0).map((c) => c.label);
@@ -213,7 +223,7 @@ function renderAtlas(main: HTMLElement) {
   const weights = weightsCard();
   const grid = el('div', { class: 'atlas-grid' }, mapCard, detail, weights);
   main.append(grid);
-  if (cat && shown && hasViews(inds) && metric?.kind === 'raw') main.append(trendCard(inds, shown, S.selected, entityName));
+  if (cat && shown && hasViews(inds)) main.append(trendCard(inds, shown, S.selected, entityName));
   main.append(rankingCard(metric));
   if (cat && hasViews(inds)) main.append(sourcesCard(inds));
   if (cat && M.status[cat.id] !== 'scored') main.append(wantedCard(cat.id));
@@ -293,9 +303,14 @@ function renderDetail(box: HTMLElement) {
       st === 'scored' ? scoreBar(s) : el('span', { class: 'badge' }, statusText[st])));
     const cinds = M.byCat[c.id] ?? [];
     if (hasViews(cinds)) {
-      row.append(balanceTable(cinds, e.key));
-      const src = cinds[0].dataset.source;
-      row.append(el('div', { class: 'small muted' }, el('a', { href: src.url, target: '_blank', rel: 'noopener' }, src.name), ` · ${src.license}`));
+      const elec = electricityPanel(cinds, e.key);
+      if (elec) row.append(elec);
+      const bal = balanceTable(cinds, e.key);
+      if (bal) {
+        row.append(bal);
+        const src = cinds.find((i) => i.dataset.import.from.includes('/eia/'))?.dataset.source ?? cinds[0].dataset.source;
+        row.append(el('div', { class: 'small muted' }, el('a', { href: src.url, target: '_blank', rel: 'noopener' }, src.name), ` · ${src.license}`));
+      }
       for (const ind of cinds.filter((i) => !i.dataset.view)) row.append(indicatorBlock(ind, e.key));
     } else {
       for (const ind of cinds) row.append(indicatorBlock(ind, e.key));
@@ -354,6 +369,14 @@ function rankingCard(metric: Metric | null): HTMLElement {
     fmt: (v) => (metric.kind === 'score' ? fmtScore(v as number | null) : fmtValue(v as number | null, metric.unit)) });
   const yearSet = metric?.yearOf ? new Set(visibleEntities().filter((e) => metric.get(e.key) != null).map((e) => metric.yearOf!(e.key))) : new Set();
   if (metric?.yearOf && yearSet.size > 1) cols.push({ id: 'year', label: 'Year', get: (e) => (metric.get(e.key) != null ? metric.yearOf!(e.key) ?? null : null), fmt: (v) => (v == null ? '—' : String(v)), num: true });
+  // Key indicators of a category with views (e.g. electricity exposure, net-import share, fossil share, kWh per person) as sortable columns.
+  const shownId = S.cat !== 'composite' ? shownIndicator(S.cat)?.dataset.id : undefined;
+  if (S.cat !== 'composite' && hasViews(M.byCat[S.cat] ?? [])) {
+    for (const ind of (M.byCat[S.cat] ?? []).filter((i) => i.dataset.view?.headline && !(metric?.kind === 'raw' && i.dataset.id === shownId))) {
+      cols.push({ id: 'ind:' + ind.dataset.id, label: ind.dataset.view!.flowLabel, get: (e) => ind.raw.get(e.key) ?? null, num: true,
+        fmt: (v) => fmtValue(v as number | null, ind.dataset.indicator.unit) });
+    }
+  }
   if (S.cat !== 'composite') cols.push({ id: 'composite', label: 'Composite', get: (e) => compositeFor(M, e.key, S.weights).dependence, fmt: (v) => fmtScore(v as number | null), num: true });
   for (const c of scoredCats) if (c.id !== S.cat || metric?.kind === 'raw') cols.push({ id: 'cat:' + c.id, label: c.label, get: (e) => M.catScores.get(e.key)?.[c.id] ?? null, fmt: (v) => fmtScore(v as number | null), num: true });
 
@@ -428,13 +451,21 @@ function renderCompare(main: HTMLElement) {
     const st = M.status[c.id];
     tbody.append(el('tr', { class: 'group' }, el('th', { scope: 'row' }, c.label, st !== 'scored' ? el('span', { class: 'badge' }, statusText[st]) : null),
       ...ks.map((k) => el('td', {}, st === 'scored' ? scoreBar(M.catScores.get(k)?.[c.id] ?? null) : ''))));
-    for (const ind of M.byCat[c.id] ?? []) {
+    const cinds = M.byCat[c.id] ?? [];
+    // Categories with many series (energy) show their scored and key indicators; the rest are in the Atlas tab.
+    const shownInds = hasViews(cinds) ? cinds.filter((i) => i.dataset.scoring.include || i.dataset.view?.headline) : cinds;
+    for (const ind of shownInds) {
       tbody.append(el('tr', {}, el('th', { scope: 'row', class: 'sub' }, `${ind.dataset.indicator.name} (${ind.dataset.year})`),
         ...ks.map((k) => {
           const y = ind.years.get(k);
           const other = ind.raw.get(k) != null && y !== undefined && y !== ind.dataset.year;
           return el('td', { class: ind.raw.get(k) == null ? 'missing' : '' }, valueText(ind, k), other ? el('span', { class: 'yr' }, String(y)) : null);
         })));
+    }
+    if (shownInds.length < cinds.length) {
+      tbody.append(el('tr', {}, el('td', { colspan: ks.length + 1, class: 'small muted' },
+        `${cinds.length - shownInds.length} more ${c.label.toLowerCase()} series (generation by source, fuel trade, supply and production) are in the `,
+        el('a', { href: toHash({ ...S, view: 'atlas', cat: c.id, indicator: undefined, selected: ks[0] }) }, 'Atlas tab'), '.')));
     }
   }
   card.append(el('div', { class: 'table-wrap' }, el('table', { class: 'cmp-table' },
@@ -454,6 +485,7 @@ function renderMethod(main: HTMLElement) {
       el('li', {}, el('strong', {}, 'Composite. '), COMPOSITE_FORMULA),
     ),
     el('p', {}, 'Relative methods (min–max, percentile) compare entities with each other, so a score of 80 means "more dependent than most", not "80% imported". Datasets that measure import share of consumption directly (e.g. FAO cereal import dependency, energy net imports % of use, AQUASTAT water dependency) can use a fixed 0–100 range and read literally.'),
+    ...electricityMethod(),
     el('h3', {}, 'Entity keys'),
     el('p', {}, 'Countries and territories use ISO 3166-1 alpha-3 (USA, PRI, GRL). Kosovo uses XKX (World Bank) and the Channel Islands use CHI (World Bank group). States and provinces use PARENT-SUB, the parent ISO3 plus the ISO 3166-2 suffix (e.g. ISO 3166-2 US-CA → USA-CA).'),
   ));
@@ -480,6 +512,9 @@ function renderMethod(main: HTMLElement) {
         ...meta('Source', el('a', { href: d.source.url, target: '_blank', rel: 'noopener' }, d.source.name)),
         ...(d.source.citation ? meta('Citation', d.source.citation) : []),
         ...meta('License', d.source.license),
+        ...(d.source.upstream?.length ? meta('Original producers', d.source.upstream.map((u) => `${u.name} (${u.license})`).join('; ')) : []),
+        ...(d.source.downloadUrl ? meta('Raw file', `${d.source.downloadUrl}${d.source.retrieved ? ', downloaded ' + d.source.retrieved : ''}${d.source.lastModified ? ', Last-Modified ' + d.source.lastModified : ''}`) : []),
+        ...(d.source.sha256 ? meta('SHA-256', el('code', {}, d.source.sha256)) : []),
         ...meta('Coverage', `${withVal} entities with values, ${raw.size - withVal} listed without a value`),
         ...meta('Scoring', d.scoring.include ? describeScoring(d.scoring, d.indicator.unit) : 'Not scored (context only)'),
         ...(d.scoring.rationale ? meta('Why', d.scoring.rationale) : []),
@@ -494,6 +529,34 @@ function renderMethod(main: HTMLElement) {
     ));
   }
   main.append(ds);
+}
+
+/** Method text for the electricity import exposure, with the current scoring choice read from the dataset. */
+function electricityMethod(): HTMLElement[] {
+  const ind = M.indicators.find((i) => i.dataset.id === ELECTRICITY.exposure);
+  if (!ind) return [];
+  const d = ind.dataset;
+  const withVal = [...ind.raw.values()].filter((v) => v != null).length;
+  const bounds = Object.values(d.breakdown?.byKey ?? {}).filter((b) => !b.exact).length;
+  const code = (s: string) => el('code', {}, s);
+  return [
+    el('h3', { id: 'method-electricity' }, 'Electricity import exposure (Fuel & energy)'),
+    el('p', {}, 'Direct electricity trade alone rates countries that burn imported fuel in their own power plants (Japan, South Korea, Taiwan, Singapore) near 0 %. The import exposure counts both channels, from one compiled file (Our World in Data energy dataset: Ember electricity data and Energy Institute fuel data), same country and year for every input:'),
+    el('p', { class: 'formula-block' }, code('exposure = 100 × [ max(N, 0) + Σ_f g_f × clamp(d_f, 0, 1) ] ÷ ( G + max(N, 0) )'), el('br'),
+      code('d_f = (supply_f − production_f) ÷ supply_f'), ' for f = coal, gas, oil'),
+    el('ul', {},
+      el('li', {}, code('G'), ' total generation, ', code('N'), ' net electricity imports (negative = net exporter), ', code('g_f'), ' generation from fuel f: Ember, TWh. The nine sources add up to G, and demand = G + N, in every country-year (checked by tests).'),
+      el('li', {}, code('d_f'), ': the fuel\'s economy-wide net import dependence from Energy Institute total energy supply and production (both TWh); negative (net exporter) counts as 0, above 100 % as 100 %.'),
+      el('li', {}, 'Denominator ', code('G + max(N, 0)'), ': all electricity available before exports. For net importers this equals demand; for net exporters exports are assumed to have the same mix as generation.'),
+      el('li', {}, 'A fuel with zero generation adds exactly 0. If a fuel is burned but its dependence is unknown (EI lists about 80 countries separately), there is no value and no score; the detail panel shows bounds (unknown dependence = 0 % / 100 %). ', `Now: ${withVal} entities with a value, ${bounds} with bounds only.`),
+      el('li', {}, 'Stale inputs are not scored: an exact value more than 2 years older than the entity\'s latest generation and trade data is dropped in favour of the newer bounds.'),
+    ),
+    el('p', {}, el('strong', {}, 'Limits. '), 'Assumes power plants import the same share of each fuel as the whole economy. Nuclear fuel is not counted (no open uranium supply data), so countries with large nuclear fleets (France, South Korea, Japan) are understated. Net figures hide transit trade and stock changes. Electricity only: transport fuel and heating are not covered, so this is a partial measure of energy dependence. The EIA electricity net-import share is kept as a cross-check, not scored (it is the direct part of this measure; scoring both would double count).'),
+    el('p', {}, el('strong', {}, 'Scoring choice. '), d.scoring.include
+      ? `Currently scored: Fuel & energy = this exposure, fixed range 0–100 (reads literally as a share), so it enters the composite for the ${withVal} entities with a value. `
+      : 'Currently not scored (context only). ',
+      'Configure it with ', code('scoring.include'), ' in ', code('data/sources/electricity-import-exposure.derived.json'), ' (then npm run data:import), or set the Fuel & energy weight to 0 in the Composite weights.'),
+  ];
 }
 
 function meta(k: string, v: string | Node): HTMLElement[] {

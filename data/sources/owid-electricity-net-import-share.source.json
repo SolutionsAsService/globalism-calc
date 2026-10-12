@@ -1,0 +1,70 @@
+{
+  "input": "data/raw/owid/owid_energy.csv",
+  "format": "csv",
+  "entityField": "iso_code",
+  "entityFallbackField": "country",
+  "valueField": "electricity_net_imports_share_of_demand_pct",
+  "yearField": "year",
+  "minYear": 1990,
+  "keepSeries": true,
+  "dataset": {
+    "id": "owid-electricity-net-import-share",
+    "title": "Electricity net imports as % of demand (Ember via OWID)",
+    "category": "energy",
+    "indicator": {
+      "code": "electricity_net_imports_share_of_demand_pct",
+      "name": "Electricity net imports (% of demand)",
+      "unit": "% of demand",
+      "sourceUnit": "%",
+      "description": "Net electricity imports as a share of demand: Electricity imports minus exports, measured as a percentage of total electricity demand in the country or region."
+    },
+    "source": {
+      "name": "Our World in Data – Energy dataset (Ember electricity data)",
+      "url": "https://catalog.ourworldindata.org/energy/owid_energy/readme.md",
+      "license": "CC BY 4.0 (Our World in Data; underlying Ember data CC BY 4.0)",
+      "citation": "Ember – Yearly Electricity Data (2026); Ember – Yearly Electricity Data Europe (2026) – with major processing by Our World in Data. File owid_energy.csv downloaded from https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv on 2026-10-12 19:10 UTC (server Last-Modified: Wed, 30 Sep 2026 14:42:02 GMT).",
+      "retrieved": "2026-10-12",
+      "downloadUrl": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+      "sha256": "9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de",
+      "lastModified": "Wed, 30 Sep 2026 14:42:02 GMT",
+      "upstream": [
+        {
+          "name": "Ember – Yearly Electricity Data (2026) and Yearly Electricity Data Europe (2026)",
+          "url": "https://ember-energy.org/data/yearly-electricity-data/",
+          "license": "CC BY 4.0 (https://ember-energy.org/creative-commons/)"
+        }
+      ]
+    },
+    "year": 2025,
+    "notes": [
+      "Imported from data/raw/owid/owid_energy.csv, column \"electricity_net_imports_share_of_demand_pct\", years 1990 on (one row per country and year; the latest year with a value is shown, the full series is kept for charts and derived datasets).",
+      "Codebook (data/raw/owid/owid_energy.codebook.csv) title: \"Net electricity imports as a share of demand\"; unit: \"%\"; sources: Ember – Yearly Electricity Data Europe (2026); Ember – Yearly Electricity Data (2026); Department for Business, Energy & Industrial Strategy of the UK – UK's historical electricity data (2023).",
+      "Rows with a blank iso_code are matched by their \"country\" name: Kosovo -> XKX; regions, income groups and source-defined aggregates (e.g. \"Europe (EI)\", \"G20 (Ember)\", \"World\") and former states are skipped. A blank cell is kept as missing, never 0."
+    ],
+    "caveats": [
+      "Grid electricity only: a country that burns imported fuel in its own power plants (e.g. Japan) shows about 0 here. The import exposure adds that channel.",
+      "Negative = net exporter."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "fixed-range",
+      "range": [
+        0,
+        100
+      ],
+      "rationale": "A direct import share, but it misses imported fuel burned at home; its positive part is included in the scored import exposure instead (counting it again would double count)."
+    },
+    "view": {
+      "group": "electricity-exposure",
+      "groupLabel": "Electricity: import exposure",
+      "order": 0,
+      "flow": "net-import-share",
+      "flowLabel": "Net imports % of demand",
+      "flowOrder": 2,
+      "chartSet": "pct",
+      "color": "#e8590c",
+      "headline": true
+    }
+  }
+}

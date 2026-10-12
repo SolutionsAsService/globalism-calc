@@ -5,8 +5,9 @@
  */
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { normalize, readRows, type SourceSpec } from '../src/lib/importer';
-import { deriveDataset, type DerivedSpec } from '../src/lib/derive';
+import { createHash } from 'node:crypto';
+import { normalize, readRowsCached, type SourceSpec } from '../src/lib/importer';
+import { deriveDataset, deriveInputs, type DerivedSpec } from '../src/lib/derive';
 import type { Dataset, Entity } from '../src/lib/types';
 import type { AliasFile } from '../src/lib/names';
 
@@ -29,7 +30,11 @@ const fresh = new Map<string, Dataset>();
 for (const specPath of specs) {
   try {
     const spec: SourceSpec = JSON.parse(readFileSync(specPath, 'utf8'));
-    const rows = readRows(spec, readFileSync(spec.input, 'utf8'));
+    if (spec.dataset.source.sha256) {
+      const sha = createHash('sha256').update(readFileSync(spec.input)).digest('hex');
+      if (sha !== spec.dataset.source.sha256) throw new Error(`${spec.input} has SHA-256 ${sha}, but the spec records ${spec.dataset.source.sha256} (raw files must not change; re-download into a new file and update the spec)`);
+    }
+    const rows = readRowsCached(spec, (p) => readFileSync(p, 'utf8'));
     const ds = normalize(spec, rows, entities, aliasFile, specPath);
     fresh.set(ds.id, ds);
     const out = write(ds);
@@ -47,14 +52,22 @@ const input = (id: string): Dataset | undefined => {
   const p = join('data/datasets', `${id}.json`);
   return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : undefined;
 };
-for (const specPath of derivedSpecs) {
+// Derived specs can use other derived datasets (e.g. electricity exposure uses fuel dependence): run them in dependency order.
+const pending = derivedSpecs.map((specPath) => ({ specPath, spec: JSON.parse(readFileSync(specPath, 'utf8')) as DerivedSpec }));
+const derivedIds = new Set(pending.map((p) => p.spec.dataset.id));
+const ordered: typeof pending = [];
+while (pending.length) {
+  const i = pending.findIndex((p) => deriveInputs(p.spec.derive).every((id) => !derivedIds.has(id) || ordered.some((o) => o.spec.dataset.id === id)));
+  if (i < 0) { console.error(`✘ circular derived specs: ${pending.map((p) => p.specPath).join(', ')}`); process.exit(1); }
+  ordered.push(...pending.splice(i, 1));
+}
+for (const { specPath, spec } of ordered) {
   try {
-    const spec: DerivedSpec = JSON.parse(readFileSync(specPath, 'utf8'));
-    const d = spec.derive;
-    const ids = d.op === 'net' ? [d.imports, d.exports] : [d.imports, d.exports, d.base];
+    const ids = deriveInputs(spec.derive);
     const inputs = new Map<string, Dataset>();
     for (const id of ids) { const x = input(id); if (x) inputs.set(id, x); }
     const ds = deriveDataset(spec, inputs, specPath);
+    fresh.set(ds.id, ds);
     const out = write(ds);
     console.log(`✔ ${specPath} -> ${out}: ${ds.rows.length - ds.import.missingValues} entities with values, ${ds.import.missingValues} without a common year`);
   } catch (e) {

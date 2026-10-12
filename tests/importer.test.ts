@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { parseCsv, csvToObjects } from '../src/lib/csv';
-import { normalize, parseValue, readRows, UnmatchedError, type SourceSpec } from '../src/lib/importer';
+import { normalize, parseValue, readRows, readRowsCached, UnmatchedError, type SourceSpec } from '../src/lib/importer';
 import { normalizeName, buildMatcher } from '../src/lib/names';
 import { flattenEiaSeriesExport, parseEiaValue, eiaExportStamp } from '../src/lib/eia';
-import { deriveDataset, type DerivedSpec } from '../src/lib/derive';
+import { deriveDataset, deriveInputs, electricityExposure, type DerivedSpec } from '../src/lib/derive';
 import type { Dataset, Entity } from '../src/lib/types';
 
 const entities: Entity[] = [
@@ -228,5 +228,106 @@ describe('derived datasets', () => {
     expect(() => deriveDataset({ derive: { op: 'net', imports: 'imp', exports: 'exp' }, dataset: meta('n', 'BKWH') }, bad)).toThrow(/different units/);
     expect(() => deriveDataset({ derive: { op: 'net', imports: 'imp', exports: 'nope' }, dataset: meta('n', 'BKWH') }, inputs)).toThrow(/not found/);
     expect(() => deriveDataset({ derive: { op: 'net', imports: 'imp', exports: 'exp' }, dataset: meta('n', 'TBPD') }, inputs)).toThrow(/output unit/);
+  });
+});
+
+describe('OWID-style long CSV (entity fallback, minYear, cached parse)', () => {
+  const csv = 'country,year,iso_code,v\nUnited States,1989,USA,7\nUnited States,1990,USA,1\nUnited States,1991,USA,\nPuerto Rico,1991,PRI,\nWorld,1991,,9\nCalifornia,1991,,4\n';
+  const spec: SourceSpec = { input: 'mem.csv', format: 'csv', entityField: 'iso_code', entityFallbackField: 'country', valueField: 'v', yearField: 'year', minYear: 1990, keepSeries: true, dataset: baseMeta };
+  it('matches blank codes by the fallback name, skips aggregates, ignores rows before minYear, keeps blanks missing', () => {
+    const ds = normalize(spec, readRows(spec, csv), entities, aliasFile);
+    expect(ds.rows).toEqual([
+      { key: 'PRI', value: null, year: 1991, sourceName: 'PRI' },
+      { key: 'USA', value: 1, year: 1990, sourceName: 'USA' }, // 1989 (7) is before minYear; 1991 is blank -> not 0
+      { key: 'USA-CA', value: 4, year: 1991, sourceName: 'California' },
+    ]);
+    expect(ds.import.skipped).toEqual([{ name: 'World', reason: 'aggregate' }]);
+    expect(ds.import.minYear).toBe(1990);
+    expect(ds.series).toEqual({ start: 1990, end: 1991, values: { USA: [1, null], 'USA-CA': [null, 4] } });
+  });
+  it('parses a shared raw file once per process', () => {
+    let reads = 0;
+    const read = () => { reads++; return csv; };
+    const a = readRowsCached(spec, read);
+    const b = readRowsCached({ ...spec, valueField: 'other' }, read);
+    expect(a).toBe(b);
+    expect(reads).toBe(1);
+  });
+});
+
+describe('fuel dependence and electricity import exposure', () => {
+  const mk = (id: string, unit: string, values: Record<string, (number | null)[]>): Dataset => ({
+    schemaVersion: 1, ...baseMeta, id, category: 'energy', indicator: { name: id, unit }, scoring: { include: false, direction: 'higher_more_dependent', method: 'minmax' },
+    import: { from: '', spec: '', rowsRead: 0, matched: 0, missingValues: 0, skipped: [], duplicates: [] },
+    rows: Object.keys(values).map((key) => ({ key, value: null, year: 2020 })), series: { start: 2020, end: 2021, values },
+  });
+  const meta = (id: string, unit: string) => ({ ...baseMeta, id, category: 'energy', indicator: { name: id, unit }, scoring: { include: false, direction: 'higher_more_dependent' as const, method: 'minmax' as const } });
+
+  it('electricityExposure: formula, zero-generation rule, net exporter denominator, bounds when a dependence is missing', () => {
+    // Japan-like: no trade, 300 coal (99 % imported), 350 gas (97.5 %), 25 oil (100 %), G = 1000.
+    const jp = electricityExposure(1000, 0, [{ id: 'coal', generation: 300, dependence: 99 }, { id: 'gas', generation: 350, dependence: 97.5 }, { id: 'oil', generation: 25, dependence: 100 }])!;
+    expect(jp.exact).toBe(true);
+    expect(jp.low).toBeCloseTo(100 * (300 * 0.99 + 350 * 0.975 + 25) / 1000, 9);
+    expect(jp.parts.gas).toEqual({ share: 35, dependence: 97.5, contribution: 34.125 });
+    // Net importer: S = G + N. Exporter dependence (negative) counts as 0; above 100 % counts as 100 %.
+    const imp = electricityExposure(80, 20, [{ id: 'gas', generation: 40, dependence: -50 }, { id: 'oil', generation: 10, dependence: 130 }])!;
+    expect(imp.direct).toBe(20);
+    expect(imp.parts.gas.contribution).toBe(0);
+    expect(imp.low).toBe(30); // 20 direct + 10 % oil
+    // Net exporter: S = G (exports assumed to have the generation mix), direct = 0.
+    const exp = electricityExposure(200, -50, [{ id: 'gas', generation: 100, dependence: 50 }])!;
+    expect(exp).toMatchObject({ direct: 0, low: 25, exact: true });
+    // A fuel with zero generation needs no dependence; a burned fuel without one gives only bounds.
+    expect(electricityExposure(0, 5, [{ id: 'oil', generation: 0, dependence: null }])).toMatchObject({ exact: true, low: 100, high: 100 });
+    const b = electricityExposure(100, 0, [{ id: 'oil', generation: 60, dependence: null }, { id: 'gas', generation: 20, dependence: 50 }])!;
+    expect(b).toMatchObject({ exact: false, low: 10, high: 70 });
+    expect(b.parts.oil).toEqual({ share: 60, dependence: null, contribution: null });
+    // Missing generation or trade, or nothing supplied: no result at all.
+    expect(electricityExposure(null, 0, [])).toBeNull();
+    expect(electricityExposure(100, null, [])).toBeNull();
+    expect(electricityExposure(100, 0, [{ id: 'coal', generation: null, dependence: 10 }])).toBeNull();
+    expect(electricityExposure(0, -1, [])).toBeNull();
+  });
+
+  const inputs = new Map<string, Dataset>([
+    ['sup', mk('sup', 'TWh', { USA: [100, 120], PRI: [0, 10], CIV: [50, null] })],
+    ['prod', mk('prod', 'TWh', { USA: [150, 60], PRI: [0, 0], CIV: [10, 10] })],
+    ['G', mk('G', 'TWh', { USA: [1000, 1000], PRI: [10, 10], CIV: [5, 5] })],
+    ['N', mk('N', 'TWh', { USA: [0, 0], PRI: [0, 0], CIV: [1, 1] })],
+    ['gGas', mk('gGas', 'TWh', { USA: [400, 500], PRI: [10, 10], CIV: [0, 2] })],
+  ]);
+
+  it('dependence = 100 × (supply − production) ÷ supply; supply must be > 0; negative = net exporter', () => {
+    const ds = deriveDataset({ derive: { op: 'dependence', supply: 'sup', production: 'prod' }, dataset: meta('dep', '% of supply') }, inputs);
+    expect(ds.series!.values.USA).toEqual([-50, 50]);
+    expect(ds.series!.values.PRI).toEqual([null, 100]);
+    expect(ds.rows.find((r) => r.key === 'CIV')).toEqual({ key: 'CIV', value: 80, year: 2020 });
+    inputs.set('dep', ds);
+  });
+
+  it('electricity-exposure op: per-year values, breakdown, bounds, stale-value rule and unit checks', () => {
+    const spec: DerivedSpec = { derive: { op: 'electricity-exposure', generation: 'G', netImports: 'N', fuels: [{ id: 'gas', label: 'Gas', generation: 'gGas', dependence: 'dep' }] }, dataset: meta('ex', '% of electricity supply') };
+    expect(deriveInputs(spec.derive)).toEqual(['G', 'N', 'gGas', 'dep']);
+    const ds = deriveDataset(spec, inputs);
+    expect(ds.series!.values.USA).toEqual([0, 25]); // 2020: gas exported (dep −50 → 0); 2021: 500/1000 × 50 %
+    expect(ds.rows.find((r) => r.key === 'PRI')).toEqual({ key: 'PRI', value: 100, year: 2021 }); // 2020: supply 0 -> no dependence -> bounds only
+    // CIV 2021: gas burned (2) but dependence missing -> no value that year; 2020 exact (no gas burned): 1/6 direct.
+    const civ = ds.rows.find((r) => r.key === 'CIV')!;
+    expect(civ.year).toBe(2020);
+    expect(civ.value).toBeCloseTo(100 / 6, 9);
+    expect(ds.breakdown!.byKey.CIV).toMatchObject({ year: 2020, exact: true });
+    // With maxLagYears 0 the 2020 value is stale next to 2021 data: missing, and the 2021 bounds are shown.
+    const strict = deriveDataset({ ...spec, derive: { ...spec.derive, maxLagYears: 0 } as DerivedSpec['derive'] }, inputs);
+    expect(strict.rows.find((r) => r.key === 'CIV')!.value).toBeNull();
+    expect(strict.breakdown!.byKey.CIV).toMatchObject({ year: 2021, exact: false });
+    expect(strict.breakdown!.byKey.CIV.low).toBeCloseTo(100 / 6, 9);
+    expect(strict.breakdown!.byKey.CIV.high).toBeCloseTo(100 * 3 / 6, 9);
+    expect(strict.series!.values.CIV[0]).toBeCloseTo(100 / 6, 9); // still in the series for the trend chart
+    expect(ds.breakdown!.parts).toEqual([{ id: 'gas', label: 'Gas' }]);
+    // Units: energy inputs must share one unit; dependence must be a %.
+    const bad = new Map(inputs); bad.set('gGas', mk('gGas', 'BKWH', { USA: [1, 1] }));
+    expect(() => deriveDataset(spec, bad)).toThrow(/different units/);
+    const bad2 = new Map(inputs); bad2.set('dep', mk('dep', 'TWh', { USA: [1, 1] }));
+    expect(() => deriveDataset(spec, bad2)).toThrow(/must be a %/);
   });
 });

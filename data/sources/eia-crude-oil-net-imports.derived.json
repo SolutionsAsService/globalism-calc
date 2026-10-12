@@ -41,8 +41,7 @@
       "groupLabel": "Crude oil",
       "flow": "net-imports",
       "flowLabel": "Net imports",
-      "order": 1,
-      "default": true
+      "order": 1
     }
   }
 }

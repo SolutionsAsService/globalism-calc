@@ -48,10 +48,10 @@
     },
     "view": {
       "group": "electricity",
-      "groupLabel": "Electricity",
+      "groupLabel": "Electricity: trade (EIA)",
       "flow": "consumption",
       "flowLabel": "Net consumption",
-      "order": 5
+      "order": 0.7
     }
   }
 }

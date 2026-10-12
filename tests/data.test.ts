@@ -2,8 +2,9 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { normalize, readRows, type SourceSpec } from '../src/lib/importer';
-import { deriveDataset, type DerivedSpec } from '../src/lib/derive';
+import { normalize, readRowsCached, type SourceSpec } from '../src/lib/importer';
+import { deriveDataset, deriveInputs, type DerivedSpec } from '../src/lib/derive';
+import { csvToObjects } from '../src/lib/csv';
 import { buildModel, compositeFor } from '../src/app/model';
 import type { CategoryDef, Dataset, Entity } from '../src/lib/types';
 
@@ -37,7 +38,7 @@ describe('datasets', () => {
     expect(specFiles.length).toBeGreaterThan(0);
     for (const f of specFiles) {
       const spec: SourceSpec = json(`data/sources/${f}`);
-      const fresh = normalize(spec, readRows(spec, readFileSync(spec.input, 'utf8')), entities, aliases, `data/sources/${f}`);
+      const fresh = normalize(spec, readRowsCached(spec, (p) => readFileSync(p, 'utf8')), entities, aliases, `data/sources/${f}`);
       expect(json(`data/datasets/${fresh.id}.json`)).toEqual(JSON.parse(JSON.stringify(fresh)));
     }
   });
@@ -149,19 +150,155 @@ describe('model over real data', () => {
       expect(m.catScores.get('USA')?.[id]).toBeNull();
     }
     expect(m.status.food).toBe('context');
-    expect(m.status.energy).toBe('context'); // EIA flows are shown but not scored
-    expect(m.catScores.get('USA')?.energy).toBeNull();
+    expect(m.status.energy).toBe('scored'); // by the electricity import exposure; EIA flows stay context
     expect(m.status.trade).toBe('scored');
   });
   it('composite only uses categories with data, within 0..100', () => {
     const w = Object.fromEntries(categories.map((c) => [c.id, c.defaultWeight]));
     const r = compositeFor(m, 'USA', w);
-    expect(r.used).toEqual(['trade']);
-    expect(r.dependence).toBe(m.catScores.get('USA')!.trade);
+    expect(r.used).toEqual(['energy', 'trade']);
+    const c = m.catScores.get('USA')!;
+    expect(r.dependence).toBeCloseTo((w.energy * c.energy! + w.trade * c.trade!) / (w.energy + w.trade), 10);
+    // Energy weight 0 = back to trade only (the configurable switch in the UI).
+    expect(compositeFor(m, 'USA', { ...w, energy: 0 }).dependence).toBe(c.trade);
     expect(compositeFor(m, 'AND', w).dependence).toBeNull();
     for (const e of entities) {
       const d = compositeFor(m, e.key, w).dependence;
       if (d != null) expect(d >= 0 && d <= 100).toBe(true);
     }
+  });
+});
+
+describe('electricity: Ember + Energy Institute via Our World in Data', () => {
+  const owidSpecs = specFiles.map((f) => json(`data/sources/${f}`) as SourceSpec).filter((s) => s.input.startsWith('data/raw/owid/'));
+  const byId = (id: string) => datasets.find((d) => d.id === id)!;
+  const row = (id: string, k: string) => byId(id).rows.find((r) => r.key === k);
+  const at = (id: string, k: string, y: number) => { const s = byId(id).series!; const a = s.values[k]; return a ? a[y - s.start] ?? null : null; };
+  const raw = csvToObjects(readFileSync('data/raw/owid/owid_energy.csv', 'utf8'));
+  const rawAt = (iso: string, y: number, col: string) => { const r = raw.find((x) => x.iso_code === iso && x.year === String(y)); return r && r[col] !== '' ? Number(r[col]) : null; };
+  const sha = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
+
+  it('raw OWID files are unchanged: SHA-256 matches the hash recorded in every spec and in PROVENANCE.md', () => {
+    expect(owidSpecs.length).toBe(23);
+    const prov = readFileSync('data/raw/owid/PROVENANCE.md', 'utf8');
+    for (const f of ['owid_energy.csv', 'owid_energy.codebook.csv', 'owid_energy.sources.csv']) expect(prov).toContain(sha(`data/raw/owid/${f}`));
+    for (const s of owidSpecs) {
+      expect(s.dataset.source.sha256, s.dataset.id).toBe(sha(s.input));
+      expect(s.dataset.source.retrieved).toBe('2026-10-12');
+      expect(s.dataset.source.downloadUrl).toBe('https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv');
+    }
+  });
+
+  it('declared units match the OWID codebook unit of each column, and every column exists in the raw header', () => {
+    const book = new Map(csvToObjects(readFileSync('data/raw/owid/owid_energy.codebook.csv', 'utf8')).map((r) => [r.column, r]));
+    const header = Object.keys(raw[0]);
+    for (const s of owidSpecs) {
+      const b = book.get(s.valueField!);
+      expect(b, s.valueField).toBeDefined();
+      expect(header).toContain(s.valueField);
+      expect(s.dataset.indicator.sourceUnit, s.dataset.id).toBe(b!.unit);
+      expect(s.dataset.indicator.code).toBe(s.valueField);
+      const expected = b!.unit === 'terawatt-hours (TWh)' ? 'TWh' : b!.unit === 'kilowatt-hours (kWh)' ? 'kWh per person' : b!.unit === '%' ? '%' : '?';
+      expect(s.dataset.indicator.unit.startsWith(expected), `${s.dataset.id}: ${s.dataset.indicator.unit} vs ${b!.unit}`).toBe(true);
+    }
+  });
+
+  it('every row is the latest raw value since 1990 for that ISO code (checked independently of the importer)', () => {
+    for (const s of owidSpecs) {
+      const ds = byId(s.dataset.id);
+      const latest = new Map<string, { y: number; v: number }>();
+      for (const r of raw) {
+        if (!r.iso_code || Number(r.year) < 1990 || r[s.valueField!] === '') continue;
+        const p = latest.get(r.iso_code);
+        if (!p || Number(r.year) > p.y) latest.set(r.iso_code, { y: Number(r.year), v: Number(r[s.valueField!]) });
+      }
+      for (const [iso, { y, v }] of latest) {
+        if (iso === 'ANT') { expect(ds.rows.some((r) => r.key === 'ANT')).toBe(false); continue; }
+        expect(row(s.dataset.id, iso), `${s.dataset.id} ${iso}`).toMatchObject({ value: v, year: y });
+      }
+      for (const r of ds.rows) if (r.key !== 'XKX' && r.value !== null) expect(latest.has(r.key), `${s.dataset.id} ${r.key}`).toBe(true);
+    }
+  });
+
+  it('blank cells stay missing (never 0); Kosovo is matched by name; aggregates are skipped', () => {
+    expect(rawAt('LSO', 2024, 'gas_energy_twh')).toBeNull();
+    expect(byId('owid-gas-supply').series!.values.LSO).toBeUndefined();
+    expect(row('owid-gas-supply', 'LSO')!.value).toBeNull();
+    expect(row('owid-electricity-generation', 'XKX')!.value).not.toBeNull();
+    const skipped = byId('owid-electricity-generation').import.skipped.map((s) => s.name);
+    for (const n of ['World', 'Europe (EI)', 'G20 (Ember)', 'USSR', 'ANT']) expect(skipped).toContain(n);
+    expect(byId('owid-electricity-generation').import.minYear).toBe(1990);
+    expect(byId('owid-electricity-generation').series!.start).toBe(1990);
+  });
+
+  it('internal consistency the exposure relies on: demand = generation + net imports, and the nine sources sum to generation', () => {
+    const src = ['coal', 'gas', 'oil', 'nuclear', 'hydro', 'wind', 'solar', 'bioenergy', 'other-renewables'].map((s) => 'owid-electricity-' + s);
+    const gen = byId('owid-electricity-generation').series!;
+    let checkedDemand = 0, checkedMix = 0;
+    for (const k of Object.keys(gen.values)) for (let y = gen.start; y <= gen.end; y++) {
+      const G = at('owid-electricity-generation', k, y), D = at('owid-electricity-demand', k, y), N = at('owid-electricity-net-imports', k, y);
+      if (G !== null && D !== null && N !== null) { expect(Math.abs(D - G - N), `${k} ${y}`).toBeLessThan(0.02); checkedDemand++; }
+      const parts = src.map((id) => at(id, k, y));
+      if (G !== null && parts.every((p) => p !== null)) { expect(Math.abs(G - (parts as number[]).reduce((a, b) => a + b, 0)), `${k} ${y}`).toBeLessThan(0.05 + 0.005 * G); checkedMix++; }
+    }
+    expect(checkedDemand).toBeGreaterThan(5000);
+    expect(checkedMix).toBeGreaterThan(5000);
+  });
+
+  it('fuel net import dependence = 100 × (supply − production) ÷ supply from the raw file', () => {
+    for (const [f, k] of [['gas', 'JPN'], ['coal', 'DEU'], ['oil', 'ITA'], ['gas', 'USA']] as const) {
+      const r = row(`owid-${f}-net-import-dependence`, k)!;
+      const s = rawAt(k, r.year, `${f}_energy_twh`)!, p = rawAt(k, r.year, `${f}_production_twh`)!;
+      expect(r.value).toBeCloseTo((100 * (s - p)) / s, 8);
+    }
+    expect(row('owid-gas-net-import-dependence', 'USA')!.value).toBeLessThan(0); // net exporter
+    expect(row('owid-gas-net-import-dependence', 'JPN')!.value).toBeGreaterThan(90);
+  });
+
+  it('import exposure: Japan is no longer ~0 % (imported coal, LNG and oil), recomputed from the raw CSV', () => {
+    const r = row('electricity-import-exposure', 'JPN')!;
+    expect(r.year).toBe(2024);
+    const dep = (f: string) => Math.max(0, Math.min(1, (rawAt('JPN', 2024, f + '_energy_twh')! - rawAt('JPN', 2024, f + '_production_twh')!) / rawAt('JPN', 2024, f + '_energy_twh')!));
+    const G = rawAt('JPN', 2024, 'electricity_generation_twh')!, N = rawAt('JPN', 2024, 'electricity_net_imports_twh')!;
+    const fuel = ['coal', 'gas', 'oil'].reduce((a, f) => a + rawAt('JPN', 2024, f + '_electricity_twh')! * dep(f), 0);
+    expect(r.value).toBeCloseTo((100 * (Math.max(N, 0) + fuel)) / (G + Math.max(N, 0)), 8);
+    expect(r.value).toBeGreaterThan(60);
+    expect(row('owid-electricity-net-import-share', 'JPN')!.value).toBe(0); // direct trade alone says 0
+    expect(row('eia-electricity-net-import-share', 'JPN')!.value).toBeLessThan(1);
+  });
+
+  it('import exposure: reference cases (all imported, net exporters, fuel producers, bounds only)', () => {
+    const v = (k: string) => row('electricity-import-exposure', k)!.value;
+    const b = byId('electricity-import-exposure').breakdown!.byKey;
+    expect(v('LSO')).toBe(100); // all power imported, no fuel burned
+    expect(b.LSO.direct).toBe(100);
+    expect(v('SGP')).toBeGreaterThan(90); // gas-fired, no domestic gas
+    expect(v('USA')).toBeLessThan(1); // net exporter of gas and coal: only direct imports
+    expect(v('PRY')).toBe(0); // hydro, net exporter
+    expect(v('FRA')).toBeLessThan(10); // nuclear (uranium not counted, see caveat)
+    expect(b.FRA.direct).toBe(0);
+    // A burned fuel without EI dependence data gives no value, only bounds (never a guess).
+    expect(v('BRB')).toBeNull();
+    expect(b.BRB.exact).toBe(false);
+    expect(b.BRB.low).toBeLessThan(b.BRB.high);
+    expect(b.BRB.parts.oil.dependence).toBeNull();
+    for (const [k, e] of Object.entries(b)) {
+      expect(e.low, k).toBeGreaterThanOrEqual(0);
+      expect(e.high, k).toBeLessThanOrEqual(100 + 1e-9);
+      if (e.exact) expect(v(k), k).toBeCloseTo(e.low, 9);
+      // breakdown adds up
+      const sum = e.direct + Object.values(e.parts).reduce((a, p) => a + (p.contribution ?? 0), 0);
+      expect(sum, k).toBeCloseTo(e.low, 6);
+    }
+    const n = byId('electricity-import-exposure').rows.filter((r) => r.value !== null);
+    expect(n.length).toBeGreaterThan(80);
+    for (const r of n) expect(r.year, r.key).toBeGreaterThanOrEqual(2022); // stale values dropped (maxLagYears)
+  });
+
+  it('derived specs are recomputed in dependency order (exposure uses the fuel dependence datasets)', () => {
+    const spec: DerivedSpec = json('data/sources/electricity-import-exposure.derived.json');
+    expect(deriveInputs(spec.derive)).toContain('owid-gas-net-import-dependence');
+    expect(spec.dataset.scoring.include).toBe(true);
+    expect(byId('eia-electricity-net-import-share').scoring.include).toBe(false); // no double counting
   });
 });

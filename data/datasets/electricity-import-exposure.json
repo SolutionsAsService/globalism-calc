@@ -1,0 +1,9706 @@
+{
+ "schemaVersion": 1,
+ "id": "electricity-import-exposure",
+ "title": "Electricity import exposure: net electricity imports + power from imported fossil fuel, % of supply (derived)",
+ "category": "energy",
+ "indicator": {
+  "name": "Electricity import exposure",
+  "unit": "% of electricity supply",
+  "description": "Share of a country's electricity supply that depends on imports: 100 × [max(N, 0) + Σ over coal, gas, oil of g_f × clamp(d_f, 0, 1)] ÷ (G + max(N, 0)). G = generation, N = net electricity imports, g_f = generation from fuel f (all TWh, Ember via OWID), d_f = the fuel's national net import dependence ((supply − production) ÷ supply, EI via OWID). Same country and year for every input."
+ },
+ "source": {
+  "name": "Derived from Our World in Data – Energy dataset (Ember electricity data and Energy Institute Statistical Review data)",
+  "url": "https://catalog.ourworldindata.org/energy/owid_energy/readme.md",
+  "license": "Inputs: Ember CC BY 4.0 and Energy Institute Statistical Review (free to use with citation), compiled by Our World in Data (CC BY 4.0)",
+  "citation": "Derived from Ember – Yearly Electricity Data (2026); Ember – Yearly Electricity Data Europe (2026) – with major processing by Our World in Data. File owid_energy.csv downloaded from https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv on 2026-10-12 19:10 UTC (server Last-Modified: Wed, 30 Sep 2026 14:42:02 GMT). Fuel supply and production: Energy Institute – Statistical Review of World Energy (2026), same file.",
+  "retrieved": "2026-10-12",
+  "downloadUrl": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+  "sha256": "9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de",
+  "lastModified": "Wed, 30 Sep 2026 14:42:02 GMT",
+  "upstream": [
+   {
+    "name": "Ember – Yearly Electricity Data (2026) and Yearly Electricity Data Europe (2026)",
+    "url": "https://ember-energy.org/data/yearly-electricity-data/",
+    "license": "CC BY 4.0 (https://ember-energy.org/creative-commons/)"
+   },
+   {
+    "name": "Energy Institute – Statistical Review of World Energy (2026)",
+    "url": "https://www.energyinst.org/statistical-review/",
+    "license": "Free to access, citation required (\"Energy Institute – Statistical Review of World Energy (2026)\"); no open licence is stated on the EI pages checked on 2026-10-12"
+   }
+  ]
+ },
+ "year": 2025,
+ "notes": [
+  "Computed by npm run data:import from 9 input datasets (src/lib/derive.ts, op \"electricity-exposure\"). For each entity, the latest year in which generation, net imports and coal/gas/oil generation all exist, and the dependence of every fuel with generation above 0 exists.",
+  "An exact value more than 2 years older than the latest year with generation and trade data is not used (maxLagYears = 2): e.g. a country whose fuel data stop in 2002 would otherwise be scored on 2002. Its bounds for the latest year are shown instead.",
+  "A fuel with zero generation adds exactly 0, so its dependence is not needed (e.g. Lesotho imports all its power and burns no fuel: 100 %).",
+  "Where a fuel is burned but its dependence is unknown (EI does not list most small countries), no value is given; the detail panel shows the bounds instead (unknown dependence taken as 0 % and as 100 %)."
+ ],
+ "caveats": [
+  "Assumes power plants import the same share of each fuel as the economy as a whole (economy-wide net import dependence). A country could, for example, burn domestic coal in power plants and import coal for steel.",
+  "Nuclear fuel is not counted: uranium is mostly imported (Japan, France, South Korea…), but no open dataset here gives uranium supply by country, so nuclear power counts as not import-exposed. Countries with large nuclear fleets are understated.",
+  "Net figures: transit trade, re-exports and stock changes are netted out. Imported electricity is counted as fully import-exposed; exported electricity is assumed to have the same mix as generation.",
+  "Covers electricity only (not transport fuel or heating), so it is a partial measure of energy dependence."
+ ],
+ "scoring": {
+  "include": true,
+  "direction": "higher_more_dependent",
+  "method": "fixed-range",
+  "range": [
+   0,
+   100
+  ],
+  "weight": 1,
+  "rationale": "Scored by default as the Fuel & energy indicator: a literal 0–100 share, and unlike direct electricity trade it counts imported fuel burned at home (Japan ≈ 68 % instead of 0 %). Electricity only, so it does not cover transport fuel. To turn it off, set scoring.include to false in data/sources/electricity-import-exposure.derived.json (then npm run data:import), or set the Fuel & energy weight to 0 in the app."
+ },
+ "view": {
+  "group": "electricity-exposure",
+  "groupLabel": "Electricity: import exposure",
+  "order": 0,
+  "flow": "exposure",
+  "flowLabel": "Import exposure",
+  "flowOrder": 1,
+  "chartSet": "pct",
+  "color": "#c2255c",
+  "headline": true,
+  "default": true
+ },
+ "import": {
+  "from": "derived: electricity-exposure(owid-electricity-generation, owid-electricity-net-imports, owid-electricity-coal, owid-coal-net-import-dependence, owid-electricity-gas, owid-gas-net-import-dependence, owid-electricity-oil, owid-oil-net-import-dependence)",
+  "spec": "data/sources/electricity-import-exposure.derived.json",
+  "rowsRead": 220,
+  "matched": 220,
+  "missingValues": 133,
+  "skipped": [],
+  "duplicates": []
+ },
+ "rows": [
+  {
+   "key": "ABW",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "AFG",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "AGO",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ALB",
+   "value": 3.8062283737,
+   "year": 2024
+  },
+  {
+   "key": "ARE",
+   "value": 10.9234924253,
+   "year": 2024
+  },
+  {
+   "key": "ARG",
+   "value": 6.92582411542,
+   "year": 2024
+  },
+  {
+   "key": "ARM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ASM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ATA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ATG",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "AUS",
+   "value": 1.64921209177,
+   "year": 2025
+  },
+  {
+   "key": "AUT",
+   "value": 12.792277148,
+   "year": 2024
+  },
+  {
+   "key": "AZE",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "BDI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BEL",
+   "value": 32.7767650818,
+   "year": 2024
+  },
+  {
+   "key": "BEN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BFA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BGD",
+   "value": 53.5346519685,
+   "year": 2024
+  },
+  {
+   "key": "BGR",
+   "value": 9.56052783712,
+   "year": 2024
+  },
+  {
+   "key": "BHR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BHS",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BIH",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BLR",
+   "value": 61.7020483028,
+   "year": 2024
+  },
+  {
+   "key": "BLZ",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BMU",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BOL",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BRA",
+   "value": 4.7720217173,
+   "year": 2025
+  },
+  {
+   "key": "BRB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BRN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "BTN",
+   "value": 11.7174959872,
+   "year": 2024
+  },
+  {
+   "key": "BWA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "CAF",
+   "value": 0,
+   "year": 2023
+  },
+  {
+   "key": "CAN",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "CHE",
+   "value": 1.90123771851,
+   "year": 2024
+  },
+  {
+   "key": "CHL",
+   "value": 27.565454616,
+   "year": 2024
+  },
+  {
+   "key": "CHN",
+   "value": 1.89036667793,
+   "year": 2025
+  },
+  {
+   "key": "CIV",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "CMR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "COD",
+   "value": 8.29493087558,
+   "year": 2024
+  },
+  {
+   "key": "COG",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "COK",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "COL",
+   "value": 4.04784685643,
+   "year": 2025
+  },
+  {
+   "key": "COM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "CPV",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "CRI",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "CUB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "CUW",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "CYM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "CYP",
+   "value": 75.9930915371,
+   "year": 2024
+  },
+  {
+   "key": "CZE",
+   "value": 9.43922243965,
+   "year": 2024
+  },
+  {
+   "key": "DEU",
+   "value": 32.9042292548,
+   "year": 2024
+  },
+  {
+   "key": "DJI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "DMA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "DNK",
+   "value": 15.7883098913,
+   "year": 2024
+  },
+  {
+   "key": "DOM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "DZA",
+   "value": 0,
+   "year": 2024
+  },
+  {
+   "key": "ECU",
+   "value": 3.53507495153,
+   "year": 2024
+  },
+  {
+   "key": "EGY",
+   "value": 28.9906164936,
+   "year": 2025
+  },
+  {
+   "key": "ERI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ESH",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ESP",
+   "value": 23.2245439303,
+   "year": 2024
+  },
+  {
+   "key": "EST",
+   "value": 61.9825708061,
+   "year": 2024
+  },
+  {
+   "key": "ETH",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "FIN",
+   "value": 8.18849877522,
+   "year": 2024
+  },
+  {
+   "key": "FJI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "FLK",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "FRA",
+   "value": 5.08501541154,
+   "year": 2024
+  },
+  {
+   "key": "FRO",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "FSM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GAB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GBR",
+   "value": 25.6448838987,
+   "year": 2025
+  },
+  {
+   "key": "GEO",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GHA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GIB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GIN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GLP",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GMB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GNB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GNQ",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GRC",
+   "value": 45.2943683893,
+   "year": 2024
+  },
+  {
+   "key": "GRD",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GRL",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GTM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GUF",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GUM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "GUY",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "HKG",
+   "value": 99.200983405,
+   "year": 2024
+  },
+  {
+   "key": "HND",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "HRV",
+   "value": 38.0367265057,
+   "year": 2024
+  },
+  {
+   "key": "HTI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "HUN",
+   "value": 35.0410536635,
+   "year": 2024
+  },
+  {
+   "key": "IDN",
+   "value": 1.41018669048,
+   "year": 2024
+  },
+  {
+   "key": "IND",
+   "value": 17.1207820878,
+   "year": 2025
+  },
+  {
+   "key": "IRL",
+   "value": 50.2941749019,
+   "year": 2024
+  },
+  {
+   "key": "IRN",
+   "value": 0.0312837673281,
+   "year": 2024
+  },
+  {
+   "key": "IRQ",
+   "value": 26.1311991298,
+   "year": 2024
+  },
+  {
+   "key": "ISL",
+   "value": 0,
+   "year": 2024
+  },
+  {
+   "key": "ISR",
+   "value": 14.7521200587,
+   "year": 2024
+  },
+  {
+   "key": "ITA",
+   "value": 55.8417158297,
+   "year": 2024
+  },
+  {
+   "key": "JAM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "JOR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "JPN",
+   "value": 67.7861669609,
+   "year": 2024
+  },
+  {
+   "key": "KAZ",
+   "value": 1.9111816019,
+   "year": 2025
+  },
+  {
+   "key": "KEN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "KGZ",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "KHM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "KIR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "KNA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "KOR",
+   "value": 59.9945449808,
+   "year": 2024
+  },
+  {
+   "key": "KWT",
+   "value": 24.7140535048,
+   "year": 2025
+  },
+  {
+   "key": "LAO",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "LBN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "LBR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "LBY",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "LCA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "LKA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "LSO",
+   "value": 100,
+   "year": 2024
+  },
+  {
+   "key": "LTU",
+   "value": 51.2607180535,
+   "year": 2024
+  },
+  {
+   "key": "LUX",
+   "value": 79.7337278107,
+   "year": 2024
+  },
+  {
+   "key": "LVA",
+   "value": 37.1621621622,
+   "year": 2024
+  },
+  {
+   "key": "MAC",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MAR",
+   "value": 76.47711685,
+   "year": 2024
+  },
+  {
+   "key": "MDA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MDG",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MDV",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MEX",
+   "value": 42.9391765429,
+   "year": 2025
+  },
+  {
+   "key": "MKD",
+   "value": 40.4872300867,
+   "year": 2024
+  },
+  {
+   "key": "MLI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MLT",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MMR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MNE",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MNG",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MNP",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MOZ",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MRT",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MSR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MTQ",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MUS",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MWI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "MYS",
+   "value": 40.0496241455,
+   "year": 2024
+  },
+  {
+   "key": "NAM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "NCL",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "NER",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "NGA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "NIC",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "NIU",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "NLD",
+   "value": 34.5751008113,
+   "year": 2024
+  },
+  {
+   "key": "NOR",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "NPL",
+   "value": 0,
+   "year": 2024
+  },
+  {
+   "key": "NRU",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "NZL",
+   "value": 1.3984224605,
+   "year": 2024
+  },
+  {
+   "key": "OMN",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "PAK",
+   "value": 18.6851346996,
+   "year": 2024
+  },
+  {
+   "key": "PAN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "PER",
+   "value": 0.486694108424,
+   "year": 2024
+  },
+  {
+   "key": "PHL",
+   "value": 51.7767225005,
+   "year": 2024
+  },
+  {
+   "key": "PNG",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "POL",
+   "value": 13.4043107942,
+   "year": 2024
+  },
+  {
+   "key": "PRI",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "PRK",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "PRT",
+   "value": 30.2563214409,
+   "year": 2024
+  },
+  {
+   "key": "PRY",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "PSE",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "PYF",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "QAT",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "REU",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ROU",
+   "value": 11.2108622814,
+   "year": 2025
+  },
+  {
+   "key": "RUS",
+   "value": 0,
+   "year": 2025
+  },
+  {
+   "key": "RWA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SAU",
+   "value": 0,
+   "year": 2024
+  },
+  {
+   "key": "SDN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SEN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SGP",
+   "value": 95.069595841,
+   "year": 2024
+  },
+  {
+   "key": "SHN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SLB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SLE",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SLV",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SOM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SPM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SRB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SSD",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "STP",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SUR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SVK",
+   "value": 14.1017387419,
+   "year": 2024
+  },
+  {
+   "key": "SVN",
+   "value": 7.71284338752,
+   "year": 2024
+  },
+  {
+   "key": "SWE",
+   "value": 1.20824862039,
+   "year": 2024
+  },
+  {
+   "key": "SWZ",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SYC",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "SYR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TCA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TCD",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TGO",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "THA",
+   "value": 48.8576762651,
+   "year": 2025
+  },
+  {
+   "key": "TJK",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TKM",
+   "value": 0,
+   "year": 2024
+  },
+  {
+   "key": "TLS",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TON",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TTO",
+   "value": 0,
+   "year": 2024
+  },
+  {
+   "key": "TUN",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TUR",
+   "value": 39.5040102858,
+   "year": 2024
+  },
+  {
+   "key": "TUV",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "TWN",
+   "value": 84.7639589602,
+   "year": 2024
+  },
+  {
+   "key": "TZA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "UGA",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "UKR",
+   "value": 1.01773836138,
+   "year": 2022
+  },
+  {
+   "key": "URY",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "USA",
+   "value": 0.353189397263,
+   "year": 2025
+  },
+  {
+   "key": "UZB",
+   "value": 14.1064796074,
+   "year": 2025
+  },
+  {
+   "key": "VCT",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "VEN",
+   "value": 0,
+   "year": 2024
+  },
+  {
+   "key": "VGB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "VIR",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "VNM",
+   "value": 29.0786901387,
+   "year": 2025
+  },
+  {
+   "key": "VUT",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "WSM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "XKX",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "YEM",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ZAF",
+   "value": 0.780448903616,
+   "year": 2024
+  },
+  {
+   "key": "ZMB",
+   "value": null,
+   "year": 2025
+  },
+  {
+   "key": "ZWE",
+   "value": null,
+   "year": 2025
+  }
+ ],
+ "series": {
+  "start": 1990,
+  "end": 2025,
+  "values": {
+   "ALB": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    39.2568659128,
+    21.2121212121,
+    0,
+    null,
+    34.9862258953,
+    25,
+    39.4094993582,
+    19.2043895748,
+    0,
+    39.1129032258,
+    0,
+    31.6688567674,
+    30.0395256917,
+    0,
+    11.6603295311,
+    0,
+    3.8062283737,
+    null
+   ],
+   "ARE": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    15.5041967594,
+    17.3089896133,
+    15.6393963178,
+    17.2523754725,
+    17.1845017376,
+    17.592623309,
+    17.1433316322,
+    17.72707455,
+    17.157818308,
+    19.573339859,
+    19.9257118629,
+    19.573188151,
+    19.8857452187,
+    17.9965406333,
+    14.7903391746,
+    12.1567334956,
+    10.9234924253,
+    null
+   ],
+   "ARG": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    2.8793834295,
+    3.09099810748,
+    7.31140392714,
+    6.04606616229,
+    4.86095981543,
+    5.41337483519,
+    3.66131482476,
+    8.11401517635,
+    6.17736589198,
+    7.84727874133,
+    12.0188893235,
+    15.7697243851,
+    17.4815477733,
+    20.1430121252,
+    21.9141403584,
+    20.2267015211,
+    20.5988152708,
+    22.1854831757,
+    19.2003817014,
+    14.3353455761,
+    11.8622025112,
+    12.3298236955,
+    14.0138725356,
+    13.9378942064,
+    6.92582411542,
+    null
+   ],
+   "AUS": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0.0564915868372,
+    0.14808614091,
+    0.197982843292,
+    0.396833847765,
+    0.560161295131,
+    0.630180917314,
+    0.726752179072,
+    0.715964865396,
+    1.0302993535,
+    1.1719651669,
+    1.07161427179,
+    1.04380182465,
+    1.16415098098,
+    1.51614817022,
+    1.5117651439,
+    1.62570279325,
+    1.60356290913,
+    1.55694686448,
+    1.40630489453,
+    1.2045030028,
+    1.05896336519,
+    1.15526920348,
+    1.29929226774,
+    1.47343677772,
+    1.63347808822,
+    1.64921209177
+   ],
+   "AUT": [
+    27.1479263911,
+    29.7858034092,
+    23.0721387217,
+    20.942971454,
+    24.0116867756,
+    24.4937368117,
+    29.3413113289,
+    27.4306830438,
+    25.3953279013,
+    24.2450845037,
+    22.4884350449,
+    26.2001244019,
+    26.2741742377,
+    38.6457763845,
+    34.5147013465,
+    34.931723802,
+    36.6833949051,
+    33.4610401075,
+    32.3098549147,
+    25.6007175019,
+    31.7149233756,
+    37.9708972415,
+    24.7419698402,
+    27.6169339175,
+    27.3585729177,
+    31.5751363038,
+    27.0032894169,
+    28.1906054331,
+    30.0793914153,
+    24.0608042498,
+    20.6419389404,
+    27.5433857517,
+    29.6368875596,
+    14.1237343104,
+    12.792277148,
+    null
+   ],
+   "AZE": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3.0318572117,
+    22.5924214174,
+    27.9471408091,
+    26.5660547745,
+    33.8487274506,
+    28.6743948497,
+    24.6803132036,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "BDI": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    23.0769230769,
+    26.6666666667,
+    23.5294117647,
+    33.3333333333,
+    40,
+    43.75,
+    47.0588235294,
+    40,
+    42.1052631579,
+    42.8571428571,
+    null,
+    null,
+    40,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "BEL": [
+    36.9054826985,
+    38.1051592864,
+    38.0454688175,
+    41.3040264301,
+    45.2589036129,
+    45.8306482794,
+    44.6593300539,
+    40.8379544054,
+    43.782942022,
+    40.7860365709,
+    43.5125917608,
+    45.9425575564,
+    45.2163108551,
+    46.0102244943,
+    46.1792920939,
+    45.1808557565,
+    46.9411764706,
+    44.7376856502,
+    46.6260943839,
+    41.3324420677,
+    41.7565979271,
+    38.3685471575,
+    44.4505194095,
+    40.6485424173,
+    48.2995495495,
+    54.6684557755,
+    36.1586915681,
+    36.4820490368,
+    49.8245614035,
+    32.0572477867,
+    34.4317876419,
+    26.4713966185,
+    27.5607800766,
+    27.8875393553,
+    32.7767650818,
+    null
+   ],
+   "BGD": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    5.99626197542,
+    6.37813843328,
+    6.07255312488,
+    6.4305856202,
+    5.13522406765,
+    5.58524158397,
+    5.65320010643,
+    6.60156000202,
+    5.59059138981,
+    5.58877911603,
+    4.10343077515,
+    9.79136834677,
+    12.2558810281,
+    13.0382943531,
+    17.6752430584,
+    21.2139612609,
+    20.6985516339,
+    22.8436452429,
+    27.8928377809,
+    36.8489810333,
+    36.4967921818,
+    45.2441741651,
+    48.0815253302,
+    52.4781456177,
+    53.5346519685,
+    null
+   ],
+   "BGR": [
+    36.0168306869,
+    33.2008960746,
+    32.2941000245,
+    30.0955467866,
+    26.73346169,
+    24.5032865501,
+    22.2876412127,
+    26.2673633146,
+    24.673452746,
+    24.1529115828,
+    20.2088275833,
+    23.0116002997,
+    19.4842103857,
+    23.4173453884,
+    21.8944536866,
+    18.3665038023,
+    21.3622731622,
+    26.573839989,
+    24.1825997366,
+    18.9979049629,
+    18.7916587633,
+    16.7863449966,
+    14.0717525353,
+    14.1031009455,
+    13.4250196784,
+    8.91820425002,
+    9.50494664018,
+    7.98012709042,
+    7.48379504953,
+    8.29046605298,
+    9.19456118269,
+    10.5647200212,
+    7.07052877575,
+    6.75835212301,
+    9.56052783712,
+    null
+   ],
+   "BLR": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    97.5638929214,
+    97.7515750369,
+    97.8853260435,
+    98.2625246583,
+    97.9377359521,
+    98.3514853774,
+    98.1458722502,
+    98.9257520064,
+    98.3949251366,
+    95.9387871149,
+    99.0418605201,
+    99.2917345424,
+    99.0460833523,
+    98.9360257668,
+    98.8850029759,
+    98.7051816611,
+    98.3194035869,
+    97.4606669738,
+    97.4375223041,
+    96.9489603992,
+    93.9932626002,
+    81.5218405614,
+    82.6586316794,
+    67.5968452551,
+    61.7020483028,
+    null
+   ],
+   "BRA": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    14.5502163751,
+    14.9477385603,
+    13.1322397945,
+    12.7500852307,
+    12.9940441805,
+    12.7497940861,
+    12.5888357722,
+    11.3319199748,
+    12.8830880237,
+    10.3981696802,
+    11.0015236221,
+    9.88685434176,
+    12.1665121514,
+    14.8495236094,
+    14.7806084992,
+    15.0040570397,
+    13.2139938337,
+    11.8993805607,
+    10.8612060031,
+    9.42410031934,
+    8.11364556386,
+    11.4537599372,
+    5.28328551708,
+    4.73418707476,
+    5.04383321214,
+    4.7720217173
+   ],
+   "BTN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    7.12446351931,
+    7.15517241379,
+    6.9224353628,
+    11.7174959872,
+    null
+   ],
+   "CAF": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null,
+    null
+   ],
+   "CAN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0.0194710569547,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "CHE": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3.00967937084,
+    2.8712174525,
+    3.17994190491,
+    3.25987144169,
+    3.36621261938,
+    13.2813717849,
+    7.52737929971,
+    3.05584826133,
+    2.99821002387,
+    2.92485375731,
+    4.14601171699,
+    7.23995723232,
+    3.17040951123,
+    2.95530644926,
+    2.63984018265,
+    2.81519600424,
+    9.32020916641,
+    11.5068493151,
+    2.86619399608,
+    2.69236219357,
+    2.7299270073,
+    6.30534351145,
+    7.2772124576,
+    2.04081632653,
+    1.90123771851,
+    null
+   ],
+   "CHL": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    46.0608355731,
+    41.4393765055,
+    38.3926705395,
+    43.8557201618,
+    48.3901251183,
+    41.4214412543,
+    40.6657271379,
+    53.0220929194,
+    50.8488938343,
+    45.4991318066,
+    52.1040033607,
+    52.9809691543,
+    56.9863975306,
+    53.6846271824,
+    47.2000020906,
+    45.8517176618,
+    47.7114964242,
+    47.0582728632,
+    45.1632423848,
+    46.3555173552,
+    45.9553647147,
+    47.339050715,
+    40.9606447847,
+    32.8571059816,
+    27.565454616,
+    null
+   ],
+   "CHN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0.976490310647,
+    0.935732305242,
+    2.32269631276,
+    3.15604102642,
+    3.05362906456,
+    5.86668325462,
+    7.60783093353,
+    7.84929323231,
+    5.93822794702,
+    7.11671456668,
+    4.33840911927,
+    3.05051472775,
+    3.05782663422,
+    3.82567408026,
+    4.64229070458,
+    4.5486212189,
+    7.88045721745,
+    6.62395891319,
+    4.82608496507,
+    4.47428037583,
+    4.71259760937,
+    4.95373588664,
+    1.84775234278,
+    1.91901963681,
+    2.00007027147,
+    1.89036667793
+   ],
+   "COD": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    9.03846153846,
+    7.99278846154,
+    8.43585237258,
+    8.29493087558,
+    null
+   ],
+   "COG": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    47.2727272727,
+    47.619047619,
+    48,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "COL": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0.0933488914819,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.562881342456,
+    0.181618516281,
+    0.552564783497,
+    0.71845779832,
+    2.31323116445,
+    0.219684431711,
+    0.712860416647,
+    1.42273498219,
+    3.59446399337,
+    4.04784685643
+   ],
+   "CRI": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    null,
+    null,
+    0
+   ],
+   "CYP": [
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    99.8027613412,
+    99.424184261,
+    98.4990619137,
+    96.5447154472,
+    94.4915254237,
+    92.3076923077,
+    92.8571428571,
+    91.1894273128,
+    91.2065439673,
+    91.4,
+    90.5138339921,
+    89.9029126214,
+    87.6288659794,
+    84.765625,
+    83.2699619772,
+    79.5497185741,
+    75.9930915371,
+    null
+   ],
+   "CZE": [
+    null,
+    null,
+    null,
+    2.08946974659,
+    2.33683632365,
+    3.24732368003,
+    5.03771679008,
+    5.78157410293,
+    6.25190216784,
+    6.53366544217,
+    5.7257421084,
+    5.68157528688,
+    5.57142184248,
+    5.00211666774,
+    5.09917888433,
+    5.38220839368,
+    5.16446136227,
+    4.86713774473,
+    4.95482319496,
+    4.56843869924,
+    5.05274324079,
+    5.00748139662,
+    4.74360934061,
+    5.37733345277,
+    5.44431681581,
+    6.02467440151,
+    8.83762684175,
+    9.70174868322,
+    10.9063787993,
+    12.1124110912,
+    17.7484229534,
+    17.1310417485,
+    12.0308668022,
+    9.09764488085,
+    9.43922243965,
+    null
+   ],
+   "DEU": [
+    null,
+    14.9283811565,
+    13.1809577792,
+    15.0561247168,
+    18.0870202129,
+    17.72910617,
+    19.8815087955,
+    20.4479115744,
+    23.502950241,
+    22.3568681871,
+    25.3325196455,
+    27.7278010376,
+    28.3420312767,
+    28.9784150809,
+    27.2947854602,
+    28.094739145,
+    30.7856652034,
+    31.8067713416,
+    32.1328662714,
+    30.6552353424,
+    33.6157969346,
+    33.7679285176,
+    32.8362727493,
+    34.3132164885,
+    32.3814158377,
+    31.9971909595,
+    35.0781976504,
+    33.1133649929,
+    32.1613749979,
+    31.2113316407,
+    30.7771345352,
+    32.3946434617,
+    32.2663120864,
+    31.4180903268,
+    32.9042292548,
+    null
+   ],
+   "DNK": [
+    93.7338953365,
+    92.5561846881,
+    90.0102235933,
+    87.8597892383,
+    83.4227101302,
+    76.5130578658,
+    75.8220625439,
+    65.1855455088,
+    57.7956989247,
+    51.8595041322,
+    47.4664475486,
+    47.4693660096,
+    46.7007672634,
+    55.0576462911,
+    46.3966202783,
+    44.9399198932,
+    54.0713028169,
+    50.8175779254,
+    49.8549960453,
+    49.2618917441,
+    43.8967741935,
+    41.9983530058,
+    44.0190050307,
+    43.0652843934,
+    39.8681570651,
+    37.5637931907,
+    39.5265921046,
+    30.6517012214,
+    33.8968048338,
+    26.8127612609,
+    30.5237462141,
+    27.2471434096,
+    18.1188166465,
+    17.333457856,
+    15.7883098913,
+    null
+   ],
+   "DZA": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0.0338066260987,
+    0.0319897632758,
+    0.235363342159,
+    0.226564712546,
+    0.0268817204301,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null
+   ],
+   "ECU": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0.189573459716,
+    0.181818181818,
+    0.50547598989,
+    9.32993135448,
+    16.1187101809,
+    15.6970458038,
+    14.3290151178,
+    8.13481657016,
+    6.03431640026,
+    10.1475143373,
+    8.74635512852,
+    10.6344700672,
+    3.5044314269,
+    6.67758114182,
+    6.37785901911,
+    5.40273751502,
+    2.42069213204,
+    2.4791940348,
+    2.43957566945,
+    1.96776003507,
+    1.70444535129,
+    1.65016966453,
+    2.20131649041,
+    3.29607407416,
+    3.53507495153,
+    null
+   ],
+   "EGY": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.247171971914,
+    0.442935362667,
+    0.745469661984,
+    1.27425319698,
+    1.90433043678,
+    7.53714661327,
+    16.8202666224,
+    12.41037818,
+    1.93463727529,
+    0.164070584259,
+    0,
+    0.0999526910789,
+    0.68325330767,
+    5.21367054754,
+    18.5087186193,
+    28.9906164936
+   ],
+   "ESP": [
+    23.0054682981,
+    25.8220179037,
+    30.3543301792,
+    25.1585166345,
+    27.9280676891,
+    32.707093722,
+    25.1502085817,
+    33.6156109582,
+    34.5836756352,
+    43.8692955855,
+    42.9782139481,
+    39.6770213735,
+    48.5787473535,
+    44.054744073,
+    49.165486477,
+    56.5240482988,
+    54.0577659027,
+    55.3428861824,
+    55.7804345196,
+    51.3509436981,
+    42.2260868657,
+    46.9937315011,
+    46.4607037052,
+    37.9850782422,
+    36.6588128324,
+    42.5757035196,
+    40.4415979896,
+    46.7697565493,
+    42.4018509718,
+    42.3719845927,
+    34.4164434574,
+    32.8104100645,
+    36.7260516704,
+    28.0710182342,
+    23.2245439303,
+    null
+   ],
+   "EST": [
+    null,
+    null,
+    100,
+    100,
+    100,
+    99.8849252014,
+    100,
+    99.8915401302,
+    99.8830409357,
+    99.8790810157,
+    99.8824911868,
+    99.7644287397,
+    99.6483001172,
+    99.5078740157,
+    99.4180407371,
+    98.9215686275,
+    98.6639260021,
+    98.8505747126,
+    98.1096408318,
+    93.9051918736,
+    91.9043947571,
+    90.8456167572,
+    87.7090301003,
+    90.7379518072,
+    88.8353413655,
+    84.6305418719,
+    86.9350862777,
+    85.8662613982,
+    83.9126919968,
+    78.0962128966,
+    69.4444444444,
+    70.7739307536,
+    71.256281407,
+    69.0265486726,
+    61.9825708061,
+    null
+   ],
+   "ETH": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "FIN": [
+    45.7846153846,
+    42.2068965517,
+    40.5053714632,
+    42.6427738928,
+    47.7549889135,
+    46.4576715923,
+    48.9653282171,
+    46.5346534653,
+    41.7652984135,
+    45.1701018128,
+    43.9706780696,
+    47.5062196422,
+    51.4854905573,
+    53.1134298216,
+    46.6982692096,
+    46.6369761334,
+    51.5743409115,
+    49.0664675131,
+    43.7083888149,
+    46.2507427213,
+    48.4529295589,
+    45.7698912421,
+    41.3204325555,
+    43.3827756698,
+    42.0704078076,
+    36.6921718658,
+    38.8711516534,
+    38.6583285958,
+    39.0817345015,
+    37.1122391427,
+    29.7842067821,
+    31.2639074321,
+    24.430275121,
+    7.9649207112,
+    8.18849877522,
+    null
+   ],
+   "FRA": [
+    7.97437229082,
+    9.91801624962,
+    7.93033919228,
+    5.18428752949,
+    5.15598554799,
+    5.95670170202,
+    6.6053050671,
+    6.30166138958,
+    9.21200106872,
+    8.55785973483,
+    8.38977826459,
+    7.75515133006,
+    8.87307117638,
+    9.58401028338,
+    9.6482846968,
+    10.8755317425,
+    9.77282865042,
+    10.1644668013,
+    9.63056143823,
+    9.53731057252,
+    10.0740955187,
+    10.3292830119,
+    9.95021186151,
+    9.25136057607,
+    6.29761209719,
+    7.78857985576,
+    10.1077231387,
+    11.754474935,
+    8.55980009272,
+    9.45684769361,
+    9.15326854149,
+    8.85406447399,
+    15.5489982886,
+    7.89430567241,
+    5.08501541154,
+    null
+   ],
+   "GBR": [
+    11.947187386,
+    12.2033159083,
+    14.312547786,
+    16.5429865278,
+    24.1890629004,
+    18.2071910748,
+    16.5029417695,
+    12.2885429454,
+    14.2727281572,
+    12.6947070654,
+    17.9605335109,
+    18.8267079727,
+    16.9935445997,
+    19.1162781821,
+    22.0316143639,
+    27.3074566631,
+    33.2196032673,
+    35.0926673017,
+    36.3002868819,
+    33.1726233807,
+    37.9962005543,
+    38.1556323505,
+    45.3471514172,
+    45.9825242282,
+    41.4478479071,
+    35.509665604,
+    31.8864219635,
+    28.3491476009,
+    28.1754573662,
+    27.3521452175,
+    23.0403390045,
+    31.2922046192,
+    20.7286299473,
+    24.7901878568,
+    26.6044026002,
+    25.6448838987
+   ],
+   "GRC": [
+    29.8462559268,
+    30.8932992446,
+    31.3596976233,
+    29.1670230007,
+    26.1241829512,
+    26.7805156083,
+    27.5826795211,
+    28.7757994498,
+    28.4939091855,
+    27.9989543399,
+    32.5757433612,
+    36.294652273,
+    34.397822449,
+    36.0708004121,
+    36.4519845272,
+    36.3548806205,
+    38.3830621576,
+    43.7235502348,
+    43.4169497609,
+    36.027803236,
+    37.0578161878,
+    38.8362416221,
+    33.6435901952,
+    31.6441226394,
+    37.2042039675,
+    39.010461029,
+    48.5889036923,
+    47.9753413769,
+    45.8881467599,
+    51.7836658871,
+    58.3201563154,
+    53.994456816,
+    48.7775648091,
+    46.1350611351,
+    45.2943683893,
+    null
+   ],
+   "HKG": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    99.9142918363,
+    99.9155227033,
+    99.9175257732,
+    99.9167880175,
+    99.9180327869,
+    99.8554316398,
+    99.7115780799,
+    99.6886028649,
+    99.6914215182,
+    99.6755879968,
+    99.5961742827,
+    99.4669946699,
+    99.3188854489,
+    99.2703688691,
+    99.200983405,
+    null
+   ],
+   "HRV": [
+    null,
+    null,
+    40.2659873582,
+    32.8895456718,
+    34.811912311,
+    36.8795767667,
+    23.499949558,
+    41.5238868858,
+    41.3211975898,
+    34.414491076,
+    44.3905985148,
+    39.8786788413,
+    49.1121676187,
+    53.0623075257,
+    43.4696681687,
+    51.0845879947,
+    53.5303834974,
+    60.276522693,
+    57.4788853406,
+    47.7051592687,
+    40.7727447872,
+    61.1753513966,
+    61.1120835378,
+    40.8964672648,
+    39.0293466583,
+    54.1191079378,
+    49.3843040995,
+    55.447685644,
+    42.4655868076,
+    50.0918900203,
+    46.2537738197,
+    40.229795469,
+    46.3670489923,
+    29.758939343,
+    38.0367265057,
+    null
+   ],
+   "HUN": [
+    40.9233367668,
+    35.3750519533,
+    27.212356975,
+    28.1979620481,
+    29.1739654318,
+    28.5167717721,
+    27.4861485425,
+    27.2425983678,
+    28.8875369477,
+    32.3236989869,
+    33.5210422234,
+    36.5411432266,
+    38.6042561329,
+    46.2320241643,
+    48.3498677167,
+    46.4057793751,
+    48.5913587327,
+    45.2797800035,
+    44.3681404772,
+    39.0993201314,
+    40.0135730786,
+    41.1978577323,
+    42.2050604002,
+    43.3938572325,
+    43.8063995312,
+    45.7200346261,
+    45.2776582116,
+    47.7949585998,
+    49.3064079816,
+    47.1778260216,
+    45.8980868658,
+    46.748642427,
+    43.947946255,
+    38.6003896595,
+    35.0410536635,
+    null
+   ],
+   "IDN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0.365109229028,
+    2.40294746862,
+    3.66482688087,
+    3.91051928862,
+    5.7194746131,
+    5.94465652101,
+    4.55856731809,
+    5.77043403796,
+    7.87746819659,
+    5.38568808806,
+    3.89542182071,
+    4.34341497473,
+    5.41729237067,
+    3.28343996318,
+    3.52624629431,
+    3.52632015825,
+    2.2815506569,
+    1.5428531134,
+    1.39021360306,
+    1.28725346278,
+    1.33318557609,
+    1.41018669048,
+    null
+   ],
+   "IND": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    8.72572017856,
+    8.17018939048,
+    8.21822442814,
+    8.6556172602,
+    7.89618987119,
+    11.4853868024,
+    10.8959914162,
+    12.8980446506,
+    13.2787411161,
+    13.5165197403,
+    12.2746981643,
+    15.375918779,
+    19.6572645928,
+    22.2994210457,
+    24.4829958581,
+    23.5041253454,
+    24.6012718688,
+    25.6275272658,
+    24.5622310923,
+    24.9796491703,
+    21.9599915145,
+    24.984664595,
+    19.9151606409,
+    19.4351853793,
+    17.9887753987,
+    17.1207820878
+   ],
+   "IRL": [
+    67.1550782561,
+    69.8189134809,
+    71.5736040609,
+    67.0595533499,
+    67.8379988088,
+    66.4769493455,
+    65.7450041056,
+    70.3889150776,
+    77.2657162145,
+    81.9216983362,
+    82.5564585022,
+    87.9620458355,
+    85.8934933875,
+    87.0473971718,
+    84.635541009,
+    86.978642099,
+    85.8251654679,
+    85.2543160116,
+    83.1965504437,
+    80.8476196528,
+    83.4817371833,
+    77.349306315,
+    78.3054042943,
+    77.5263613248,
+    75.247215785,
+    70.9877767146,
+    41.735747823,
+    33.2627887,
+    31.4075233441,
+    35.6296148694,
+    36.8619745685,
+    50.0246061176,
+    46.8174775566,
+    47.7588504013,
+    50.2941749019,
+    null
+   ],
+   "IRN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3.7215715643,
+    4.28311231328,
+    3.6973428525,
+    2.46179085187,
+    1.98176331669,
+    0.43926468061,
+    0.419146844242,
+    0.409480066836,
+    1.17017100437,
+    0,
+    0.294371704603,
+    0.926122674062,
+    0.0323162050967,
+    0,
+    0.0325019237094,
+    0.225496841627,
+    0,
+    0,
+    0.0237028481018,
+    0.0877156399785,
+    0.430622537379,
+    0.0690021873835,
+    0.0783959723409,
+    0.0403007085739,
+    0.0312837673281,
+    null
+   ],
+   "IRQ": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    3.92740255876,
+    3.9190897598,
+    7.36582694414,
+    6.20767494357,
+    7.45294855709,
+    12.8683241252,
+    12.0798130505,
+    11.8272533944,
+    18.0993059263,
+    13.5603169944,
+    11.3750160483,
+    11.4897882471,
+    9.03741534362,
+    9.58112502695,
+    18.839043085,
+    29.2500127715,
+    41.6309557061,
+    29.198799816,
+    35.0228021308,
+    27.3391056056,
+    26.1311991298,
+    null
+   ],
+   "ISL": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0.119760479042,
+    0.118483412322,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null
+   ],
+   "ISR": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    99.9062353493,
+    99.9317406143,
+    99.8681318681,
+    99.8511904762,
+    90.7313984097,
+    88.3292605549,
+    81.9763889173,
+    80.3071846319,
+    75.2382369113,
+    78.8022412243,
+    76.9614053657,
+    71.0216800673,
+    82.7891937354,
+    59.4025986607,
+    50.2709514546,
+    47.2846588421,
+    38.8159287574,
+    36.783686854,
+    33.8416253311,
+    35.085030066,
+    26.7958896114,
+    23.3315668712,
+    22.2345105813,
+    17.5206981409,
+    14.7521200587,
+    null
+   ],
+   "ITA": [
+    77.7465159793,
+    74.9735540959,
+    75.0150029217,
+    74.463298482,
+    73.2512359546,
+    76.1998319502,
+    74.3768690154,
+    74.0952438834,
+    74.6352541572,
+    73.8034605058,
+    74.7815300454,
+    74.8750786824,
+    77.2585104901,
+    78.3711176542,
+    76.8015342509,
+    78.722441792,
+    78.6809238345,
+    80.0198176754,
+    77.3906316725,
+    73.9537167555,
+    72.3059742174,
+    70.7512847711,
+    67.7385684427,
+    61.6266413688,
+    58.3562999519,
+    62.71034101,
+    63.0585154557,
+    65.0502617976,
+    62.0645608069,
+    61.5863518666,
+    59.211841749,
+    62.3331315362,
+    66.4307765839,
+    60.6027715779,
+    55.8417158297,
+    null
+   ],
+   "JPN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    60.4151449282,
+    59.9490052481,
+    61.330446214,
+    67.3981366107,
+    63.215617234,
+    64.4348455946,
+    62.6441815815,
+    66.2928469401,
+    68.641154309,
+    64.9985769518,
+    63.1861548444,
+    73.5082049235,
+    86.8385540659,
+    86.2133132251,
+    86.021693976,
+    83.2654836717,
+    82.5888798228,
+    80.5974342766,
+    77.9557472077,
+    75.6840395663,
+    75.4810656165,
+    72.8776117685,
+    73.5006327977,
+    69.1663024763,
+    67.7861669609,
+    null
+   ],
+   "KAZ": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    5.5250640322,
+    3.14795383001,
+    0.66416893733,
+    0,
+    0,
+    0,
+    0.306065664997,
+    0.104302477184,
+    0.359623015873,
+    0,
+    1.38408304498,
+    0.904200526497,
+    1.43571894714,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1.26207676908,
+    1.78972851461,
+    1.99305325835,
+    1.9111816019
+   ],
+   "KOR": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    59.3963448261,
+    61.5270276087,
+    61.8673851966,
+    60.1097918237,
+    62.2029960294,
+    60.0943690305,
+    60.9881132222,
+    64.2429633713,
+    63.9457822883,
+    65.2936236559,
+    67.9962246193,
+    67.9828760797,
+    69.4489070871,
+    71.5859261749,
+    68.1028430159,
+    66.648050969,
+    67.4173728354,
+    69.8291394877,
+    72.3535169489,
+    69.1175406557,
+    64.9086577816,
+    65.8655707499,
+    62.6374530607,
+    61.0677048237,
+    59.9945449808,
+    null
+   ],
+   "KWT": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2.26814006089,
+    7.01062727086,
+    7.41173249658,
+    8.15980280679,
+    5.72352522128,
+    10.4267126224,
+    11.5895980637,
+    12.9762209772,
+    12.0166643768,
+    10.8190911302,
+    15.7419789676,
+    16.6540670783,
+    19.7279140537,
+    19.9515928288,
+    23.1069654719,
+    23.9290907416,
+    24.7140535048
+   ],
+   "LAO": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "LSO": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    6.66666666667,
+    0,
+    0,
+    6.25,
+    0,
+    5.45454545455,
+    6.77966101695,
+    7.93650793651,
+    15.5844155844,
+    22.4719101124,
+    30.985915493,
+    37.1794871795,
+    35.4430379747,
+    34.1772151899,
+    32.9113924051,
+    41.5730337079,
+    41.935483871,
+    42.8571428571,
+    58.064516129,
+    50.5747126437,
+    44.7916666667,
+    47.2527472527,
+    100,
+    100,
+    null
+   ],
+   "LTU": [
+    null,
+    null,
+    19.4070080863,
+    9.1888011486,
+    24.861878453,
+    9.83727810651,
+    12.1305418719,
+    14.3849895761,
+    18.5422740525,
+    21.4831804281,
+    21.2938005391,
+    18.5933147632,
+    16.1943319838,
+    15.9936238045,
+    16.8230658098,
+    24.762608845,
+    24.4661027432,
+    22.38062996,
+    20.9865074667,
+    20.9637978804,
+    91.3947537572,
+    89.7242741686,
+    89.2274566877,
+    86.1007513604,
+    86.4869789038,
+    85.121333444,
+    82.1924308815,
+    79.2879223373,
+    82.420113211,
+    80.4893738731,
+    79.5782088949,
+    80.318765507,
+    76.0028284976,
+    63.6694323096,
+    51.2607180535,
+    null
+   ],
+   "LUX": [
+    98.2417582418,
+    98.1443298969,
+    98.275862069,
+    98.3050847458,
+    97.8217821782,
+    97.9963570128,
+    98.5046728972,
+    98.2142857143,
+    97.4048442907,
+    97.8040540541,
+    97.3813420622,
+    97.253634895,
+    97.6076555024,
+    97.8625954198,
+    97.1810089021,
+    96.8229954614,
+    96.4788732394,
+    96.3636363636,
+    96.0396039604,
+    95.8904109589,
+    96.301369863,
+    96.6292134831,
+    95.4876273654,
+    94.6902654867,
+    94.1176470588,
+    93.8040345821,
+    93.5119887165,
+    91.5254237288,
+    90.4494382022,
+    88.4892086331,
+    85.4790419162,
+    85.7553956835,
+    84.5238095238,
+    80.9379727685,
+    79.7337278107,
+    null
+   ],
+   "LVA": [
+    null,
+    null,
+    68.1818181818,
+    55.2099533437,
+    47.124600639,
+    52.96,
+    70.7086614173,
+    53.3965244866,
+    31.7535545024,
+    54.4554455446,
+    52.4451939292,
+    53.9837398374,
+    60.7594936709,
+    64.5454545455,
+    52.8718703976,
+    51.6265912306,
+    62.2972972973,
+    63.6597938144,
+    58.7933247754,
+    50.6925207756,
+    51.4666666667,
+    57.9809004093,
+    47.7099236641,
+    53.3068783069,
+    62.4664879357,
+    62.2282608696,
+    53.288590604,
+    27.4900398406,
+    54.2595019659,
+    57.8042328042,
+    50.4761904762,
+    51.1811023622,
+    47.9564032698,
+    30.9192200557,
+    37.1621621622,
+    null
+   ],
+   "MAR": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    94.7194545735,
+    93.3487668545,
+    93.3731755716,
+    90.4385920365,
+    89.8853521284,
+    90.6222843007,
+    90.3563194791,
+    91.7492981689,
+    92.0008658843,
+    85.7976200394,
+    82.9034084346,
+    89.2849830347,
+    90.56844434,
+    84.9963468203,
+    86.9246784012,
+    84.7880122033,
+    84.6015389257,
+    85.4163803179,
+    80.6649111782,
+    78.9113025373,
+    79.6622728127,
+    78.8512821765,
+    81.7663332104,
+    78.5452778196,
+    76.47711685,
+    null
+   ],
+   "MEX": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3.4324640016,
+    6.71118986442,
+    14.5392031979,
+    14.6970630261,
+    12.5587674191,
+    11.7869092087,
+    13.2201893093,
+    12.9838290513,
+    12.8694411897,
+    14.4645483281,
+    17.0115033811,
+    18.0932295535,
+    21.2998695957,
+    22.8297884587,
+    24.7973621067,
+    29.2914311385,
+    33.34417195,
+    36.8995492753,
+    39.5427630306,
+    41.5722568587,
+    41.4925553195,
+    38.4740728509,
+    37.9550530589,
+    42.0161941858,
+    43.3916244193,
+    42.9391765429
+   ],
+   "MKD": [
+    null,
+    null,
+    20.6207384481,
+    27.9125022042,
+    22.3446819173,
+    21.0057306719,
+    18.5668777398,
+    19.1048873703,
+    21.4847996357,
+    17.9043402948,
+    17.7921421178,
+    21.4381310777,
+    21.234154028,
+    28.646464038,
+    28.8060477951,
+    36.2080340796,
+    39.3040347858,
+    50.3026880114,
+    44.5120527345,
+    29.6570519144,
+    28.2596708638,
+    37.9536663632,
+    44.5375653139,
+    39.4404393698,
+    41.318991928,
+    36.7222365814,
+    39.1875080025,
+    46.75125349,
+    40.6529534428,
+    45.4665977711,
+    46.4146023468,
+    53.6690499644,
+    46.5606314814,
+    41.4939522938,
+    40.4872300867,
+    null
+   ],
+   "MWI": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "MYS": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    5.32087887268,
+    7.39678049085,
+    10.8159160528,
+    15.0706281697,
+    22.1620685037,
+    23.9318194814,
+    23.8583551305,
+    26.5173061618,
+    25.3257445173,
+    28.806364975,
+    35.9603091048,
+    37.2831668549,
+    37.9120104664,
+    34.5879840289,
+    34.7047497696,
+    38.8941791785,
+    41.2790764208,
+    39.529810837,
+    42.3721053207,
+    39.0334148134,
+    47.4183499851,
+    42.0057520334,
+    38.8239500125,
+    39.9986408193,
+    40.0496241455,
+    null
+   ],
+   "NAM": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    45.2488687783,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "NLD": [
+    48.204146347,
+    44.3897390584,
+    42.3682447729,
+    42.3990464846,
+    44.376608323,
+    47.4749784783,
+    43.5255988461,
+    43.237427351,
+    43.1288546388,
+    44.1837416978,
+    45.1197489677,
+    43.9414522204,
+    42.7668305535,
+    43.6344369668,
+    40.1454490894,
+    40.6512756486,
+    42.1140260004,
+    39.7273199213,
+    36.6584399822,
+    28.2639067115,
+    25.0126630333,
+    29.2639048927,
+    38.765456182,
+    40.0415992731,
+    42.2235904597,
+    45.7758162249,
+    39.9031606621,
+    34.1717276218,
+    37.9672302157,
+    34.156570772,
+    36.5444118108,
+    39.0495709233,
+    34.2910900188,
+    34.508220589,
+    34.5751008113,
+    null
+   ],
+   "NOR": [
+    0.0242173137102,
+    0.030625361899,
+    0.0277706431063,
+    0.031686178821,
+    0.0405779684267,
+    0.0385970702306,
+    7.93660706346,
+    3.36647588536,
+    3.04959477756,
+    0.0230768071038,
+    0.0154426973879,
+    2.85851549363,
+    0,
+    6.87096210931,
+    9.41999177293,
+    0,
+    0.696321782584,
+    0,
+    0,
+    0,
+    5.77702961206,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.00706475329939,
+    0.0239255358255,
+    0.0237640091859,
+    0.0564853907499,
+    0.0242910917253,
+    0.0228658394132,
+    0.0248243281736,
+    0.017371123197,
+    0,
+    0
+   ],
+   "NPL": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    17.1875,
+    17.619047619,
+    null,
+    null,
+    26.499032882,
+    33.8432122371,
+    34.1732283465,
+    36.0335195531,
+    36.4829396325,
+    20.8494208494,
+    30.9497206704,
+    9.83146067416,
+    4.37890974084,
+    0,
+    0,
+    null
+   ],
+   "NZL": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0.931808289626,
+    1.04710467396,
+    1.01070692391,
+    1.37003819791,
+    1.32041946509,
+    1.21285313826,
+    1.3020999627,
+    0.98324296935,
+    0.970803684845,
+    0.791181181731,
+    0.872601530932,
+    0.854521983889,
+    0.976143710433,
+    1.09381520319,
+    1.03391865878,
+    1.04993098581,
+    1.07293924595,
+    1.31079668423,
+    1.29045280861,
+    1.43226491762,
+    1.33723795075,
+    1.50384874989,
+    1.33674151662,
+    1.21084137768,
+    1.3984224605,
+    null
+   ],
+   "OMN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "PAK": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    34.0897685909,
+    29.7721872167,
+    26.2875425833,
+    12.431731127,
+    12.4351715634,
+    14.3632679258,
+    20.9831490194,
+    24.3929164411,
+    28.8680637024,
+    31.720433345,
+    29.3263697477,
+    29.517449091,
+    28.7419439473,
+    30.851835201,
+    28.7873957057,
+    26.8649516963,
+    30.9223435333,
+    30.7779602359,
+    28.0284222267,
+    30.9916840922,
+    31.2538207499,
+    32.9612975769,
+    30.4422945932,
+    19.54864637,
+    18.6851346996,
+    null
+   ],
+   "PER": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    5.66951779595,
+    4.07761067773,
+    6.14138614713,
+    6.04708936281,
+    8.8933503428,
+    4.90572210795,
+    3.97291295824,
+    3.35405221433,
+    4.21688567424,
+    2.97607881304,
+    2.93150816288,
+    3.003377113,
+    3.27683346426,
+    2.78349005295,
+    0.87081025734,
+    1.1887349803,
+    2.45892213655,
+    2.05220141568,
+    0.512266777175,
+    0.679288592707,
+    0.653241177279,
+    0.769534844045,
+    0.899933414526,
+    0.3370551559,
+    0.486694108424,
+    null
+   ],
+   "PHL": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    51.024755206,
+    54.0928825702,
+    38.379408564,
+    34.8927478525,
+    34.0858500936,
+    36.8927689498,
+    32.8699329412,
+    30.2847090927,
+    29.9156303737,
+    25.9428712412,
+    29.3187126822,
+    26.0823437394,
+    29.5822853704,
+    31.0539541118,
+    36.6626821325,
+    39.1611867187,
+    33.6548978533,
+    32.3677087533,
+    32.1274936762,
+    31.6275197432,
+    35.5818360252,
+    35.4198291371,
+    37.9432506096,
+    47.3745447245,
+    51.7767225005,
+    null
+   ],
+   "POL": [
+    1.87305328739,
+    1.81403755424,
+    1.84592401061,
+    1.88089875886,
+    2.25629458456,
+    2.31344238384,
+    2.46605753116,
+    2.79095433849,
+    2.72979650598,
+    2.88499897759,
+    3.15426019332,
+    3.70341897802,
+    4.0987954508,
+    4.09775567202,
+    4.55663882025,
+    4.99552865896,
+    4.85787333028,
+    4.75542018085,
+    4.91182791606,
+    4.85778092015,
+    5.09822710695,
+    5.09076847925,
+    5.13321644466,
+    4.57477085615,
+    6.00295911084,
+    5.6623279036,
+    7.67973707158,
+    8.49959689037,
+    15.3518551431,
+    15.6789045146,
+    19.8406926232,
+    15.7758382814,
+    10.5656489427,
+    12.5930285139,
+    13.4043107942,
+    null
+   ],
+   "PRT": [
+    63.6950474637,
+    65.4358812945,
+    80.9184519118,
+    68.4358037448,
+    62.8529167508,
+    72.2649319929,
+    55.3101104503,
+    61.3210111443,
+    63.7365453614,
+    79.8315395414,
+    70.842772995,
+    66.0043196544,
+    79.4942044257,
+    64.0097600651,
+    75.9382329945,
+    84.3838727995,
+    70.8023774146,
+    70.0922509225,
+    73.2700383422,
+    66.229689808,
+    49.4652406417,
+    55.8344019051,
+    63.6789799362,
+    44.5322793149,
+    40.0948766603,
+    54.3905635649,
+    45.300592718,
+    60.7918041327,
+    49.5972579263,
+    50.1636363636,
+    43.02743614,
+    41.5601259959,
+    50.3238575027,
+    39.0455916268,
+    30.2563214409,
+    null
+   ],
+   "PRY": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "QAT": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "ROU": [
+    36.7363490336,
+    29.2761364634,
+    25.4990455024,
+    21.340919776,
+    19.8831909,
+    20.3965619817,
+    22.4173535202,
+    20.349955736,
+    19.0638005193,
+    15.8027124229,
+    14.7762771835,
+    16.7263098072,
+    16.2266574251,
+    20.3698638126,
+    18.3244548848,
+    18.6547091152,
+    20.9592259969,
+    18.5418787971,
+    15.0128828779,
+    7.7172768484,
+    8.41555025067,
+    11.0339098374,
+    10.0940533358,
+    8.24737390155,
+    7.40922172896,
+    6.49729169416,
+    7.66487119563,
+    6.65393170352,
+    7.89119232197,
+    9.15281813388,
+    13.4986432661,
+    12.6783989543,
+    8.54753287699,
+    2.74820540295,
+    8.38621496441,
+    11.2108622814
+   ],
+   "RUS": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "SAU": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.0791870133298,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null
+   ],
+   "SGP": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    98.4527944427,
+    97.9128856624,
+    97.7784189267,
+    97.1970554926,
+    97.3927213471,
+    97.4882260597,
+    97.5943276779,
+    97.5929978118,
+    97.504199664,
+    97.4880382775,
+    97.3985890653,
+    97.3913043478,
+    97.2944184065,
+    96.4769647696,
+    97.200811359,
+    97.0962609387,
+    97.092459779,
+    97.1117061974,
+    97.1870870304,
+    97.210934614,
+    97.1923874129,
+    97.0962538089,
+    95.9194395797,
+    95.4703832753,
+    95.069595841,
+    null
+   ],
+   "SVK": [
+    null,
+    null,
+    null,
+    37.3793434784,
+    30.5748977961,
+    36.4207989105,
+    42.1408342632,
+    43.0249922655,
+    36.5468633896,
+    33.3033879025,
+    26.9667857117,
+    26.2108439729,
+    23.7035330686,
+    27.046990089,
+    27.0125935951,
+    25.4713722606,
+    24.4416060939,
+    29.0208886254,
+    24.4394983497,
+    27.5235386152,
+    25.7662137414,
+    27.2284957277,
+    24.4862775256,
+    20.5655632619,
+    20.9924795667,
+    25.2170330573,
+    25.7952821625,
+    27.4246136649,
+    30.6580193774,
+    25.4177677743,
+    21.8021600232,
+    25.4411134834,
+    21.6207930475,
+    14.7926267363,
+    14.1017387419,
+    null
+   ],
+   "SVN": [
+    null,
+    null,
+    2.51215559157,
+    2.17573221757,
+    2.09464701319,
+    2.09213625719,
+    2.06801882639,
+    2.73024690439,
+    2.60783281178,
+    2.36243947838,
+    4.33792944772,
+    8.98745700467,
+    7.66146821445,
+    6.74660517337,
+    5.69350071966,
+    7.55239649981,
+    8.92297716796,
+    10.8820075081,
+    7.76099988871,
+    6.84152944296,
+    7.18535525577,
+    6.9923605639,
+    7.26072195448,
+    8.45456470772,
+    6.44423586347,
+    7.18676578329,
+    6.67000507532,
+    6.81694767629,
+    7.09158066413,
+    6.59340137469,
+    5.31923849131,
+    7.8728807457,
+    16.1789776438,
+    4.37281875698,
+    7.71284338752,
+    null
+   ],
+   "SWE": [
+    2.29308323858,
+    3.46186247181,
+    4.11445856549,
+    4.81206113176,
+    5.875769446,
+    5.2603183167,
+    12.5928449744,
+    4.85892366463,
+    4.4776119403,
+    4.45621286489,
+    6.30378226936,
+    3.81806930693,
+    8.41772984348,
+    14.8900283363,
+    3.8862496701,
+    3.00580954787,
+    7.55424591481,
+    3.82309844145,
+    3.06871247498,
+    6.58928445042,
+    7.04842888461,
+    3.8062283737,
+    2.4573419851,
+    2.53545056525,
+    1.90804897109,
+    1.94444444444,
+    2.34780935275,
+    2.1128904585,
+    2.24045053869,
+    1.98907493172,
+    1.4898033948,
+    1.78134823612,
+    1.66425888472,
+    1.4031918097,
+    1.20824862039,
+    null
+   ],
+   "THA": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    18.0874473706,
+    23.4672888687,
+    25.1593717928,
+    26.7277619323,
+    29.3946020754,
+    31.1869872008,
+    32.9621119412,
+    33.4295944495,
+    29.6546047511,
+    31.4872171912,
+    32.1522660413,
+    34.1689050635,
+    33.2769895276,
+    34.2324909557,
+    35.510707158,
+    38.8141369899,
+    40.3869087523,
+    42.6260227429,
+    44.2733659477,
+    42.1369221705,
+    45.239772933,
+    47.3803459494,
+    52.537174683,
+    51.5684806924,
+    50.0882695898,
+    48.8576762651
+   ],
+   "TKM": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null
+   ],
+   "TTO": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null
+   ],
+   "TUR": [
+    32.7563248373,
+    38.2797110417,
+    33.6846467848,
+    29.6210511409,
+    32.4877509732,
+    34.1024499711,
+    35.3436583703,
+    41.0507011365,
+    41.0972526736,
+    47.7938006898,
+    57.2049692424,
+    59.6599011127,
+    58.8327755561,
+    60.8901213335,
+    56.3322240079,
+    59.9549919592,
+    59.7462122831,
+    65.3284891909,
+    64.4640358118,
+    63.0613137931,
+    58.0539046899,
+    58.7018986913,
+    59.2847794842,
+    58.6138856066,
+    65.5338891823,
+    57.5688993955,
+    54.0701978677,
+    57.8092826903,
+    52.3408169738,
+    40.4096066449,
+    43.9813159736,
+    50.6189176838,
+    41.7593923662,
+    44.1228019425,
+    39.5040102858,
+    null
+   ],
+   "TWN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    74.6715480515,
+    76.3912047207,
+    76.2769274044,
+    77.6524272678,
+    78.1171746339,
+    78.3693995836,
+    79.7228897814,
+    79.9110446302,
+    79.5192063952,
+    78.6465530328,
+    79.8519030378,
+    79.9090830458,
+    79.6100610781,
+    79.2896398556,
+    79.9742429096,
+    81.9262520337,
+    83.3715168192,
+    87.3628251543,
+    85.7642415127,
+    83.1112319521,
+    83.8684351524,
+    84.9307214835,
+    83.9966617057,
+    84.7041753487,
+    84.7639589602,
+    null
+   ],
+   "UGA": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "UKR": [
+    null,
+    null,
+    22.6718924741,
+    22.5980259528,
+    19.1243706644,
+    23.4403246818,
+    21.5001970703,
+    17.8389384445,
+    17.1241327136,
+    15.7666950246,
+    15.9801583501,
+    15.2821724264,
+    15.081480912,
+    17.5645415578,
+    16.779825116,
+    15.497390391,
+    13.3531138511,
+    14.8207442953,
+    13.3228865874,
+    8.41245703003,
+    11.5681611994,
+    11.1438168702,
+    8.87005596158,
+    7.78817718215,
+    14.2053082394,
+    16.4759600428,
+    20.2194712845,
+    18.0230404146,
+    18.5661682773,
+    16.6578607641,
+    15.4952240436,
+    13.3647024558,
+    1.01773836138,
+    null,
+    null,
+    null
+   ],
+   "USA": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    5.55875625251,
+    4.79305234218,
+    5.36251512601,
+    5.22620869058,
+    5.46374260265,
+    6.05229757964,
+    4.55640282831,
+    5.48875377535,
+    4.48224980899,
+    3.8608421261,
+    4.01386467094,
+    3.01989347231,
+    3.34779279798,
+    3.84075688565,
+    2.33234751137,
+    2.10496826118,
+    2.91217803209,
+    1.68052448069,
+    1.29243542738,
+    1.06458978628,
+    1.22430971969,
+    1.06660323958,
+    1.04319752096,
+    0.466817252229,
+    0.313519477483,
+    0.353189397263
+   ],
+   "UZB": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3.68200050507,
+    1.17440741704,
+    0.369747705468,
+    0.75442583502,
+    0.608149268887,
+    0.011771217566,
+    0.191249564481,
+    1.97960407918,
+    0.198728139905,
+    0,
+    0.00721056244606,
+    0.006414301675,
+    0.408710952872,
+    1.48815088373,
+    1.00701447785,
+    0.870905900802,
+    1.04655518687,
+    0.791348347516,
+    1.85826791305,
+    4.59981261584,
+    7.98796564495,
+    8.21820550139,
+    7.18827466071,
+    10.086105577,
+    15.206162701,
+    14.1064796074
+   ],
+   "VEN": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0.152190455484,
+    0,
+    0.384109976751,
+    0,
+    0,
+    0.00841795517655,
+    0.620534792306,
+    1.07101044994,
+    0.434471286357,
+    1.3268047455,
+    1.62382301588,
+    1.29586868138,
+    1.8805334148,
+    0.672977973352,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    null
+   ],
+   "VNM": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.724361418223,
+    1.64769831833,
+    3.93771522683,
+    4.3413779156,
+    4.42100272609,
+    5.12063975213,
+    3.74003287699,
+    1.24346110968,
+    1.84102766472,
+    1.0697934451,
+    4.49851113614,
+    9.85078614014,
+    8.76894361064,
+    16.4924080744,
+    25.2383017423,
+    27.1804412517,
+    21.6768348648,
+    16.3919204677,
+    25.4542757834,
+    30.580006026,
+    29.0786901387
+   ],
+   "ZAF": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    5.52939593704,
+    1.03631824391,
+    1.00973836557,
+    0,
+    0,
+    0.0153122388774,
+    0.00126712463604,
+    0.447379312304,
+    0.0738565170639,
+    0.0223169108534,
+    0.311205938764,
+    0.499121006421,
+    1.23826745798,
+    2.21693748745,
+    2.39305392463,
+    1.57577214627,
+    0.0117696531853,
+    0.046703188702,
+    0.47686358133,
+    0.534333120287,
+    0.615180693013,
+    1.3252657055,
+    1.53137270521,
+    1.57300487201,
+    0.780448903616,
+    null
+   ]
+  }
+ },
+ "breakdown": {
+  "parts": [
+   {
+    "id": "coal",
+    "label": "Coal"
+   },
+   {
+    "id": "gas",
+    "label": "Gas"
+   },
+   {
+    "id": "oil",
+    "label": "Oil"
+   }
+  ],
+  "byKey": {
+   "ABW": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 83,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 83
+   },
+   "AFG": {
+    "year": 2024,
+    "exact": false,
+    "direct": 85.4838709677,
+    "parts": {
+     "coal": {
+      "share": 0.439882697947,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.46627565982,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 85.4838709677,
+    "high": 87.3900293255
+   },
+   "AGO": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 8.98011545863,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 17.3187940988,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 26.2989095574
+   },
+   "ALB": {
+    "year": 2024,
+    "exact": true,
+    "direct": 3.8062283737,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 3.8062283737,
+    "high": 3.8062283737
+   },
+   "ARE": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 68.2669524992,
+      "dependence": 16.0011426106,
+      "contribution": 10.9234924253
+     },
+     "oil": {
+      "share": 0,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 10.9234924253,
+    "high": 10.9234924253
+   },
+   "ARG": {
+    "year": 2024,
+    "exact": true,
+    "direct": 5.67169717961,
+    "parts": {
+     "coal": {
+      "share": 0.810242454231,
+      "dependence": 99.8312457495,
+      "contribution": 0.80887513565
+     },
+     "gas": {
+      "share": 50.6865413162,
+      "dependence": 0.878441867602,
+      "contribution": 0.445251800161
+     },
+     "oil": {
+      "share": 3.93369619,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 6.92582411542,
+    "high": 6.92582411542
+   },
+   "ARM": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 34.0534979424,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 34.0534979424
+   },
+   "ASM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 94.4444444444,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 94.4444444444
+   },
+   "ATG": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 91.8918918919,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 91.8918918919
+   },
+   "AUS": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 42.7289236572,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 16.4315149822,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 2.22113571279,
+      "dependence": 74.2508475405,
+      "contribution": 1.64921209177
+     }
+    },
+    "low": 1.64921209177,
+    "high": 1.64921209177
+   },
+   "AUT": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 9.60876768192,
+      "dependence": 91.65039152,
+      "contribution": 8.80647320072
+     },
+     "oil": {
+      "share": 4.16719765515,
+      "dependence": 95.6471057319,
+      "contribution": 3.98580394728
+     }
+    },
+    "low": 12.792277148,
+    "high": 12.792277148
+   },
+   "AZE": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 87.611249555,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.249199003204,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "BDI": {
+    "year": 2024,
+    "exact": false,
+    "direct": 14.0350877193,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 21.0526315789,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 14.0350877193,
+    "high": 35.0877192982
+   },
+   "BEL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 11.974522293,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 16.4099594673,
+      "dependence": 99.8781697114,
+      "contribution": 16.3899671663
+     },
+     "oil": {
+      "share": 4.41227562247,
+      "dependence": 100,
+      "contribution": 4.41227562247
+     }
+    },
+    "low": 32.7767650818,
+    "high": 32.7767650818
+   },
+   "BEN": {
+    "year": 2024,
+    "exact": false,
+    "direct": 56.2770562771,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 31.6017316017,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 10.3896103896,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 56.2770562771,
+    "high": 98.2683982684
+   },
+   "BFA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 47.0219435737,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 43.8871473354,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 47.0219435737,
+    "high": 90.9090909091
+   },
+   "BGD": {
+    "year": 2024,
+    "exact": true,
+    "direct": 8.94934669769,
+    "parts": {
+     "coal": {
+      "share": 18.1582244496,
+      "dependence": 94.0899998453,
+      "contribution": 17.0850733566
+     },
+     "gas": {
+      "share": 59.9874709146,
+      "dependence": 27.8063417511,
+      "contribution": 16.6803211704
+     },
+     "oil": {
+      "share": 11.1866833721,
+      "dependence": 96.721346122,
+      "contribution": 10.8199107439
+     }
+    },
+    "low": 53.5346519685,
+    "high": 53.5346519685
+   },
+   "BGR": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 22.8720626632,
+      "dependence": 15.6574315731,
+      "contribution": 3.58117756084
+     },
+     "gas": {
+      "share": 5.32637075718,
+      "dependence": 99.6434005602,
+      "contribution": 5.3073769489
+     },
+     "oil": {
+      "share": 0.678851174935,
+      "dependence": 98.9868401476,
+      "contribution": 0.671973327373
+     }
+    },
+    "low": 9.56052783712,
+    "high": 9.56052783712
+   },
+   "BHR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 1.27471383975,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 98.4651404787,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 1.27471383975,
+    "high": 99.7398543184
+   },
+   "BHS": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 99.1111111111,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 99.1111111111
+   },
+   "BIH": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 55.4016620499,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.03878116343,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 56.4404432133
+   },
+   "BLR": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0.0436490615452,
+      "dependence": 100,
+      "contribution": 0.0436490615452
+     },
+     "gas": {
+      "share": 58.926233086,
+      "dependence": 99.5571665242,
+      "contribution": 58.6652879999
+     },
+     "oil": {
+      "share": 3.71017023134,
+      "dependence": 80.6731512234,
+      "contribution": 2.99311124137
+     }
+    },
+    "low": 61.7020483028,
+    "high": 61.7020483028
+   },
+   "BLZ": {
+    "year": 2024,
+    "exact": false,
+    "direct": 44.7058823529,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 7.05882352941,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 44.7058823529,
+    "high": 51.7647058824
+   },
+   "BMU": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 98.3606557377,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 98.3606557377
+   },
+   "BOL": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 62.4358033749,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 1.46735143067,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 63.9031548056
+   },
+   "BRA": {
+    "year": 2025,
+    "exact": true,
+    "direct": 1.5207578859,
+    "parts": {
+     "coal": {
+      "share": 2.25555030704,
+      "dependence": 80.4197420247,
+      "contribution": 1.81390773816
+     },
+     "gas": {
+      "share": 7.19702933921,
+      "dependence": 19.9715191574,
+      "contribution": 1.43735609324
+     },
+     "oil": {
+      "share": 1.65984359418,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 4.7720217173,
+    "high": 4.7720217173
+   },
+   "BRB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 2.7027027027,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 88.2882882883,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 90.990990991
+   },
+   "BRN": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 19.7841726619,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 79.1366906475,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.89928057554,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 99.8201438849
+   },
+   "BTN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 11.7174959872,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 11.7174959872,
+    "high": 11.7174959872
+   },
+   "BWA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 26.5524625268,
+    "parts": {
+     "coal": {
+      "share": 72.1627408994,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.07066381156,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 26.5524625268,
+    "high": 99.7858672377
+   },
+   "CAF": {
+    "year": 2023,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "CAN": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 4.08926491325,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 17.7640855864,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.16945619521,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "CHE": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0.344519586576,
+      "dependence": 100,
+      "contribution": 0.344519586576
+     },
+     "oil": {
+      "share": 1.55671813194,
+      "dependence": 100,
+      "contribution": 1.55671813194
+     }
+    },
+    "low": 1.90123771851,
+    "high": 1.90123771851
+   },
+   "CHL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 15.3012863913,
+      "dependence": 99.6230724297,
+      "contribution": 15.2436116243
+     },
+     "gas": {
+      "share": 14.2969984202,
+      "dependence": 83.7281818207,
+      "contribution": 11.9706168322
+     },
+     "oil": {
+      "share": 0.36109230422,
+      "dependence": 97.267694552,
+      "contribution": 0.35122615952
+     }
+    },
+    "low": 27.565454616,
+    "high": 27.565454616
+   },
+   "CHN": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 54.3453118858,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 3.15750385511,
+      "dependence": 40.234600801,
+      "contribution": 1.27040907138
+     },
+     "oil": {
+      "share": 0.846139600278,
+      "dependence": 73.2689506963,
+      "contribution": 0.61995760655
+     }
+    },
+    "low": 1.89036667793,
+    "high": 1.89036667793
+   },
+   "CIV": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 70.8989805375,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.185356811863,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 71.0843373494
+   },
+   "CMR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0.819672131148,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 21.8579234973,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 4.78142076503,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0.819672131148,
+    "high": 27.4590163934
+   },
+   "COD": {
+    "year": 2024,
+    "exact": true,
+    "direct": 8.29493087558,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 8.29493087558,
+    "high": 8.29493087558
+   },
+   "COG": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 73.8095238095,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 5.31135531136,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 79.1208791209
+   },
+   "COK": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 50,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 50
+   },
+   "COL": {
+    "year": 2025,
+    "exact": true,
+    "direct": 1.36447986028,
+    "parts": {
+     "coal": {
+      "share": 6.03645890187,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 13.5683877306,
+      "dependence": 19.7766090521,
+      "contribution": 2.68336699615
+     },
+     "oil": {
+      "share": 3.05643488702,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 4.04784685643,
+    "high": 4.04784685643
+   },
+   "COM": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "CPV": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 69.2307692308,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 69.2307692308
+   },
+   "CRI": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "CUB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 13.6387030365,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 82.3468862584,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 95.9855892949
+   },
+   "CYM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 95.7746478873,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 95.7746478873
+   },
+   "CYP": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 75.9930915371,
+      "dependence": 100,
+      "contribution": 75.9930915371
+     }
+    },
+    "low": 75.9930915371,
+    "high": 75.9930915371
+   },
+   "CZE": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 36.4235681912,
+      "dependence": 10.16897559,
+      "contribution": 3.70390375837
+     },
+     "gas": {
+      "share": 5.20532893833,
+      "dependence": 97.0912835999,
+      "contribution": 5.05392068182
+     },
+     "oil": {
+      "share": 0.6867188573,
+      "dependence": 99.2251766811,
+      "contribution": 0.681397999458
+     }
+    },
+    "low": 9.43922243965,
+    "high": 9.43922243965
+   },
+   "DEU": {
+    "year": 2024,
+    "exact": true,
+    "direct": 5.03006165511,
+    "parts": {
+     "coal": {
+      "share": 20.3595910083,
+      "dependence": 47.851176805,
+      "contribution": 9.74230389016
+     },
+     "gas": {
+      "share": 15.0135947612,
+      "dependence": 95.1688468471,
+      "contribution": 14.2882650046
+     },
+     "oil": {
+      "share": 3.90418565465,
+      "dependence": 98.44815398,
+      "contribution": 3.84359870496
+     }
+    },
+    "low": 32.9042292548,
+    "high": 32.9042292548
+   },
+   "DJI": {
+    "year": 2024,
+    "exact": false,
+    "direct": 75,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 16.25,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 75,
+    "high": 91.25
+   },
+   "DMA": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 86.6666666667,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 86.6666666667
+   },
+   "DNK": {
+    "year": 2024,
+    "exact": true,
+    "direct": 9.56925457828,
+    "parts": {
+     "coal": {
+      "share": 4.51379932938,
+      "dependence": 100,
+      "contribution": 4.51379932938
+     },
+     "gas": {
+      "share": 2.34717565128,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 2.91462470983,
+      "dependence": 58.5068800745,
+      "contribution": 1.7052559836
+     }
+    },
+    "low": 15.7883098913,
+    "high": 15.7883098913
+   },
+   "DOM": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 29.0564373898,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 26.7636684303,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 20.3703703704,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 76.1904761905
+   },
+   "DZA": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 98.5886259859,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.342465753425,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "ECU": {
+    "year": 2024,
+    "exact": true,
+    "direct": 2.09832134293,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 2.84772182254,
+      "dependence": 50.4527372454,
+      "contribution": 1.43675360861
+     },
+     "oil": {
+      "share": 24.1306954436,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 3.53507495153,
+    "high": 3.53507495153
+   },
+   "EGY": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 79.6263888324,
+      "dependence": 33.6787971993,
+      "contribution": 26.817210012
+     },
+     "oil": {
+      "share": 7.35826787677,
+      "dependence": 29.5369306749,
+      "contribution": 2.17340648163
+     }
+    },
+    "low": 28.9906164936,
+    "high": 28.9906164936
+   },
+   "ERI": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 88.8888888889,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 88.8888888889
+   },
+   "ESH": {
+    "year": 2009,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "ESP": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0.918345554211,
+      "dependence": 99.1696907045,
+      "contribution": 0.910720445709
+     },
+     "gas": {
+      "share": 18.6303125222,
+      "dependence": 99.8826189994,
+      "contribution": 18.608444075
+     },
+     "oil": {
+      "share": 3.70541752687,
+      "dependence": 99.9989713093,
+      "contribution": 3.70537940959
+     }
+    },
+    "low": 23.2245439303,
+    "high": 23.2245439303
+   },
+   "EST": {
+    "year": 2024,
+    "exact": true,
+    "direct": 31.8082788671,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0.871459694989,
+      "dependence": 100,
+      "contribution": 0.871459694989
+     },
+     "oil": {
+      "share": 29.302832244,
+      "dependence": 100,
+      "contribution": 29.302832244
+     }
+    },
+    "low": 61.9825708061,
+    "high": 61.9825708061
+   },
+   "ETH": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "FIN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 3.70931995801,
+    "parts": {
+     "coal": {
+      "share": 0.968155838096,
+      "dependence": 100,
+      "contribution": 0.968155838096
+     },
+     "gas": {
+      "share": 0.956491309927,
+      "dependence": 100,
+      "contribution": 0.956491309927
+     },
+     "oil": {
+      "share": 2.55453166919,
+      "dependence": 100,
+      "contribution": 2.55453166919
+     }
+    },
+    "low": 8.18849877522,
+    "high": 8.18849877522
+   },
+   "FJI": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 36.5217391304,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 36.5217391304
+   },
+   "FLK": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "FRA": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0.181565737477,
+      "dependence": 100,
+      "contribution": 0.181565737477
+     },
+     "gas": {
+      "share": 3.2219018121,
+      "dependence": 99.9532741588,
+      "contribution": 3.22039635137
+     },
+     "oil": {
+      "share": 1.69817366229,
+      "dependence": 99.1096117004,
+      "contribution": 1.68305332269
+     }
+    },
+    "low": 5.08501541154,
+    "high": 5.08501541154
+   },
+   "FRO": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 53.0612244898,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 53.0612244898
+   },
+   "GAB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 18.2389937107,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 36.1635220126,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 16.6666666667,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 18.2389937107,
+    "high": 71.0691823899
+   },
+   "GBR": {
+    "year": 2025,
+    "exact": true,
+    "direct": 9.04536685544,
+    "parts": {
+     "coal": {
+      "share": 0.102682183085,
+      "dependence": 93.0374283916,
+      "contribution": 0.0955328625591
+     },
+     "gas": {
+      "share": 28.2873856494,
+      "dependence": 51.0604096161,
+      "contribution": 14.4436549823
+     },
+     "oil": {
+      "share": 3.97348932728,
+      "dependence": 51.8518870625,
+      "contribution": 2.06032919842
+     }
+    },
+    "low": 25.6448838987,
+    "high": 25.6448838987
+   },
+   "GEO": {
+    "year": 2025,
+    "exact": false,
+    "direct": 8.16326530612,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 18.7074829932,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 8.16326530612,
+    "high": 26.8707482993
+   },
+   "GHA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 61.433868974,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 2.34857849197,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 63.782447466
+   },
+   "GIB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 81.8181818182,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 18.1818181818,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "GIN": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 24.8138957816,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 24.8138957816
+   },
+   "GMB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "GNB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "GNQ": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 72.4832214765,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.671140939597,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 73.1543624161
+   },
+   "GRC": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 5.72880168185,
+      "dependence": 5.39816224368,
+      "contribution": 0.309250009405
+     },
+     "gas": {
+      "share": 37.71899089,
+      "dependence": 99.9545978092,
+      "contribution": 37.7018656418
+     },
+     "oil": {
+      "share": 7.3230553609,
+      "dependence": 99.4564751895,
+      "contribution": 7.28325273812
+     }
+    },
+    "low": 45.2943683893,
+    "high": 45.2943683893
+   },
+   "GRD": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "GRL": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 16.6666666667,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 16.6666666667
+   },
+   "GTM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 3.4250764526,
+    "parts": {
+     "coal": {
+      "share": 15.2905198777,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 15.2905198777,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 3.4250764526,
+    "high": 34.006116208
+   },
+   "GUM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 91.3978494624,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 91.3978494624
+   },
+   "GUY": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0.724637681159,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 96.3768115942,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 97.1014492754
+   },
+   "HKG": {
+    "year": 2024,
+    "exact": true,
+    "direct": 23.2944068838,
+    "parts": {
+     "coal": {
+      "share": 25.8143822987,
+      "dependence": 100,
+      "contribution": 25.8143822987
+     },
+     "gas": {
+      "share": 49.1702519975,
+      "dependence": 100,
+      "contribution": 49.1702519975
+     },
+     "oil": {
+      "share": 0.921942224954,
+      "dependence": 100,
+      "contribution": 0.921942224954
+     }
+    },
+    "low": 99.200983405,
+    "high": 99.200983405
+   },
+   "HND": {
+    "year": 2024,
+    "exact": false,
+    "direct": 1.18764845606,
+    "parts": {
+     "coal": {
+      "share": 0.475059382423,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 43.5471100554,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 1.18764845606,
+    "high": 45.2098178939
+   },
+   "HRV": {
+    "year": 2024,
+    "exact": true,
+    "direct": 22.1882951654,
+    "parts": {
+     "coal": {
+      "share": 4.07124681934,
+      "dependence": 100,
+      "contribution": 4.07124681934
+     },
+     "gas": {
+      "share": 16.5394402036,
+      "dependence": 70.9409583706,
+      "contribution": 11.7332373895
+     },
+     "oil": {
+      "share": 0.0508905852417,
+      "dependence": 86.3561133402,
+      "contribution": 0.0439471314708
+     }
+    },
+    "low": 38.0367265057,
+    "high": 38.0367265057
+   },
+   "HTI": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 81.3953488372,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 81.3953488372
+   },
+   "HUN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 22.0192899651,
+    "parts": {
+     "coal": {
+      "share": 5.00718243382,
+      "dependence": 13.588171385,
+      "contribution": 0.680384530667
+     },
+     "gas": {
+      "share": 14.6316437513,
+      "dependence": 79.1434103419,
+      "contribution": 11.5799818538
+     },
+     "oil": {
+      "share": 0.923455776729,
+      "dependence": 82.450869127,
+      "contribution": 0.761397313916
+     }
+    },
+    "low": 35.0410536635,
+    "high": 35.0410536635
+   },
+   "IDN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0.257718120805,
+    "parts": {
+     "coal": {
+      "share": 61.3234899329,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 18.4644295302,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.91140939597,
+      "dependence": 60.2941772757,
+      "contribution": 1.15246856967
+     }
+    },
+    "low": 1.41018669048,
+    "high": 1.41018669048
+   },
+   "IND": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0.0585744327402,
+    "parts": {
+     "coal": {
+      "share": 70.7766393639,
+      "dependence": 22.1118675736,
+      "contribution": 15.6500367692
+     },
+     "gas": {
+      "share": 2.33049423378,
+      "dependence": 53.183511091,
+      "contribution": 1.2394386593
+     },
+     "oil": {
+      "share": 0.196848503471,
+      "dependence": 87.7488136707,
+      "contribution": 0.172732226525
+     }
+    },
+    "low": 17.1207820878,
+    "high": 17.1207820878
+   },
+   "IRL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 14.0011068069,
+    "parts": {
+     "coal": {
+      "share": 1.74322080797,
+      "dependence": 100,
+      "contribution": 1.74322080797
+     },
+     "gas": {
+      "share": 41.7819590481,
+      "dependence": 76.7967868182,
+      "contribution": 32.0872020187
+     },
+     "oil": {
+      "share": 2.4626452684,
+      "dependence": 100,
+      "contribution": 2.4626452684
+     }
+    },
+    "low": 50.2941749019,
+    "high": 50.2941749019
+   },
+   "IRN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0.184441244094,
+      "dependence": 16.9613729737,
+      "contribution": 0.0312837673281
+     },
+     "gas": {
+      "share": 85.9167740468,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 6.72326233609,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0.0312837673281,
+    "high": 0.0312837673281
+   },
+   "IRQ": {
+    "year": 2024,
+    "exact": true,
+    "direct": 4.52719505197,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 50.5643052987,
+      "dependence": 42.7258002463,
+      "contribution": 21.6040040779
+     },
+     "oil": {
+      "share": 43.3590512019,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 26.1311991298,
+    "high": 26.1311991298
+   },
+   "ISL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "ISR": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 14.3034825871,
+      "dependence": 100,
+      "contribution": 14.3034825871
+     },
+     "gas": {
+      "share": 71.3930348259,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.497512437811,
+      "dependence": 90.1761318044,
+      "contribution": 0.448637471664
+     }
+    },
+    "low": 14.7521200587,
+    "high": 14.7521200587
+   },
+   "ITA": {
+    "year": 2024,
+    "exact": true,
+    "direct": 16.0095429432,
+    "parts": {
+     "coal": {
+      "share": 1.23995479658,
+      "dependence": 100,
+      "contribution": 1.23995479658
+     },
+     "gas": {
+      "share": 37.2268960321,
+      "dependence": 95.2481484636,
+      "contribution": 35.4579292011
+     },
+     "oil": {
+      "share": 3.38397790055,
+      "dependence": 92.6214349175,
+      "contribution": 3.13428888878
+     }
+    },
+    "low": 55.8417158297,
+    "high": 55.8417158297
+   },
+   "JAM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 56.9105691057,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 30.487804878,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 87.3983739837
+   },
+   "JOR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0.252844500632,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 61.8204804046,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 13.9064475348,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0.252844500632,
+    "high": 75.9797724399
+   },
+   "JPN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 32.1854799831,
+      "dependence": 99.7098395688,
+      "contribution": 32.0920904556
+     },
+     "gas": {
+      "share": 34.0656637708,
+      "dependence": 97.5760025088,
+      "contribution": 33.2399129356
+     },
+     "oil": {
+      "share": 2.45968575055,
+      "dependence": 99.7754924246,
+      "contribution": 2.45416356971
+     }
+    },
+    "low": 67.7861669609,
+    "high": 67.7861669609
+   },
+   "KAZ": {
+    "year": 2025,
+    "exact": true,
+    "direct": 1.9111816019,
+    "parts": {
+     "coal": {
+      "share": 53.2275971451,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 28.8421887391,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.44329896907,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 1.9111816019,
+    "high": 1.9111816019
+   },
+   "KEN": {
+    "year": 2025,
+    "exact": false,
+    "direct": 9.88446726573,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 8.98587933248,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 9.88446726573,
+    "high": 18.8703465982
+   },
+   "KGZ": {
+    "year": 2025,
+    "exact": false,
+    "direct": 18.2806835836,
+    "parts": {
+     "coal": {
+      "share": 10.3055411704,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 1.39823925427,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.776799585707,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 18.2806835836,
+    "high": 30.761263594
+   },
+   "KIR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 75,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 75
+   },
+   "KNA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 91.3043478261,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 91.3043478261
+   },
+   "KOR": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 30.5062521987,
+      "dependence": 99.6246385369,
+      "contribution": 30.3917434841
+     },
+     "gas": {
+      "share": 28.5186606543,
+      "dependence": 100,
+      "contribution": 28.5186606543
+     },
+     "oil": {
+      "share": 1.08414084237,
+      "dependence": 100,
+      "contribution": 1.08414084237
+     }
+    },
+    "low": 59.9945449808,
+    "high": 59.9945449808
+   },
+   "KWT": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 62.0067034274,
+      "dependence": 39.8570672826,
+      "contribution": 24.7140535048
+     },
+     "oil": {
+      "share": 35.7552167802,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 24.7140535048,
+    "high": 24.7140535048
+   },
+   "LAO": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 23.2842668706,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 23.2842668706
+   },
+   "LBN": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 56.1797752809,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 56.1797752809
+   },
+   "LBR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 45.6140350877,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 45.6140350877
+   },
+   "LBY": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 74.5302110437,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 25.4408788667,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 99.9710899104
+   },
+   "LCA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 97.5,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 97.5
+   },
+   "LSO": {
+    "year": 2024,
+    "exact": true,
+    "direct": 100,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 100,
+    "high": 100
+   },
+   "LTU": {
+    "year": 2024,
+    "exact": true,
+    "direct": 42.2204847537,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 6.56763096169,
+      "dependence": 100,
+      "contribution": 6.56763096169
+     },
+     "oil": {
+      "share": 2.50195465207,
+      "dependence": 98.8268247006,
+      "contribution": 2.47260233809
+     }
+    },
+    "low": 51.2607180535,
+    "high": 51.2607180535
+   },
+   "LUX": {
+    "year": 2024,
+    "exact": true,
+    "direct": 77.6627218935,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 1.03550295858,
+      "dependence": 100,
+      "contribution": 1.03550295858
+     },
+     "oil": {
+      "share": 1.03550295858,
+      "dependence": 100,
+      "contribution": 1.03550295858
+     }
+    },
+    "low": 79.7337278107,
+    "high": 79.7337278107
+   },
+   "LVA": {
+    "year": 2024,
+    "exact": true,
+    "direct": 14.4594594595,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 22.7027027027,
+      "dependence": 100,
+      "contribution": 22.7027027027
+     },
+     "oil": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     }
+    },
+    "low": 37.1621621622,
+    "high": 37.1621621622
+   },
+   "MAC": {
+    "year": 2024,
+    "exact": false,
+    "direct": 87.5796178344,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 7.8025477707,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.796178343949,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 87.5796178344,
+    "high": 96.178343949
+   },
+   "MAR": {
+    "year": 2024,
+    "exact": true,
+    "direct": 5.65198041834,
+    "parts": {
+     "coal": {
+      "share": 58.2554517134,
+      "dependence": 100,
+      "contribution": 58.2554517134
+     },
+     "gas": {
+      "share": 9.63506898086,
+      "dependence": 94.8950824266,
+      "contribution": 9.14320665125
+     },
+     "oil": {
+      "share": 3.42679127726,
+      "dependence": 99.9908599567,
+      "contribution": 3.42647806705
+     }
+    },
+    "low": 76.47711685,
+    "high": 76.47711685
+   },
+   "MDA": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0.162074554295,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 85.0891410049,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 3.56564019449,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0.162074554295,
+    "high": 88.8168557536
+   },
+   "MDG": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 20.5761316872,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 37.037037037,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 57.6131687243
+   },
+   "MDV": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 92.9411764706,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 92.9411764706
+   },
+   "MEX": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 3.04787517158,
+      "dependence": 93.0782645216,
+      "contribution": 2.83690931449
+     },
+     "gas": {
+      "share": 61.6074179903,
+      "dependence": 65.0932445094,
+      "contribution": 40.1022672284
+     },
+     "oil": {
+      "share": 9.40695296524,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 42.9391765429,
+    "high": 42.9391765429
+   },
+   "MKD": {
+    "year": 2024,
+    "exact": true,
+    "direct": 10.113960114,
+    "parts": {
+     "coal": {
+      "share": 33.6182336182,
+      "dependence": 28.4832013596,
+      "contribution": 9.57554917502
+     },
+     "gas": {
+      "share": 18.3760683761,
+      "dependence": 100,
+      "contribution": 18.3760683761
+     },
+     "oil": {
+      "share": 2.42165242165,
+      "dependence": 100,
+      "contribution": 2.42165242165
+     }
+    },
+    "low": 40.4872300867,
+    "high": 40.4872300867
+   },
+   "MLI": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 80.5369127517,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 80.5369127517
+   },
+   "MLT": {
+    "year": 2025,
+    "exact": false,
+    "direct": 32.1981424149,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 56.346749226,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.61919504644,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 32.1981424149,
+    "high": 89.1640866873
+   },
+   "MMR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0.95802919708,
+    "parts": {
+     "coal": {
+      "share": 5.47445255474,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 45.6204379562,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.547445255474,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0.95802919708,
+    "high": 52.6003649635
+   },
+   "MNE": {
+    "year": 2025,
+    "exact": false,
+    "direct": 43.3179723502,
+    "parts": {
+     "coal": {
+      "share": 13.8248847926,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 43.3179723502,
+    "high": 57.1428571429
+   },
+   "MNG": {
+    "year": 2025,
+    "exact": false,
+    "direct": 21.9178082192,
+    "parts": {
+     "coal": {
+      "share": 66.9621273167,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 4.59307010475,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 21.9178082192,
+    "high": 93.4730056406
+   },
+   "MOZ": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 15.8160687216,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.757958564932,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 16.5740272865
+   },
+   "MRT": {
+    "year": 2024,
+    "exact": false,
+    "direct": 12.6582278481,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 67.5105485232,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 12.6582278481,
+    "high": 80.1687763713
+   },
+   "MSR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "MUS": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 39.2961876833,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 42.8152492669,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 82.1114369501
+   },
+   "MWI": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 4.37158469945,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 4.37158469945
+   },
+   "MYS": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 43.0547143146,
+      "dependence": 92.4357391201,
+      "contribution": 39.7979434027
+     },
+     "gas": {
+      "share": 35.9983848173,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.580456289118,
+      "dependence": 43.3591206601,
+      "contribution": 0.251680742778
+     }
+    },
+    "low": 40.0496241455,
+    "high": 40.0496241455
+   },
+   "NAM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 59.4059405941,
+    "parts": {
+     "coal": {
+      "share": 0.990099009901,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 59.4059405941,
+    "high": 60.396039604
+   },
+   "NCL": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 36.5384615385,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 36.5384615385,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 73.0769230769
+   },
+   "NER": {
+    "year": 2024,
+    "exact": false,
+    "direct": 55.8139534884,
+    "parts": {
+     "coal": {
+      "share": 7.90697674419,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 2.32558139535,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 32.5581395349,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 55.8139534884,
+    "high": 98.6046511628
+   },
+   "NGA": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 68.6807896004,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 68.6807896004
+   },
+   "NIC": {
+    "year": 2024,
+    "exact": false,
+    "direct": 16.6051660517,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 31.3653136531,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 16.6051660517,
+    "high": 47.9704797048
+   },
+   "NLD": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 6.1064334178,
+      "dependence": 100,
+      "contribution": 6.1064334178
+     },
+     "gas": {
+      "share": 36.2053461947,
+      "dependence": 67.9003069107,
+      "contribution": 24.5835411843
+     },
+     "oil": {
+      "share": 4.03008256356,
+      "dependence": 96.403141821,
+      "contribution": 3.88512620925
+     }
+    },
+    "low": 34.5751008113,
+    "high": 34.5751008113
+   },
+   "NOR": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0.559666687395,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.441514831167,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "NPL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "NRU": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 80,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 80
+   },
+   "NZL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 2.7266530334,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 9.79322881163,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.49965916837,
+      "dependence": 93.2493522522,
+      "contribution": 1.3984224605
+     }
+    },
+    "low": 1.3984224605,
+    "high": 1.3984224605
+   },
+   "OMN": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 91.8622255867,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 3.59576078728,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "PAK": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0.273597811218,
+    "parts": {
+     "coal": {
+      "share": 13.8850889193,
+      "dependence": 18.6806254677,
+      "contribution": 2.59382145687
+     },
+     "gas": {
+      "share": 25.0683994528,
+      "dependence": 29.5821453645,
+      "contribution": 7.41577036668
+     },
+     "oil": {
+      "share": 10.6361149111,
+      "dependence": 78.9944931496,
+      "contribution": 8.40194506482
+     }
+    },
+    "low": 18.6851346996,
+    "high": 18.6851346996
+   },
+   "PAN": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 3.72300819062,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 20.8488458675,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 7.44601638124,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 32.0178704393
+   },
+   "PER": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0.0505731625084,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 39.1604855024,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.708024275118,
+      "dependence": 61.5968916945,
+      "contribution": 0.436120945915
+     }
+    },
+    "low": 0.486694108424,
+    "high": 0.486694108424
+   },
+   "PHL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 63.9123781912,
+      "dependence": 67.9891014714,
+      "contribution": 43.4534516612
+     },
+     "gas": {
+      "share": 14.5365225095,
+      "dependence": 49.8427609227,
+      "contribution": 7.24540416087
+     },
+     "oil": {
+      "share": 1.07916565998,
+      "dependence": 99.8796309407,
+      "contribution": 1.07786667843
+     }
+    },
+    "low": 51.7767225005,
+    "high": 51.7767225005
+   },
+   "PNG": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 19.2389006342,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 57.0824524313,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 76.3213530655
+   },
+   "POL": {
+    "year": 2024,
+    "exact": true,
+    "direct": 1.13159859843,
+    "parts": {
+     "coal": {
+      "share": 53.7078522603,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 11.7525417887,
+      "dependence": 82.7834430804,
+      "contribution": 9.72915874217
+     },
+     "oil": {
+      "share": 2.61359067149,
+      "dependence": 97.3202682931,
+      "contribution": 2.54355345358
+     }
+    },
+    "low": 13.4043107942,
+    "high": 13.4043107942
+   },
+   "PRI": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 16.5268870252,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 29.5017266897,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 47.6073014307,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 93.6359151455
+   },
+   "PRK": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 34.0590405904,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 2.58302583026,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 36.6420664207
+   },
+   "PRT": {
+    "year": 2024,
+    "exact": true,
+    "direct": 18.133010045,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 9.75060616557,
+      "dependence": 100,
+      "contribution": 9.75060616557
+     },
+     "oil": {
+      "share": 2.37270523034,
+      "dependence": 100,
+      "contribution": 2.37270523034
+     }
+    },
+    "low": 30.2563214409,
+    "high": 30.2563214409
+   },
+   "PRY": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "PSE": {
+    "year": 2024,
+    "exact": false,
+    "direct": 87.6095118899,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 7.50938673342,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 87.6095118899,
+    "high": 95.1188986233
+   },
+   "PYF": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 65.2777777778,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 65.2777777778
+   },
+   "QAT": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 95.9416162335,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "ROU": {
+    "year": 2025,
+    "exact": true,
+    "direct": 8.42066556352,
+    "parts": {
+     "coal": {
+      "share": 12.2816694245,
+      "dependence": 11.0161681783,
+      "contribution": 1.35296935891
+     },
+     "gas": {
+      "share": 17.1355028498,
+      "dependence": 6.90346808242,
+      "contribution": 1.18294397
+     },
+     "oil": {
+      "share": 0.330943188086,
+      "dependence": 76.8359640482,
+      "contribution": 0.254283389018
+     }
+    },
+    "low": 11.2108622814,
+    "high": 11.2108622814
+   },
+   "RUS": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 18.4039101602,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 44.6994022418,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.21312217574,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "RWA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 7.37704918033,
+    "parts": {
+     "coal": {
+      "share": 13.9344262295,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 24.5901639344,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 8.19672131148,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 7.37704918033,
+    "high": 54.0983606557
+   },
+   "SAU": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 63.3424247756,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 34.4976244941,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "SDN": {
+    "year": 2024,
+    "exact": false,
+    "direct": 5.13808606294,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 19.267822736,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 5.13808606294,
+    "high": 24.405908799
+   },
+   "SEN": {
+    "year": 2024,
+    "exact": false,
+    "direct": 6.15006150062,
+    "parts": {
+     "coal": {
+      "share": 1.23001230012,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0.246002460025,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 73.8007380074,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 6.15006150062,
+    "high": 81.4268142681
+   },
+   "SGP": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0.0335401643468,
+    "parts": {
+     "coal": {
+      "share": 0.955894683884,
+      "dependence": 100,
+      "contribution": 0.955894683884
+     },
+     "gas": {
+      "share": 92.1180613785,
+      "dependence": 100,
+      "contribution": 92.1180613785
+     },
+     "oil": {
+      "share": 1.96209961429,
+      "dependence": 100,
+      "contribution": 1.96209961429
+     }
+    },
+    "low": 95.069595841,
+    "high": 95.069595841
+   },
+   "SHN": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "SLB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 90.9090909091,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 90.9090909091
+   },
+   "SLE": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 4.7619047619,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 4.7619047619
+   },
+   "SOM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 79.0697674419,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 79.0697674419
+   },
+   "SPM": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "SRB": {
+    "year": 2025,
+    "exact": false,
+    "direct": 2.08556149733,
+    "parts": {
+     "coal": {
+      "share": 63.6898395722,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 6.71122994652,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.294117647059,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 2.08556149733,
+    "high": 72.7807486631
+   },
+   "SSD": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 98.2142857143,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 98.2142857143
+   },
+   "STP": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 88.8888888889,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 88.8888888889
+   },
+   "SUR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 1.14942528736,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 45.9770114943,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 47.1264367816
+   },
+   "SVK": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 1.76151761518,
+      "dependence": 100,
+      "contribution": 1.76151761518
+     },
+     "gas": {
+      "share": 9.75609756098,
+      "dependence": 99.066818874,
+      "contribution": 9.6650554999
+     },
+     "oil": {
+      "share": 2.67615176152,
+      "dependence": 99.9631510161,
+      "contribution": 2.67516562679
+     }
+    },
+    "low": 14.1017387419,
+    "high": 14.1017387419
+   },
+   "SVN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 20.9455415919,
+      "dependence": 22.5987941707,
+      "contribution": 4.73343983228
+     },
+     "gas": {
+      "share": 2.87253141831,
+      "dependence": 99.5538196,
+      "contribution": 2.85971474614
+     },
+     "oil": {
+      "share": 0.119688809096,
+      "dependence": 100,
+      "contribution": 0.119688809096
+     }
+    },
+    "low": 7.71284338752,
+    "high": 7.71284338752
+   },
+   "SWE": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 100,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0.0638977635783,
+      "dependence": 100,
+      "contribution": 0.0638977635783
+     },
+     "oil": {
+      "share": 1.14435085681,
+      "dependence": 100,
+      "contribution": 1.14435085681
+     }
+    },
+    "low": 1.20824862039,
+    "high": 1.20824862039
+   },
+   "SWZ": {
+    "year": 2024,
+    "exact": false,
+    "direct": 63.0303030303,
+    "parts": {
+     "coal": {
+      "share": 1.21212121212,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 63.0303030303,
+    "high": 64.2424242424
+   },
+   "SYC": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 84.126984127,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 84.126984127
+   },
+   "SYR": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 52.2508038585,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 44.2122186495,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 96.463022508
+   },
+   "TCA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 96.2962962963,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 96.2962962963
+   },
+   "TCD": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 94.5945945946,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 94.5945945946
+   },
+   "TGO": {
+    "year": 2024,
+    "exact": false,
+    "direct": 67.8733031674,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 22.6244343891,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 67.8733031674,
+    "high": 90.4977375566
+   },
+   "THA": {
+    "year": 2025,
+    "exact": true,
+    "direct": 16.3749444691,
+    "parts": {
+     "coal": {
+      "share": 14.9089293647,
+      "dependence": 78.2539608782,
+      "contribution": 11.6668277524
+     },
+     "gas": {
+      "share": 54.7934251444,
+      "dependence": 37.9036901816,
+      "contribution": 20.7687301066
+     },
+     "oil": {
+      "share": 0.0621945801866,
+      "dependence": 75.8489514251,
+      "contribution": 0.0471739369148
+     }
+    },
+    "low": 48.8576762651,
+    "high": 48.8576762651
+   },
+   "TJK": {
+    "year": 2025,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 4.66153222537,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0.972841507904,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 5.63437373328
+   },
+   "TKM": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 99.9697061497,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "TLS": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "TON": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 85.7142857143,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 85.7142857143
+   },
+   "TTO": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 99.4764397906,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.418848167539,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "TUN": {
+    "year": 2025,
+    "exact": false,
+    "direct": 10.4016064257,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 85.0602409639,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 0.923694779116,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 10.4016064257,
+    "high": 96.3855421687
+   },
+   "TUR": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 35.5537320869,
+      "dependence": 60.6817666429,
+      "contribution": 21.5746327378
+     },
+     "gas": {
+      "share": 18.5446766111,
+      "dependence": 95.2867738739,
+      "contribution": 17.670624068
+     },
+     "oil": {
+      "share": 0.287196319198,
+      "dependence": 90.0963775154,
+      "contribution": 0.258753479955
+     }
+    },
+    "low": 39.5040102858,
+    "high": 39.5040102858
+   },
+   "TWN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 40.0679234821,
+      "dependence": 100,
+      "contribution": 40.0679234821
+     },
+     "gas": {
+      "share": 43.3150817854,
+      "dependence": 99.7828225236,
+      "contribution": 43.2210111839
+     },
+     "oil": {
+      "share": 1.47629609093,
+      "dependence": 99.9138521879,
+      "contribution": 1.47502429415
+     }
+    },
+    "low": 84.7639589602,
+    "high": 84.7639589602
+   },
+   "TZA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 2.10409745293,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 61.4617940199,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 4.20819490587,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 2.10409745293,
+    "high": 67.7740863787
+   },
+   "UGA": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 2.92598967298,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 2.92598967298
+   },
+   "UKR": {
+    "year": 2022,
+    "exact": true,
+    "direct": 0.0895977062987,
+    "parts": {
+     "coal": {
+      "share": 20.8941851089,
+      "dependence": 1.05703273705,
+      "contribution": 0.22085837674
+     },
+     "gas": {
+      "share": 6.43311531225,
+      "dependence": 3.93782192797,
+      "contribution": 0.253324625417
+     },
+     "oil": {
+      "share": 0.474867843383,
+      "dependence": 95.5966295143,
+      "contribution": 0.453957652922
+     }
+    },
+    "low": 1.01773836138,
+    "high": 1.01773836138
+   },
+   "URY": {
+    "year": 2025,
+    "exact": false,
+    "direct": 19.0508474576,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.76271186441,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 19.0508474576,
+    "high": 20.813559322
+   },
+   "USA": {
+    "year": 2025,
+    "exact": true,
+    "direct": 0.353189397263,
+    "parts": {
+     "coal": {
+      "share": 16.2517830332,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 39.8460252965,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.699323825293,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0.353189397263,
+    "high": 0.353189397263
+   },
+   "UZB": {
+    "year": 2025,
+    "exact": true,
+    "direct": 3.26899475622,
+    "parts": {
+     "coal": {
+      "share": 6.3594778534,
+      "dependence": 41.4941229653,
+      "contribution": 2.63880956044
+     },
+     "gas": {
+      "share": 69.9542563874,
+      "dependence": 9.99888378718,
+      "contribution": 6.99464480036
+     },
+     "oil": {
+      "share": 1.67354680353,
+      "dependence": 71.9448352332,
+      "contribution": 1.20403049035
+     }
+    },
+    "low": 14.1064796074,
+    "high": 14.1064796074
+   },
+   "VCT": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 86.6666666667,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 86.6666666667
+   },
+   "VEN": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 4.49269936353,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 4.36790215899,
+      "dependence": 0,
+      "contribution": 0
+     }
+    },
+    "low": 0,
+    "high": 0
+   },
+   "VGB": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 100,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 100
+   },
+   "VIR": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 97.0588235294,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 97.0588235294
+   },
+   "VNM": {
+    "year": 2025,
+    "exact": true,
+    "direct": 1.14799579068,
+    "parts": {
+     "coal": {
+      "share": 47.5908032782,
+      "dependence": 58.3825775302,
+      "contribution": 27.7847376211
+     },
+     "gas": {
+      "share": 6.16728849772,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.197710386173,
+      "dependence": 73.8234999834,
+      "contribution": 0.145956726904
+     }
+    },
+    "low": 29.0786901387,
+    "high": 29.0786901387
+   },
+   "VUT": {
+    "year": 2023,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 75,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 75
+   },
+   "WSM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 56.25,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 56.25
+   },
+   "XKX": {
+    "year": 2025,
+    "exact": false,
+    "direct": 27.7027027027,
+    "parts": {
+     "coal": {
+      "share": 64.1891891892,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.135135135135,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 27.7027027027,
+    "high": 92.027027027
+   },
+   "YEM": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 1.14285714286,
+      "dependence": null,
+      "contribution": null
+     },
+     "oil": {
+      "share": 87.619047619,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 88.7619047619
+   },
+   "ZAF": {
+    "year": 2024,
+    "exact": true,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 83.5528442146,
+      "dependence": 0,
+      "contribution": 0
+     },
+     "gas": {
+      "share": 0,
+      "dependence": 98.6829665609,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0.783775048481,
+      "dependence": 99.5756250634,
+      "contribution": 0.780448903616
+     }
+    },
+    "low": 0.780448903616,
+    "high": 0.780448903616
+   },
+   "ZMB": {
+    "year": 2024,
+    "exact": false,
+    "direct": 0,
+    "parts": {
+     "coal": {
+      "share": 10.8012170385,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 1.72413793103,
+      "dependence": null,
+      "contribution": null
+     }
+    },
+    "low": 0,
+    "high": 12.5253549696
+   },
+   "ZWE": {
+    "year": 2024,
+    "exact": false,
+    "direct": 15.2066115702,
+    "parts": {
+     "coal": {
+      "share": 36.3636363636,
+      "dependence": null,
+      "contribution": null
+     },
+     "gas": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     },
+     "oil": {
+      "share": 0,
+      "dependence": null,
+      "contribution": 0
+     }
+    },
+    "low": 15.2066115702,
+    "high": 51.5702479339
+   }
+  }
+ }
+}

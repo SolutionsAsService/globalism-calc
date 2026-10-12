@@ -36,8 +36,7 @@
   "groupLabel": "Crude oil",
   "flow": "net-imports",
   "flowLabel": "Net imports",
-  "order": 1,
-  "default": true
+  "order": 1
  },
  "import": {
   "from": "derived: net(eia-crude-oil-imports, eia-crude-oil-exports)",

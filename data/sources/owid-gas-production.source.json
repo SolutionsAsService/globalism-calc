@@ -1,0 +1,65 @@
+{
+  "input": "data/raw/owid/owid_energy.csv",
+  "format": "csv",
+  "entityField": "iso_code",
+  "entityFallbackField": "country",
+  "valueField": "gas_production_twh",
+  "yearField": "year",
+  "minYear": 1990,
+  "keepSeries": true,
+  "dataset": {
+    "id": "owid-gas-production",
+    "title": "Natural gas production (EI via OWID)",
+    "category": "energy",
+    "indicator": {
+      "code": "gas_production_twh",
+      "name": "Natural gas production",
+      "unit": "TWh",
+      "unitLabel": "terawatt-hours",
+      "sourceUnit": "terawatt-hours (TWh)",
+      "description": "Gas production: Measured in terawatt-hours. Excludes gas flared or recycled. Includes natural gas produced for Gas-to-Liquids transformation."
+    },
+    "source": {
+      "name": "Our World in Data – Energy dataset (Energy Institute Statistical Review data)",
+      "url": "https://catalog.ourworldindata.org/energy/owid_energy/readme.md",
+      "license": "Our World in Data processing: CC BY 4.0. Underlying data: Energy Institute Statistical Review, free to use with citation (see upstream).",
+      "citation": "Energy Institute – Statistical Review of World Energy (2026) – with major processing by Our World in Data. File owid_energy.csv downloaded from https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv on 2026-10-12 19:10 UTC (server Last-Modified: Wed, 30 Sep 2026 14:42:02 GMT).",
+      "retrieved": "2026-10-12",
+      "downloadUrl": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+      "sha256": "9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de",
+      "lastModified": "Wed, 30 Sep 2026 14:42:02 GMT",
+      "upstream": [
+        {
+          "name": "Energy Institute – Statistical Review of World Energy (2026)",
+          "url": "https://www.energyinst.org/statistical-review/",
+          "license": "Free to access, citation required (\"Energy Institute – Statistical Review of World Energy (2026)\"); no open licence is stated on the EI pages checked on 2026-10-12"
+        }
+      ]
+    },
+    "year": 2025,
+    "notes": [
+      "Imported from data/raw/owid/owid_energy.csv, column \"gas_production_twh\", years 1990 on (one row per country and year; the latest year with a value is shown, the full series is kept for charts and derived datasets).",
+      "Codebook (data/raw/owid/owid_energy.codebook.csv) title: \"Gas production\"; unit: \"terawatt-hours (TWh)\"; sources: Energy Institute – Statistical Review of World Energy (2026); Etemad & Luciani – World Energy Production 1800–1985 (1991); U.S. Energy Information Administration – International Energy Data (2026).",
+      "Rows with a blank iso_code are matched by their \"country\" name: Kosovo -> XKX; regions, income groups and source-defined aggregates (e.g. \"Europe (EI)\", \"G20 (Ember)\", \"World\") and former states are skipped. A blank cell is kept as missing, never 0."
+    ],
+    "caveats": [
+      "OWID fills production for countries not covered by EI from other sources (EIA, historical datasets); the dependence is only computed where EI supply also exists."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "log-minmax",
+      "rationale": "Input to the fuel net-import dependence; absolute volume on its own."
+    },
+    "view": {
+      "group": "fuel-dependence",
+      "groupLabel": "Fossil fuels: import dependence (EI)",
+      "order": 0.9,
+      "flow": "gas-production",
+      "flowLabel": "Gas production",
+      "flowOrder": 12,
+      "chartSet": "gas",
+      "color": "#1c7ed6"
+    }
+  }
+}

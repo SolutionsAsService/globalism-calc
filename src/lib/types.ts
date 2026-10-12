@@ -63,6 +63,16 @@ export interface DatasetView {
   order: number;
   /** Shown first when the category is opened. */
   default?: boolean;
+  /** Sort order of the flow inside its group (ascending; flows without it follow the built-in order). */
+  flowOrder?: number;
+  /** Trend chart: flows of the same group with the same chartSet (and unit) are drawn together. */
+  chartSet?: string;
+  /** Trend chart: draw this flow as a stacked area (e.g. generation by source) instead of a line. */
+  stack?: boolean;
+  /** Line/area colour in charts. */
+  color?: string;
+  /** Key indicator: shown in the compare view and as a ranking column for its category. */
+  headline?: boolean;
 }
 
 /** Full annual series kept next to the latest-value rows (values[key][i] is the value for year start + i). */
@@ -79,8 +89,18 @@ export interface DatasetMeta {
   title: string;
   category: string;
   /** unit = unit code as stated by the source (e.g. EIA "TBPD"); unitLabel = its spelled-out meaning. */
-  indicator: { code?: string; name: string; unit: string; unitLabel?: string; description?: string };
-  source: { name: string; url: string; license: string; citation?: string; retrieved?: string };
+  indicator: {
+    code?: string; name: string; unit: string; unitLabel?: string; description?: string;
+    /** Unit exactly as written in the source's own codebook (checked by tests against the raw codebook). */
+    sourceUnit?: string;
+  };
+  source: {
+    name: string; url: string; license: string; citation?: string; retrieved?: string;
+    /** Exact URL the raw file was downloaded from, its SHA-256 and the server's Last-Modified header. */
+    downloadUrl?: string; sha256?: string; lastModified?: string;
+    /** Original producers behind a compiled source (e.g. Ember and the Energy Institute behind Our World in Data). */
+    upstream?: { name: string; url: string; license: string }[];
+  };
   year: number;
   notes?: string[];
   caveats?: string[];
@@ -98,6 +118,37 @@ export interface ImportReport {
   duplicates: { key: string; names: string[] }[];
   /** Counts of non-numeric source markers seen in the rows read (all years), e.g. {"NA": 12, "--": 40}. */
   markers?: Record<string, number>;
+  /** Rows before this year were not read (SourceSpec.minYear). */
+  minYear?: number;
+}
+
+/** One part of an electricity import-exposure breakdown, in % of electricity supply (generation + net imports if > 0). */
+export interface ExposurePart {
+  /** Generation from this fuel, % of supply. */
+  share: number;
+  /** National net-import dependence of the fuel, % (null = no data), as used (clamped to 0–100). */
+  dependence: number | null;
+  /** share × dependence ÷ 100 (null when dependence is missing and share > 0). */
+  contribution: number | null;
+}
+
+export interface ExposureEntry {
+  year: number;
+  /** true: every input exists, value = low = high. false: some fuel dependence is missing, only bounds are known. */
+  exact: boolean;
+  /** Direct net electricity imports, % of supply (0 for net exporters). */
+  direct: number;
+  parts: Record<string, ExposurePart>;
+  /** Lower bound: direct + known contributions (missing dependences taken as 0 %). */
+  low: number;
+  /** Upper bound: missing dependences taken as 100 %. */
+  high: number;
+}
+
+/** Per-entity components of a derived electricity import exposure (Dataset.breakdown). */
+export interface ExposureBreakdown {
+  parts: { id: string; label: string }[];
+  byKey: Record<string, ExposureEntry>;
 }
 
 export interface Dataset extends DatasetMeta {
@@ -105,6 +156,7 @@ export interface Dataset extends DatasetMeta {
   import: ImportReport;
   rows: DatasetRow[];
   series?: DatasetSeries;
+  breakdown?: ExposureBreakdown;
 }
 
 export interface CategoryDef {

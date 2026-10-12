@@ -1,0 +1,71 @@
+{
+  "input": "data/raw/owid/owid_energy.csv",
+  "format": "csv",
+  "entityField": "iso_code",
+  "entityFallbackField": "country",
+  "valueField": "electricity_demand_per_capita_kwh",
+  "yearField": "year",
+  "minYear": 1990,
+  "keepSeries": true,
+  "dataset": {
+    "id": "owid-electricity-demand-per-capita",
+    "title": "Electricity demand per person (Ember via OWID)",
+    "category": "energy",
+    "indicator": {
+      "code": "electricity_demand_per_capita_kwh",
+      "name": "Electricity demand per person",
+      "unit": "kWh per person",
+      "unitLabel": "kilowatt-hours per person",
+      "sourceUnit": "kilowatt-hours (kWh)",
+      "description": "Total electricity demand per person: Measured in kilowatt-hours per person."
+    },
+    "source": {
+      "name": "Our World in Data – Energy dataset (Ember electricity data)",
+      "url": "https://catalog.ourworldindata.org/energy/owid_energy/readme.md",
+      "license": "CC BY 4.0 (Our World in Data; underlying Ember data CC BY 4.0)",
+      "citation": "Ember – Yearly Electricity Data (2026); Ember – Yearly Electricity Data Europe (2026) – with major processing by Our World in Data. File owid_energy.csv downloaded from https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv on 2026-10-12 19:10 UTC (server Last-Modified: Wed, 30 Sep 2026 14:42:02 GMT).",
+      "retrieved": "2026-10-12",
+      "downloadUrl": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+      "sha256": "9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de",
+      "lastModified": "Wed, 30 Sep 2026 14:42:02 GMT",
+      "upstream": [
+        {
+          "name": "Ember – Yearly Electricity Data (2026) and Yearly Electricity Data Europe (2026)",
+          "url": "https://ember-energy.org/data/yearly-electricity-data/",
+          "license": "CC BY 4.0 (https://ember-energy.org/creative-commons/)"
+        },
+        {
+          "name": "Our World in Data – Population based on various sources (2024)",
+          "url": "https://ourworldindata.org/population-sources",
+          "license": "CC BY 4.0"
+        }
+      ]
+    },
+    "year": 2025,
+    "notes": [
+      "Imported from data/raw/owid/owid_energy.csv, column \"electricity_demand_per_capita_kwh\", years 1990 on (one row per country and year; the latest year with a value is shown, the full series is kept for charts and derived datasets).",
+      "Codebook (data/raw/owid/owid_energy.codebook.csv) title: \"Total electricity demand per person\"; unit: \"kilowatt-hours (kWh)\"; sources: Ember – Yearly Electricity Data Europe (2026); Ember – Yearly Electricity Data (2026); Population based on various sources (2024).",
+      "Rows with a blank iso_code are matched by their \"country\" name: Kosovo -> XKX; regions, income groups and source-defined aggregates (e.g. \"Europe (EI)\", \"G20 (Ember)\", \"World\") and former states are skipped. A blank cell is kept as missing, never 0."
+    ],
+    "caveats": [
+      "Computed by Our World in Data as Ember demand ÷ OWID population."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "log-minmax",
+      "rationale": "Context: describes the electricity system, not dependence on its own; used as an input or shown next to the scored import exposure."
+    },
+    "view": {
+      "group": "electricity-exposure",
+      "groupLabel": "Electricity: import exposure",
+      "order": 0,
+      "flow": "per-capita",
+      "flowLabel": "kWh per person",
+      "flowOrder": 6,
+      "chartSet": "pc",
+      "color": "#2b8a3e",
+      "headline": true
+    }
+  }
+}

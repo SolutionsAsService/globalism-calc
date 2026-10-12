@@ -32,10 +32,10 @@
  },
  "view": {
   "group": "electricity",
-  "groupLabel": "Electricity",
+  "groupLabel": "Electricity: trade (EIA)",
   "flow": "net-imports",
   "flowLabel": "Net imports",
-  "order": 5
+  "order": 0.7
  },
  "import": {
   "from": "derived: net(eia-electricity-imports, eia-electricity-exports)",

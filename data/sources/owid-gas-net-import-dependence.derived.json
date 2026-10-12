@@ -1,0 +1,63 @@
+{
+  "derive": {
+    "op": "dependence",
+    "supply": "owid-gas-supply",
+    "production": "owid-gas-production"
+  },
+  "dataset": {
+    "id": "owid-gas-net-import-dependence",
+    "title": "Natural gas net import dependence, % of supply (EI via OWID, derived)",
+    "category": "energy",
+    "indicator": {
+      "name": "Natural gas net import dependence",
+      "unit": "% of supply",
+      "description": "100 × (natural gas total energy supply − natural gas production) ÷ supply, same country and year, both in TWh from the Energy Institute Statistical Review (via Our World in Data). Positive = share of supply that has to be imported net; negative = net exporter."
+    },
+    "source": {
+      "name": "Our World in Data – Energy dataset (Energy Institute Statistical Review data)",
+      "url": "https://catalog.ourworldindata.org/energy/owid_energy/readme.md",
+      "license": "Our World in Data processing: CC BY 4.0. Underlying data: Energy Institute Statistical Review, free to use with citation (see upstream).",
+      "citation": "Derived from Energy Institute – Statistical Review of World Energy (2026) – with major processing by Our World in Data. File owid_energy.csv downloaded from https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv on 2026-10-12 19:10 UTC (server Last-Modified: Wed, 30 Sep 2026 14:42:02 GMT).",
+      "retrieved": "2026-10-12",
+      "downloadUrl": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+      "sha256": "9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de",
+      "lastModified": "Wed, 30 Sep 2026 14:42:02 GMT",
+      "upstream": [
+        {
+          "name": "Energy Institute – Statistical Review of World Energy (2026)",
+          "url": "https://www.energyinst.org/statistical-review/",
+          "license": "Free to access, citation required (\"Energy Institute – Statistical Review of World Energy (2026)\"); no open licence is stated on the EI pages checked on 2026-10-12"
+        }
+      ]
+    },
+    "year": 2025,
+    "notes": [
+      "Computed by npm run data:import: for each entity, the latest year in which both supply and production have a number and supply is above 0. Entities with no such year are kept as missing.",
+      "EI covers about 80 countries individually; smaller countries are only in EI regional totals, so they have no value here."
+    ],
+    "caveats": [
+      "Net of exports and ignores stock changes: a country that imports and re-exports shows only the net. It is an economy-wide average, not specific to power plants."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "fixed-range",
+      "range": [
+        0,
+        100
+      ],
+      "rationale": "A real net-import share for one fuel, used inside the electricity import exposure. Not scored separately: on its own it ignores how much of the energy system the fuel serves."
+    },
+    "view": {
+      "group": "fuel-dependence",
+      "groupLabel": "Fossil fuels: import dependence (EI)",
+      "order": 0.9,
+      "flow": "gas-dependence",
+      "flowLabel": "Gas dependence",
+      "flowOrder": 1,
+      "chartSet": "dep",
+      "color": "#f59f00",
+      "headline": false
+    }
+  }
+}

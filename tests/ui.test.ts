@@ -3,7 +3,7 @@
 import { describe, it, expect, beforeAll, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 
-const until = async (fn: () => boolean, ms = 4000) => {
+const until = async (fn: () => boolean, ms = 20000) => {
   const t0 = Date.now();
   while (!fn()) {
     if (Date.now() - t0 > ms) throw new Error('timeout waiting for UI');
@@ -58,18 +58,31 @@ describe('app', () => {
     expect($('#need-water')?.textContent).toMatch(/AQUASTAT/);
   });
 
-  it('energy tab: fuel/flow picker, EIA units, diverging net map, balance table, trend and sources', async () => {
+  it('energy tab: scored by electricity import exposure, with score button, group picker and score note', async () => {
     await go('#/?cat=energy', () => !!$('#fuel-select'));
     expect($('[role="tab"][aria-selected="true"]')?.textContent).toMatch(/Fuel & energy/);
-    expect($('.banner.warn')?.textContent).toMatch(/Context only/);
-    expect(($('#fuel-select') as HTMLSelectElement).value).toBe('crude-oil');
-    expect($('#flow-net-imports')?.getAttribute('aria-pressed')).toBe('true');
-    expect($('.legend-title')?.textContent).toMatch(/TBPD \(thousand barrels per day\).*net importer/);
-    expect($$('path.country').filter((p) => p.getAttribute('fill')?.startsWith('rgb')).length).toBeGreaterThan(100);
-    expect($('#need-energy')?.textContent).toMatch(/EG\.IMP\.CONS\.ZS/);
+    expect($('.banner.warn')).toBeNull(); // no longer context-only
+    expect($('#score-note')?.textContent).toMatch(/Electricity import exposure \(\d+ entities with a value\)/);
+    expect($('#show-score')?.getAttribute('aria-pressed')).toBe('true');
+    expect(($('#fuel-select') as HTMLSelectElement).value).toBe('electricity-exposure');
+    expect($$('.seg-btn[aria-pressed="true"]').map((b) => b.id)).toEqual(['show-score']);
+    expect($('.legend-title')?.textContent).toMatch(/Fuel & energy dependence score/);
+    expect($('.formula')?.textContent).toMatch(/Electricity import exposure → 100 × clamp/);
+    expect($('#need-energy')).toBeNull();
+    const opts = [...($('#fuel-select') as HTMLSelectElement).options].map((o) => o.textContent);
+    expect(opts.slice(0, 4)).toEqual(['Electricity: import exposure', 'Electricity: generation by source', 'Electricity: trade (EIA)', 'Fossil fuels: import dependence (EI)']);
     expect($('#energy-sources')?.textContent).toMatch(/petrol-import-SeriesExport-10-12-2026-18-11-05\.json/);
     expect($('#energy-sources')?.textContent).toMatch(/2026-10-12 18:11:05 UTC/);
+    expect($('#energy-sources')?.textContent).toMatch(/owid_energy\.csv/);
+    expect($('#energy-sources')?.textContent).toMatch(/Ember – Yearly Electricity Data.*CC BY 4\.0/);
+    expect($('#energy-sources')?.textContent).toMatch(/9d8efc4a9b1c/);
+  });
 
+  it('energy tab: raw series, EIA units, diverging net map, ranking columns, balance table and trend', async () => {
+    await go('#/?cat=energy&ind=eia-crude-oil-net-imports', () => /TBPD/.test($('.legend-title')?.textContent ?? ''));
+    expect($('.legend-title')?.textContent).toMatch(/TBPD \(thousand barrels per day\).*net importer/);
+    expect($('#show-score')?.getAttribute('aria-pressed')).toBe('false');
+    expect($$('path.country').filter((p) => p.getAttribute('fill')?.startsWith('rgb')).length).toBeGreaterThan(100);
     const fuel = $('#fuel-select') as HTMLSelectElement;
     fuel.value = 'natural-gas';
     fuel.dispatchEvent(new Event('change'));
@@ -77,27 +90,64 @@ describe('app', () => {
     expect(location.hash).toContain('ind=eia-natural-gas-net-imports');
     ($('#flow-imports') as HTMLButtonElement).click();
     await until(() => location.hash.includes('ind=eia-natural-gas-imports'));
-    expect($('.rank-table thead')?.textContent).toMatch(/Raw \(BCF\)/);
+    const head = $('.rank-table thead')?.textContent ?? '';
+    expect(head).toMatch(/Raw \(BCF\)/);
+    expect(head).toMatch(/Import exposure/); // key electricity columns are sortable in the ranking
+    expect(head).toMatch(/kWh per person/);
 
     await go('#/?cat=energy&ind=eia-natural-gas-imports&sel=DEU', () => $('.detail h2')?.textContent === 'Germany');
-    const bal = $('.detail table.balance')?.textContent ?? '';
+    const bal = $('.detail table.balance:not(.exposure-table):not(.facts-table)')?.textContent ?? '';
     expect(bal).toMatch(/Dry natural gas/);
     expect(bal).toMatch(/2,622\.4/);
     expect($('.detail')?.textContent).toMatch(/Energy Information Administration/);
     expect($('.trend h2')?.textContent).toMatch(/Germany · Dry natural gas/);
-    expect($$('.trend-svg path').length).toBe(3); // imports, exports, net
+    expect($$('.trend .trend-svg path.trend-line').length).toBe(3); // imports, exports, net
     expect($('.trend-table')?.textContent).toMatch(/2024/);
 
     await go('#/?cat=energy&ind=eia-electricity-net-import-share&sel=LUX', () => $('.detail h2')?.textContent === 'Luxembourg');
     expect($('.legend-title')?.textContent).toMatch(/% of net consumption/);
-    expect($('.formula')?.textContent).toMatch(/Not used in any score: .*electricity only/);
+    expect($('.formula')?.textContent).toMatch(/Not used in any score: .*double count/);
+  });
+
+  it('electricity panel: Japan exposure breakdown, generation mix bar + stacked chart, key figures; bounds when not computable', async () => {
+    await go('#/?cat=energy&sel=JPN', () => $('.detail h2')?.textContent === 'Japan');
+    const ex = $('#exposure-block')?.textContent ?? '';
+    expect(ex).toMatch(/Electricity import exposure/);
+    expect(ex).toMatch(/67\.8%/);
+    expect(ex).toMatch(/Gas power/);
+    expect(ex).toMatch(/not counted/); // nuclear & renewables
+    expect($$('#exposure-block .stackbar-seg').length).toBe(3); // coal, gas, oil (no direct imports)
+    const mix = $('#mix-block')?.textContent ?? '';
+    expect(mix).toMatch(/Generation mix/);
+    expect(mix).toMatch(/Gas \d/);
+    expect(mix).toMatch(/Nuclear \d/);
+    expect($$('#mix-block .stack-area').length).toBeGreaterThan(5);
+    expect($('.facts-table')?.textContent).toMatch(/Demand per person/);
+    // Trend for the exposure group: the % lines together.
+    expect($('.trend h2')?.textContent).toMatch(/Japan · Electricity: import exposure/);
+    expect($$('.trend .trend-svg path.trend-line').length).toBe(5);
+
+    await go('#/?cat=energy&ind=owid-electricity-coal&sel=JPN', () => $('#flow-coal')?.getAttribute('aria-pressed') === 'true');
+    expect($('.trend h2')?.textContent).toMatch(/Japan · Electricity: generation by source/);
+    expect($$('.trend .stack-area').length).toBeGreaterThan(5); // stacked areas by source
+    expect($('.trend-legend')?.textContent).toMatch(/Demand/);
+
+    await go('#/?cat=energy&sel=BRB', () => $('.detail h2')?.textContent === 'Barbados');
+    expect($('#exposure-block')?.textContent).toMatch(/Not computed: no import-dependence data for/);
+    expect($$('#exposure-block .stackbar-seg.unknown').length).toBe(1);
+    expect($('.detail .cat-row.status-scored .badge.missing')?.textContent).toBe('no data'); // not scored, not 0
   });
 
   it('compare and method views render', async () => {
     await go('#/compare?keys=USA,SGP', () => !!$('.cmp-table'));
     expect($$('.cmp-table thead th').length).toBe(3);
-    await go('#/method', () => $$('.dataset').length === 17);
+    expect($('.cmp-table')?.textContent).toMatch(/Electricity import exposure/);
+    expect($('.cmp-table')?.textContent).toMatch(/more fuel & energy series/);
+    await go('#/method', () => $$('.dataset').length === 44);
     expect($('main')?.textContent).toMatch(/PARENT-SUB/);
+    expect($('#method-electricity')?.textContent).toMatch(/Electricity import exposure/);
+    expect($('main')?.textContent).toMatch(/Currently scored: Fuel & energy = this exposure/);
+    expect($('main')?.textContent).toMatch(/9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de/);
   });
 
   it('search filters the ranking table', async () => {

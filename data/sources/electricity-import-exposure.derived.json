@@ -1,0 +1,96 @@
+{
+  "derive": {
+    "op": "electricity-exposure",
+    "generation": "owid-electricity-generation",
+    "netImports": "owid-electricity-net-imports",
+    "fuels": [
+      {
+        "id": "coal",
+        "label": "Coal",
+        "generation": "owid-electricity-coal",
+        "dependence": "owid-coal-net-import-dependence"
+      },
+      {
+        "id": "gas",
+        "label": "Gas",
+        "generation": "owid-electricity-gas",
+        "dependence": "owid-gas-net-import-dependence"
+      },
+      {
+        "id": "oil",
+        "label": "Oil",
+        "generation": "owid-electricity-oil",
+        "dependence": "owid-oil-net-import-dependence"
+      }
+    ],
+    "maxLagYears": 2
+  },
+  "dataset": {
+    "id": "electricity-import-exposure",
+    "title": "Electricity import exposure: net electricity imports + power from imported fossil fuel, % of supply (derived)",
+    "category": "energy",
+    "indicator": {
+      "name": "Electricity import exposure",
+      "unit": "% of electricity supply",
+      "description": "Share of a country's electricity supply that depends on imports: 100 × [max(N, 0) + Σ over coal, gas, oil of g_f × clamp(d_f, 0, 1)] ÷ (G + max(N, 0)). G = generation, N = net electricity imports, g_f = generation from fuel f (all TWh, Ember via OWID), d_f = the fuel's national net import dependence ((supply − production) ÷ supply, EI via OWID). Same country and year for every input."
+    },
+    "source": {
+      "name": "Derived from Our World in Data – Energy dataset (Ember electricity data and Energy Institute Statistical Review data)",
+      "url": "https://catalog.ourworldindata.org/energy/owid_energy/readme.md",
+      "license": "Inputs: Ember CC BY 4.0 and Energy Institute Statistical Review (free to use with citation), compiled by Our World in Data (CC BY 4.0)",
+      "citation": "Derived from Ember – Yearly Electricity Data (2026); Ember – Yearly Electricity Data Europe (2026) – with major processing by Our World in Data. File owid_energy.csv downloaded from https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv on 2026-10-12 19:10 UTC (server Last-Modified: Wed, 30 Sep 2026 14:42:02 GMT). Fuel supply and production: Energy Institute – Statistical Review of World Energy (2026), same file.",
+      "retrieved": "2026-10-12",
+      "downloadUrl": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+      "sha256": "9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de",
+      "lastModified": "Wed, 30 Sep 2026 14:42:02 GMT",
+      "upstream": [
+        {
+          "name": "Ember – Yearly Electricity Data (2026) and Yearly Electricity Data Europe (2026)",
+          "url": "https://ember-energy.org/data/yearly-electricity-data/",
+          "license": "CC BY 4.0 (https://ember-energy.org/creative-commons/)"
+        },
+        {
+          "name": "Energy Institute – Statistical Review of World Energy (2026)",
+          "url": "https://www.energyinst.org/statistical-review/",
+          "license": "Free to access, citation required (\"Energy Institute – Statistical Review of World Energy (2026)\"); no open licence is stated on the EI pages checked on 2026-10-12"
+        }
+      ]
+    },
+    "year": 2025,
+    "notes": [
+      "Computed by npm run data:import from 9 input datasets (src/lib/derive.ts, op \"electricity-exposure\"). For each entity, the latest year in which generation, net imports and coal/gas/oil generation all exist, and the dependence of every fuel with generation above 0 exists.",
+      "An exact value more than 2 years older than the latest year with generation and trade data is not used (maxLagYears = 2): e.g. a country whose fuel data stop in 2002 would otherwise be scored on 2002. Its bounds for the latest year are shown instead.",
+      "A fuel with zero generation adds exactly 0, so its dependence is not needed (e.g. Lesotho imports all its power and burns no fuel: 100 %).",
+      "Where a fuel is burned but its dependence is unknown (EI does not list most small countries), no value is given; the detail panel shows the bounds instead (unknown dependence taken as 0 % and as 100 %)."
+    ],
+    "caveats": [
+      "Assumes power plants import the same share of each fuel as the economy as a whole (economy-wide net import dependence). A country could, for example, burn domestic coal in power plants and import coal for steel.",
+      "Nuclear fuel is not counted: uranium is mostly imported (Japan, France, South Korea…), but no open dataset here gives uranium supply by country, so nuclear power counts as not import-exposed. Countries with large nuclear fleets are understated.",
+      "Net figures: transit trade, re-exports and stock changes are netted out. Imported electricity is counted as fully import-exposed; exported electricity is assumed to have the same mix as generation.",
+      "Covers electricity only (not transport fuel or heating), so it is a partial measure of energy dependence."
+    ],
+    "scoring": {
+      "include": true,
+      "direction": "higher_more_dependent",
+      "method": "fixed-range",
+      "range": [
+        0,
+        100
+      ],
+      "weight": 1,
+      "rationale": "Scored by default as the Fuel & energy indicator: a literal 0–100 share, and unlike direct electricity trade it counts imported fuel burned at home (Japan ≈ 68 % instead of 0 %). Electricity only, so it does not cover transport fuel. To turn it off, set scoring.include to false in data/sources/electricity-import-exposure.derived.json (then npm run data:import), or set the Fuel & energy weight to 0 in the app."
+    },
+    "view": {
+      "group": "electricity-exposure",
+      "groupLabel": "Electricity: import exposure",
+      "order": 0,
+      "flow": "exposure",
+      "flowLabel": "Import exposure",
+      "flowOrder": 1,
+      "chartSet": "pct",
+      "color": "#c2255c",
+      "headline": true,
+      "default": true
+    }
+  }
+}

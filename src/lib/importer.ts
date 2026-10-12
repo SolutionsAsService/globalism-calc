@@ -18,6 +18,10 @@ export interface SourceSpec {
   csv?: { delimiter?: string; skipLines?: number };
   /** Column/field holding the entity name or code (ISO3, ISO2 or entity key; names are matched via aliases). */
   entityField: string;
+  /** Used when entityField is empty in a row (e.g. OWID: iso_code is blank for regions and Kosovo, so the "country" name is matched instead). */
+  entityFallbackField?: string;
+  /** Long format only: ignore rows before this year (keeps generated files small; recorded in import.minYear). */
+  minYear?: number;
   /** Column/field holding the value. Use valueColumns instead for wide year-column files. */
   valueField?: string;
   /** Wide files (e.g. World Bank CSV): candidate year columns; the most recent non-empty one is used. */
@@ -61,6 +65,15 @@ function getPath(obj: unknown, path?: string): unknown {
   return path.split('.').reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), obj);
 }
 
+/** readRows memoized per input file and format (the OWID CSV feeds many specs; parse it once per process). */
+const rowCache = new Map<string, Record<string, unknown>[]>();
+export function readRowsCached(spec: SourceSpec, readText: (path: string) => string): Record<string, unknown>[] {
+  const k = `${spec.format}|${JSON.stringify(spec.csv ?? {})}|${spec.rowsPath ?? ''}|${spec.input}`;
+  let rows = rowCache.get(k);
+  if (!rows) { rows = readRows(spec, readText(spec.input)); rowCache.set(k, rows); }
+  return rows;
+}
+
 export function readRows(spec: SourceSpec, text: string): Record<string, unknown>[] {
   if (spec.format === 'csv') return csvToObjects(text, spec.csv);
   if (spec.format === 'eia-series') return flattenEiaSeriesExport(text) as unknown as Record<string, unknown>[];
@@ -100,12 +113,14 @@ export function normalize(
 
   for (const r of rows) {
     if (spec.where && !Object.entries(spec.where).every(([k, v]) => String(r[k] ?? '') === v)) continue;
+    if (spec.minYear !== undefined && spec.yearField && Number(r[spec.yearField]) < spec.minYear) continue;
     rowsRead++;
     if (spec.markerField && r[spec.markerField] != null) {
       const mk = String(r[spec.markerField]);
       markers[mk] = (markers[mk] ?? 0) + 1;
     }
-    const label = String(r[spec.entityField] ?? '').trim();
+    let label = String(r[spec.entityField] ?? '').trim();
+    if (!label && spec.entityFallbackField) label = String(r[spec.entityFallbackField] ?? '').trim();
     if (!label) continue;
     const m = matcher.match(label);
     if (!m) { unmatched.push(label); continue; }
@@ -191,6 +206,7 @@ export function normalize(
       skipped,
       duplicates: [...duplicates].map(([key, names]) => ({ key, names: [...names] })),
       ...(spec.markerField ? { markers } : {}),
+      ...(spec.minYear !== undefined ? { minYear: spec.minYear } : {}),
     },
     rows: outRows,
     ...(outSeries ? { series: outSeries } : {}),
