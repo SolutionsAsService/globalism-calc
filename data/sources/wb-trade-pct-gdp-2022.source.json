@@ -1,0 +1,39 @@
+{
+  "input": "data/raw/WBTradePercentOfGDP2022.json",
+  "format": "json",
+  "rowsPath": "countries",
+  "entityField": "country",
+  "valueField": "trade_to_gdp",
+  "year": 2022,
+  "dataset": {
+    "id": "wb-trade-pct-gdp-2022",
+    "title": "Trade (% of GDP), 2022",
+    "category": "trade",
+    "indicator": {
+      "code": "NE.TRD.GNFS.ZS",
+      "name": "Trade (% of GDP)",
+      "unit": "% of GDP",
+      "description": "Sum of exports and imports of goods and services measured as a share of gross domestic product."
+    },
+    "source": {
+      "name": "World Bank, World Development Indicators",
+      "url": "https://data.worldbank.org/indicator/NE.TRD.GNFS.ZS",
+      "license": "CC BY 4.0",
+      "citation": "World Bank national accounts data, and OECD National Accounts data files (NE.TRD.GNFS.ZS)."
+    },
+    "year": 2022,
+    "notes": [
+      "Imported from the hand-assembled file WBTradePercentOfGDP2022.json that was committed to this repo (originally hardcoded). Values are as of when that file was created; the World Bank revises data.",
+      "Entities listed with null in the source are kept as explicitly missing; World Bank regional/income aggregates are skipped."
+    ],
+    "caveats": [
+      "Trade openness counts exports as well as imports, so entrepôt economies (Singapore, Hong Kong, Luxembourg) score very high without being proportionally dependent. Treat as exposure, not survival dependence."
+    ],
+    "scoring": {
+      "include": true,
+      "direction": "higher_more_dependent",
+      "method": "percentile",
+      "rationale": "Values exceed 100% for entrepôt economies and have no natural ceiling, so a rank-based score is the most transparent normalization."
+    }
+  }
+}

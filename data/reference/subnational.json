@@ -1,0 +1,4 @@
+{
+  "_comment": "Sub-national units (states, provinces) and territories without an ISO 3166-1 code. key = PARENT_ISO3 + '-' + ISO 3166-2 subdivision suffix (e.g. ISO 3166-2 'US-CA' -> 'USA-CA'). Add entries before importing data for them. Example entry: {\"key\":\"USA-CA\",\"name\":\"California\",\"type\":\"subnational\",\"parent\":\"USA\",\"aliases\":[\"US-CA\",\"California\"]}",
+  "entities": []
+}

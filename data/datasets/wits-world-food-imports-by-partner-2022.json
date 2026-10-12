@@ -1,0 +1,1444 @@
+{
+ "schemaVersion": 1,
+ "id": "wits-world-food-imports-by-partner-2022",
+ "title": "World food-products imports sourced from each partner, 2022",
+ "category": "food",
+ "indicator": {
+  "code": "WITS 16-24_FoodProd, World imports by partner",
+  "name": "World food imports from this partner (≈ food exports)",
+  "unit": "USD",
+  "description": "Value of Food Products (HS 16–24) that all reporting countries imported FROM this country/territory in 2022, i.e. its food exports as recorded by importers."
+ },
+ "source": {
+  "name": "World Bank WITS (from UN Comtrade)",
+  "url": "https://wits.worldbank.org/CountryProfile/en/Country/WLD/Year/2022/TradeFlow/Import/Partner/by-country/Product/16-24_FoodProd",
+  "license": "WITS / UN Comtrade terms of use (attribution required; check before redistribution)"
+ },
+ "year": 2022,
+ "notes": [
+  "Imported from WITS2022FoodImports.json committed to this repo. The file's label says 'imports', but it is the WITS table 'World — Food Products — Import — by Partner' for 2022: WITS lists the top partners as United States, Germany, France, Netherlands and Italy, matching this file's five largest values, and the list contains WITS pseudo-partners (Bunkers, Free Zones, Unspecified).",
+  "WITS displays this table in US$ thousand; the file's values are ~1000× that display (e.g. United States 57.7 billion) and are treated as USD."
+ ],
+ "caveats": [
+  "This measures how much food the world buys FROM an entity (a supplier role), not that entity's own food import dependence. It is shown as context and is NOT used in any dependency score.",
+  "Absolute values are not adjusted for population or economy size."
+ ],
+ "scoring": {
+  "include": false,
+  "direction": "lower_more_dependent",
+  "method": "log-minmax",
+  "rationale": "Context only: partner-side flow (≈ exports) in absolute USD. A real food dependency measure (import share of supply) is needed — see 'data needed'."
+ },
+ "import": {
+  "from": "data/raw/WITS2022FoodImports.json",
+  "spec": "data/sources/wits-world-food-imports-by-partner-2022.source.json",
+  "rowsRead": 235,
+  "matched": 230,
+  "missingValues": 0,
+  "skipped": [
+   {
+    "name": "Bunkers",
+    "reason": "WITS pseudo-partner (ship/aircraft fuel & stores), not an entity"
+   },
+   {
+    "name": "Free Zones",
+    "reason": "WITS pseudo-partner, not an entity"
+   },
+   {
+    "name": "Other Asia, nes",
+    "reason": "WITS 'Other Asia, not elsewhere specified' (in practice largely Taiwan, but not attributable with certainty), not mapped"
+   },
+   {
+    "name": "Special Categories",
+    "reason": "WITS pseudo-partner, not an entity"
+   },
+   {
+    "name": "Unspecified",
+    "reason": "WITS pseudo-partner, not an entity"
+   }
+  ],
+  "duplicates": []
+ },
+ "rows": [
+  {
+   "key": "ABW",
+   "value": 135600,
+   "year": 2022,
+   "sourceName": "Aruba"
+  },
+  {
+   "key": "AFG",
+   "value": 15026190,
+   "year": 2022,
+   "sourceName": "Afghanistan"
+  },
+  {
+   "key": "AGO",
+   "value": 43295540,
+   "year": 2022,
+   "sourceName": "Angola"
+  },
+  {
+   "key": "AIA",
+   "value": 722740,
+   "year": 2022,
+   "sourceName": "Anguila"
+  },
+  {
+   "key": "ALB",
+   "value": 136425260,
+   "year": 2022,
+   "sourceName": "Albania"
+  },
+  {
+   "key": "AND",
+   "value": 2023660,
+   "year": 2022,
+   "sourceName": "Andorra"
+  },
+  {
+   "key": "ARE",
+   "value": 3634189030,
+   "year": 2022,
+   "sourceName": "United Arab Emirates"
+  },
+  {
+   "key": "ARG",
+   "value": 16704431430,
+   "year": 2022,
+   "sourceName": "Argentina"
+  },
+  {
+   "key": "ARM",
+   "value": 99218010,
+   "year": 2022,
+   "sourceName": "Armenia"
+  },
+  {
+   "key": "ASM",
+   "value": 9046670,
+   "year": 2022,
+   "sourceName": "American Samoa"
+  },
+  {
+   "key": "ATA",
+   "value": 90890,
+   "year": 2022,
+   "sourceName": "Antarctica"
+  },
+  {
+   "key": "ATF",
+   "value": 80840,
+   "year": 2022,
+   "sourceName": "Fr. So. Ant. Tr"
+  },
+  {
+   "key": "ATG",
+   "value": 9141480,
+   "year": 2022,
+   "sourceName": "Antigua and Barbuda"
+  },
+  {
+   "key": "AUS",
+   "value": 7939684440,
+   "year": 2022,
+   "sourceName": "Australia"
+  },
+  {
+   "key": "AUT",
+   "value": 10863046540,
+   "year": 2022,
+   "sourceName": "Austria"
+  },
+  {
+   "key": "AZE",
+   "value": 74567720,
+   "year": 2022,
+   "sourceName": "Azerbaijan"
+  },
+  {
+   "key": "BDI",
+   "value": 408110,
+   "year": 2022,
+   "sourceName": "Burundi"
+  },
+  {
+   "key": "BEL",
+   "value": 25718772050,
+   "year": 2022,
+   "sourceName": "Belgium"
+  },
+  {
+   "key": "BEN",
+   "value": 34588330,
+   "year": 2022,
+   "sourceName": "Benin"
+  },
+  {
+   "key": "BES",
+   "value": 386670,
+   "year": 2022,
+   "sourceName": "Bonaire"
+  },
+  {
+   "key": "BFA",
+   "value": 12864920,
+   "year": 2022,
+   "sourceName": "Burkina Faso"
+  },
+  {
+   "key": "BGD",
+   "value": 457972730,
+   "year": 2022,
+   "sourceName": "Bangladesh"
+  },
+  {
+   "key": "BGR",
+   "value": 2311740620,
+   "year": 2022,
+   "sourceName": "Bulgaria"
+  },
+  {
+   "key": "BHR",
+   "value": 149090740,
+   "year": 2022,
+   "sourceName": "Bahrain"
+  },
+  {
+   "key": "BHS",
+   "value": 11084380,
+   "year": 2022,
+   "sourceName": "Bahamas, The"
+  },
+  {
+   "key": "BIH",
+   "value": 218310480,
+   "year": 2022,
+   "sourceName": "Bosnia and Herzegovina"
+  },
+  {
+   "key": "BLM",
+   "value": 734420,
+   "year": 2022,
+   "sourceName": "Saint Barthélemy"
+  },
+  {
+   "key": "BLR",
+   "value": 422210830,
+   "year": 2022,
+   "sourceName": "Belarus"
+  },
+  {
+   "key": "BLZ",
+   "value": 132313990,
+   "year": 2022,
+   "sourceName": "Belize"
+  },
+  {
+   "key": "BMU",
+   "value": 4864050,
+   "year": 2022,
+   "sourceName": "Bermuda"
+  },
+  {
+   "key": "BOL",
+   "value": 1461557880,
+   "year": 2022,
+   "sourceName": "Bolivia"
+  },
+  {
+   "key": "BRA",
+   "value": 31217578930,
+   "year": 2022,
+   "sourceName": "Brazil"
+  },
+  {
+   "key": "BRB",
+   "value": 111989790,
+   "year": 2022,
+   "sourceName": "Barbados"
+  },
+  {
+   "key": "BRN",
+   "value": 3529550,
+   "year": 2022,
+   "sourceName": "Brunei"
+  },
+  {
+   "key": "BTN",
+   "value": 10768840,
+   "year": 2022,
+   "sourceName": "Bhutan"
+  },
+  {
+   "key": "BVT",
+   "value": 345700,
+   "year": 2022,
+   "sourceName": "Bouvet Island"
+  },
+  {
+   "key": "BWA",
+   "value": 12914190,
+   "year": 2022,
+   "sourceName": "Botswana"
+  },
+  {
+   "key": "CAF",
+   "value": 986750,
+   "year": 2022,
+   "sourceName": "Central African Republic"
+  },
+  {
+   "key": "CAN",
+   "value": 22162464350,
+   "year": 2022,
+   "sourceName": "Canada"
+  },
+  {
+   "key": "CCK",
+   "value": 76710,
+   "year": 2022,
+   "sourceName": "Cocos (Keeling) Islands"
+  },
+  {
+   "key": "CHE",
+   "value": 7123893060,
+   "year": 2022,
+   "sourceName": "Switzerland"
+  },
+  {
+   "key": "CHL",
+   "value": 4824230940,
+   "year": 2022,
+   "sourceName": "Chile"
+  },
+  {
+   "key": "CHN",
+   "value": 30442101870,
+   "year": 2022,
+   "sourceName": "China"
+  },
+  {
+   "key": "CIV",
+   "value": 5463407140,
+   "year": 2022,
+   "sourceName": "Cote d'Ivoire"
+  },
+  {
+   "key": "CMR",
+   "value": 771013540,
+   "year": 2022,
+   "sourceName": "Cameroon"
+  },
+  {
+   "key": "COD",
+   "value": 118858480,
+   "year": 2022,
+   "sourceName": "Congo, Dem. Rep."
+  },
+  {
+   "key": "COG",
+   "value": 28969860,
+   "year": 2022,
+   "sourceName": "Congo, Rep."
+  },
+  {
+   "key": "COK",
+   "value": 92080,
+   "year": 2022,
+   "sourceName": "Cook Islands"
+  },
+  {
+   "key": "COL",
+   "value": 1994630860,
+   "year": 2022,
+   "sourceName": "Colombia"
+  },
+  {
+   "key": "COM",
+   "value": 78970,
+   "year": 2022,
+   "sourceName": "Comoros"
+  },
+  {
+   "key": "CPV",
+   "value": 55849660,
+   "year": 2022,
+   "sourceName": "Cape Verde"
+  },
+  {
+   "key": "CRI",
+   "value": 1812989280,
+   "year": 2022,
+   "sourceName": "Costa Rica"
+  },
+  {
+   "key": "CUB",
+   "value": 485115000,
+   "year": 2022,
+   "sourceName": "Cuba"
+  },
+  {
+   "key": "CUW",
+   "value": 9986610,
+   "year": 2022,
+   "sourceName": "Curaçao"
+  },
+  {
+   "key": "CXR",
+   "value": 19850,
+   "year": 2022,
+   "sourceName": "Christmas Island"
+  },
+  {
+   "key": "CYM",
+   "value": 3338570,
+   "year": 2022,
+   "sourceName": "Cayman Islands"
+  },
+  {
+   "key": "CYP",
+   "value": 236139170,
+   "year": 2022,
+   "sourceName": "Cyprus"
+  },
+  {
+   "key": "CZE",
+   "value": 5255611850,
+   "year": 2022,
+   "sourceName": "Czech Republic"
+  },
+  {
+   "key": "DEU",
+   "value": 47253504700,
+   "year": 2022,
+   "sourceName": "Germany"
+  },
+  {
+   "key": "DJI",
+   "value": 4493830,
+   "year": 2022,
+   "sourceName": "Djibouti"
+  },
+  {
+   "key": "DMA",
+   "value": 3196140,
+   "year": 2022,
+   "sourceName": "Dominica"
+  },
+  {
+   "key": "DNK",
+   "value": 6833359960,
+   "year": 2022,
+   "sourceName": "Denmark"
+  },
+  {
+   "key": "DOM",
+   "value": 2153634660,
+   "year": 2022,
+   "sourceName": "Dominican Republic"
+  },
+  {
+   "key": "DZA",
+   "value": 210939810,
+   "year": 2022,
+   "sourceName": "Algeria"
+  },
+  {
+   "key": "ECU",
+   "value": 3551102250,
+   "year": 2022,
+   "sourceName": "Ecuador"
+  },
+  {
+   "key": "EGY",
+   "value": 1878464720,
+   "year": 2022,
+   "sourceName": "Egypt, Arab Rep."
+  },
+  {
+   "key": "ERI",
+   "value": 713170,
+   "year": 2022,
+   "sourceName": "Eritrea"
+  },
+  {
+   "key": "ESP",
+   "value": 21679309250,
+   "year": 2022,
+   "sourceName": "Spain"
+  },
+  {
+   "key": "EST",
+   "value": 649876140,
+   "year": 2022,
+   "sourceName": "Estonia"
+  },
+  {
+   "key": "ETH",
+   "value": 61411230,
+   "year": 2022,
+   "sourceName": "Ethiopia(excludes Eritrea)"
+  },
+  {
+   "key": "FIN",
+   "value": 881783320,
+   "year": 2022,
+   "sourceName": "Finland"
+  },
+  {
+   "key": "FJI",
+   "value": 486538990,
+   "year": 2022,
+   "sourceName": "Fiji"
+  },
+  {
+   "key": "FLK",
+   "value": 202970,
+   "year": 2022,
+   "sourceName": "Falkland Island"
+  },
+  {
+   "key": "FRA",
+   "value": 46840350800,
+   "year": 2022,
+   "sourceName": "France"
+  },
+  {
+   "key": "FRO",
+   "value": 149410890,
+   "year": 2022,
+   "sourceName": "Faeroe Islands"
+  },
+  {
+   "key": "FSM",
+   "value": 165520,
+   "year": 2022,
+   "sourceName": "Micronesia, Fed. Sts."
+  },
+  {
+   "key": "GAB",
+   "value": 4023010,
+   "year": 2022,
+   "sourceName": "Gabon"
+  },
+  {
+   "key": "GBR",
+   "value": 21454985410,
+   "year": 2022,
+   "sourceName": "United Kingdom"
+  },
+  {
+   "key": "GEO",
+   "value": 351085170,
+   "year": 2022,
+   "sourceName": "Georgia"
+  },
+  {
+   "key": "GHA",
+   "value": 2365688030,
+   "year": 2022,
+   "sourceName": "Ghana"
+  },
+  {
+   "key": "GIB",
+   "value": 640270,
+   "year": 2022,
+   "sourceName": "Gibraltar"
+  },
+  {
+   "key": "GIN",
+   "value": 105820800,
+   "year": 2022,
+   "sourceName": "Guinea"
+  },
+  {
+   "key": "GMB",
+   "value": 14236520,
+   "year": 2022,
+   "sourceName": "Gambia, The"
+  },
+  {
+   "key": "GNB",
+   "value": 80050,
+   "year": 2022,
+   "sourceName": "Guinea-Bissau"
+  },
+  {
+   "key": "GNQ",
+   "value": 2297360,
+   "year": 2022,
+   "sourceName": "Equatorial Guinea"
+  },
+  {
+   "key": "GRC",
+   "value": 4331146790,
+   "year": 2022,
+   "sourceName": "Greece"
+  },
+  {
+   "key": "GRD",
+   "value": 6739910,
+   "year": 2022,
+   "sourceName": "Grenada"
+  },
+  {
+   "key": "GRL",
+   "value": 262312180,
+   "year": 2022,
+   "sourceName": "Greenland"
+  },
+  {
+   "key": "GTM",
+   "value": 2393413920,
+   "year": 2022,
+   "sourceName": "Guatemala"
+  },
+  {
+   "key": "GUM",
+   "value": 43380,
+   "year": 2022,
+   "sourceName": "Guam"
+  },
+  {
+   "key": "GUY",
+   "value": 101061640,
+   "year": 2022,
+   "sourceName": "Guyana"
+  },
+  {
+   "key": "HKG",
+   "value": 1242794350,
+   "year": 2022,
+   "sourceName": "Hong Kong, China"
+  },
+  {
+   "key": "HND",
+   "value": 980030660,
+   "year": 2022,
+   "sourceName": "Honduras"
+  },
+  {
+   "key": "HRV",
+   "value": 1482979690,
+   "year": 2022,
+   "sourceName": "Croatia"
+  },
+  {
+   "key": "HTI",
+   "value": 17002730,
+   "year": 2022,
+   "sourceName": "Haiti"
+  },
+  {
+   "key": "HUN",
+   "value": 6129084530,
+   "year": 2022,
+   "sourceName": "Hungary"
+  },
+  {
+   "key": "IDN",
+   "value": 12576012780,
+   "year": 2022,
+   "sourceName": "Indonesia"
+  },
+  {
+   "key": "IND",
+   "value": 10946988810,
+   "year": 2022,
+   "sourceName": "India"
+  },
+  {
+   "key": "IOT",
+   "value": 62770,
+   "year": 2022,
+   "sourceName": "British Indian Ocean Ter."
+  },
+  {
+   "key": "IRL",
+   "value": 8685447850,
+   "year": 2022,
+   "sourceName": "Ireland"
+  },
+  {
+   "key": "IRN",
+   "value": 334818420,
+   "year": 2022,
+   "sourceName": "Iran, Islamic Rep."
+  },
+  {
+   "key": "IRQ",
+   "value": 25646250,
+   "year": 2022,
+   "sourceName": "Iraq"
+  },
+  {
+   "key": "ISL",
+   "value": 524451860,
+   "year": 2022,
+   "sourceName": "Iceland"
+  },
+  {
+   "key": "ISR",
+   "value": 1787368120,
+   "year": 2022,
+   "sourceName": "Israel"
+  },
+  {
+   "key": "ITA",
+   "value": 39274610460,
+   "year": 2022,
+   "sourceName": "Italy"
+  },
+  {
+   "key": "JAM",
+   "value": 362011950,
+   "year": 2022,
+   "sourceName": "Jamaica"
+  },
+  {
+   "key": "JOR",
+   "value": 367601050,
+   "year": 2022,
+   "sourceName": "Jordan"
+  },
+  {
+   "key": "JPN",
+   "value": 5774331880,
+   "year": 2022,
+   "sourceName": "Japan"
+  },
+  {
+   "key": "KAZ",
+   "value": 490010500,
+   "year": 2022,
+   "sourceName": "Kazakhstan"
+  },
+  {
+   "key": "KEN",
+   "value": 466424900,
+   "year": 2022,
+   "sourceName": "Kenya"
+  },
+  {
+   "key": "KGZ",
+   "value": 52141790,
+   "year": 2022,
+   "sourceName": "Kyrgyz Republic"
+  },
+  {
+   "key": "KHM",
+   "value": 284480370,
+   "year": 2022,
+   "sourceName": "Cambodia"
+  },
+  {
+   "key": "KIR",
+   "value": 711380,
+   "year": 2022,
+   "sourceName": "Kiribati"
+  },
+  {
+   "key": "KNA",
+   "value": 8474460,
+   "year": 2022,
+   "sourceName": "St. Kitts and Nevis"
+  },
+  {
+   "key": "KOR",
+   "value": 8204094290,
+   "year": 2022,
+   "sourceName": "Korea, Rep."
+  },
+  {
+   "key": "KWT",
+   "value": 73197650,
+   "year": 2022,
+   "sourceName": "Kuwait"
+  },
+  {
+   "key": "LAO",
+   "value": 110586080,
+   "year": 2022,
+   "sourceName": "Lao PDR"
+  },
+  {
+   "key": "LBN",
+   "value": 306724010,
+   "year": 2022,
+   "sourceName": "Lebanon"
+  },
+  {
+   "key": "LBR",
+   "value": 49844370,
+   "year": 2022,
+   "sourceName": "Liberia"
+  },
+  {
+   "key": "LBY",
+   "value": 1639010,
+   "year": 2022,
+   "sourceName": "Libya"
+  },
+  {
+   "key": "LCA",
+   "value": 21872700,
+   "year": 2022,
+   "sourceName": "St. Lucia"
+  },
+  {
+   "key": "LKA",
+   "value": 689622280,
+   "year": 2022,
+   "sourceName": "Sri Lanka"
+  },
+  {
+   "key": "LSO",
+   "value": 5359910,
+   "year": 2022,
+   "sourceName": "Lesotho"
+  },
+  {
+   "key": "LTU",
+   "value": 2800253610,
+   "year": 2022,
+   "sourceName": "Lithuania"
+  },
+  {
+   "key": "LUX",
+   "value": 728294130,
+   "year": 2022,
+   "sourceName": "Luxembourg"
+  },
+  {
+   "key": "LVA",
+   "value": 1184034870,
+   "year": 2022,
+   "sourceName": "Latvia"
+  },
+  {
+   "key": "MAC",
+   "value": 65001980,
+   "year": 2022,
+   "sourceName": "Macao"
+  },
+  {
+   "key": "MAR",
+   "value": 2001787370,
+   "year": 2022,
+   "sourceName": "Morocco"
+  },
+  {
+   "key": "MDA",
+   "value": 404617580,
+   "year": 2022,
+   "sourceName": "Moldova"
+  },
+  {
+   "key": "MDG",
+   "value": 165127170,
+   "year": 2022,
+   "sourceName": "Madagascar"
+  },
+  {
+   "key": "MDV",
+   "value": 39517320,
+   "year": 2022,
+   "sourceName": "Maldives"
+  },
+  {
+   "key": "MEX",
+   "value": 25407611520,
+   "year": 2022,
+   "sourceName": "Mexico"
+  },
+  {
+   "key": "MHL",
+   "value": 195320,
+   "year": 2022,
+   "sourceName": "Marshall Islands"
+  },
+  {
+   "key": "MKD",
+   "value": 465641370,
+   "year": 2022,
+   "sourceName": "North Macedonia"
+  },
+  {
+   "key": "MLI",
+   "value": 22993300,
+   "year": 2022,
+   "sourceName": "Mali"
+  },
+  {
+   "key": "MLT",
+   "value": 74543620,
+   "year": 2022,
+   "sourceName": "Malta"
+  },
+  {
+   "key": "MMR",
+   "value": 379204020,
+   "year": 2022,
+   "sourceName": "Myanmar"
+  },
+  {
+   "key": "MNE",
+   "value": 44430950,
+   "year": 2022,
+   "sourceName": "Montenegro"
+  },
+  {
+   "key": "MNG",
+   "value": 15143450,
+   "year": 2022,
+   "sourceName": "Mongolia"
+  },
+  {
+   "key": "MNP",
+   "value": 1239700,
+   "year": 2022,
+   "sourceName": "Northern Mariana Islands"
+  },
+  {
+   "key": "MOZ",
+   "value": 54292030,
+   "year": 2022,
+   "sourceName": "Mozambique"
+  },
+  {
+   "key": "MRT",
+   "value": 5427640,
+   "year": 2022,
+   "sourceName": "Mauritania"
+  },
+  {
+   "key": "MUS",
+   "value": 264664240,
+   "year": 2022,
+   "sourceName": "Mauritius"
+  },
+  {
+   "key": "MWI",
+   "value": 195730200,
+   "year": 2022,
+   "sourceName": "Malawi"
+  },
+  {
+   "key": "MYS",
+   "value": 7325603610,
+   "year": 2022,
+   "sourceName": "Malaysia"
+  },
+  {
+   "key": "NAM",
+   "value": 234841350,
+   "year": 2022,
+   "sourceName": "Namibia"
+  },
+  {
+   "key": "NCL",
+   "value": 889320,
+   "year": 2022,
+   "sourceName": "New Caledonia"
+  },
+  {
+   "key": "NER",
+   "value": 1821300,
+   "year": 2022,
+   "sourceName": "Niger"
+  },
+  {
+   "key": "NFK",
+   "value": 47460,
+   "year": 2022,
+   "sourceName": "Norfolk Island"
+  },
+  {
+   "key": "NGA",
+   "value": 875682710,
+   "year": 2022,
+   "sourceName": "Nigeria"
+  },
+  {
+   "key": "NIC",
+   "value": 882276080,
+   "year": 2022,
+   "sourceName": "Nicaragua"
+  },
+  {
+   "key": "NIU",
+   "value": 90700,
+   "year": 2022,
+   "sourceName": "Niue"
+  },
+  {
+   "key": "NLD",
+   "value": 42580495450,
+   "year": 2022,
+   "sourceName": "Netherlands"
+  },
+  {
+   "key": "NOR",
+   "value": 1339527790,
+   "year": 2022,
+   "sourceName": "Norway"
+  },
+  {
+   "key": "NPL",
+   "value": 121016250,
+   "year": 2022,
+   "sourceName": "Nepal"
+  },
+  {
+   "key": "NRU",
+   "value": 23430,
+   "year": 2022,
+   "sourceName": "Nauru"
+  },
+  {
+   "key": "NZL",
+   "value": 6062761860,
+   "year": 2022,
+   "sourceName": "New Zealand"
+  },
+  {
+   "key": "OMN",
+   "value": 343205820,
+   "year": 2022,
+   "sourceName": "Oman"
+  },
+  {
+   "key": "PAK",
+   "value": 1341240470,
+   "year": 2022,
+   "sourceName": "Pakistan"
+  },
+  {
+   "key": "PAN",
+   "value": 202513680,
+   "year": 2022,
+   "sourceName": "Panama"
+  },
+  {
+   "key": "PCN",
+   "value": 1348160,
+   "year": 2022,
+   "sourceName": "Pitcairn"
+  },
+  {
+   "key": "PER",
+   "value": 4658701400,
+   "year": 2022,
+   "sourceName": "Peru"
+  },
+  {
+   "key": "PHL",
+   "value": 2958371850,
+   "year": 2022,
+   "sourceName": "Philippines"
+  },
+  {
+   "key": "PLW",
+   "value": 13000,
+   "year": 2022,
+   "sourceName": "Palau"
+  },
+  {
+   "key": "PNG",
+   "value": 385777990,
+   "year": 2022,
+   "sourceName": "Papua New Guinea"
+  },
+  {
+   "key": "POL",
+   "value": 23177741070,
+   "year": 2022,
+   "sourceName": "Poland"
+  },
+  {
+   "key": "PRK",
+   "value": 1457990,
+   "year": 2022,
+   "sourceName": "Korea, Dem. Rep."
+  },
+  {
+   "key": "PRT",
+   "value": 4296581020,
+   "year": 2022,
+   "sourceName": "Portugal"
+  },
+  {
+   "key": "PRY",
+   "value": 1104324030,
+   "year": 2022,
+   "sourceName": "Paraguay"
+  },
+  {
+   "key": "PSE",
+   "value": 11619440,
+   "year": 2022,
+   "sourceName": "Occ.Pal.Terr"
+  },
+  {
+   "key": "PYF",
+   "value": 5514340,
+   "year": 2022,
+   "sourceName": "French Polynesia"
+  },
+  {
+   "key": "QAT",
+   "value": 9252000,
+   "year": 2022,
+   "sourceName": "Qatar"
+  },
+  {
+   "key": "ROU",
+   "value": 3289911380,
+   "year": 2022,
+   "sourceName": "Romania"
+  },
+  {
+   "key": "RUS",
+   "value": 7959681350,
+   "year": 2022,
+   "sourceName": "Russian Federation"
+  },
+  {
+   "key": "RWA",
+   "value": 45622960,
+   "year": 2022,
+   "sourceName": "Rwanda"
+  },
+  {
+   "key": "SAU",
+   "value": 1696818110,
+   "year": 2022,
+   "sourceName": "Saudi Arabia"
+  },
+  {
+   "key": "SDN",
+   "value": 97197660,
+   "year": 2022,
+   "sourceName": "Sudan"
+  },
+  {
+   "key": "SEN",
+   "value": 264898430,
+   "year": 2022,
+   "sourceName": "Senegal"
+  },
+  {
+   "key": "SGP",
+   "value": 10081195520,
+   "year": 2022,
+   "sourceName": "Singapore"
+  },
+  {
+   "key": "SGS",
+   "value": 4650,
+   "year": 2022,
+   "sourceName": "South Georgia and the South Sa"
+  },
+  {
+   "key": "SHN",
+   "value": 9040,
+   "year": 2022,
+   "sourceName": "Saint Helena"
+  },
+  {
+   "key": "SLB",
+   "value": 81611780,
+   "year": 2022,
+   "sourceName": "Solomon Islands"
+  },
+  {
+   "key": "SLE",
+   "value": 45397060,
+   "year": 2022,
+   "sourceName": "Sierra Leone"
+  },
+  {
+   "key": "SLV",
+   "value": 981144010,
+   "year": 2022,
+   "sourceName": "El Salvador"
+  },
+  {
+   "key": "SMR",
+   "value": 17405190,
+   "year": 2022,
+   "sourceName": "San Marino"
+  },
+  {
+   "key": "SOM",
+   "value": 474890,
+   "year": 2022,
+   "sourceName": "Somalia"
+  },
+  {
+   "key": "SPM",
+   "value": 5205310,
+   "year": 2022,
+   "sourceName": "Saint Pierre and Miquelon"
+  },
+  {
+   "key": "SRB",
+   "value": 2769281070,
+   "year": 2022,
+   "sourceName": "Serbia, FR(Serbia/Montenegro)"
+  },
+  {
+   "key": "SSD",
+   "value": 183030,
+   "year": 2022,
+   "sourceName": "South Sudan"
+  },
+  {
+   "key": "STP",
+   "value": 8386350,
+   "year": 2022,
+   "sourceName": "Sao Tome and Principe"
+  },
+  {
+   "key": "SUR",
+   "value": 9258840,
+   "year": 2022,
+   "sourceName": "Suriname"
+  },
+  {
+   "key": "SVK",
+   "value": 2201282310,
+   "year": 2022,
+   "sourceName": "Slovak Republic"
+  },
+  {
+   "key": "SVN",
+   "value": 1176878750,
+   "year": 2022,
+   "sourceName": "Slovenia"
+  },
+  {
+   "key": "SWE",
+   "value": 4599774280,
+   "year": 2022,
+   "sourceName": "Sweden"
+  },
+  {
+   "key": "SWZ",
+   "value": 507827630,
+   "year": 2022,
+   "sourceName": "Eswatini"
+  },
+  {
+   "key": "SXM",
+   "value": 2949000,
+   "year": 2022,
+   "sourceName": "Saint Maarten (Dutch part)"
+  },
+  {
+   "key": "SYC",
+   "value": 262221910,
+   "year": 2022,
+   "sourceName": "Seychelles"
+  },
+  {
+   "key": "SYR",
+   "value": 50506800,
+   "year": 2022,
+   "sourceName": "Syrian Arab Republic"
+  },
+  {
+   "key": "TCA",
+   "value": 2123660,
+   "year": 2022,
+   "sourceName": "Turks and Caicos Isl."
+  },
+  {
+   "key": "TCD",
+   "value": 65580,
+   "year": 2022,
+   "sourceName": "Chad"
+  },
+  {
+   "key": "TGO",
+   "value": 100007920,
+   "year": 2022,
+   "sourceName": "Togo"
+  },
+  {
+   "key": "THA",
+   "value": 23044789560,
+   "year": 2022,
+   "sourceName": "Thailand"
+  },
+  {
+   "key": "TJK",
+   "value": 7072830,
+   "year": 2022,
+   "sourceName": "Tajikistan"
+  },
+  {
+   "key": "TKL",
+   "value": 186510,
+   "year": 2022,
+   "sourceName": "Tokelau"
+  },
+  {
+   "key": "TKM",
+   "value": 3950700,
+   "year": 2022,
+   "sourceName": "Turkmenistan"
+  },
+  {
+   "key": "TLS",
+   "value": 13249740,
+   "year": 2022,
+   "sourceName": "East Timor"
+  },
+  {
+   "key": "TON",
+   "value": 1982740,
+   "year": 2022,
+   "sourceName": "Tonga"
+  },
+  {
+   "key": "TTO",
+   "value": 432992580,
+   "year": 2022,
+   "sourceName": "Trinidad and Tobago"
+  },
+  {
+   "key": "TUN",
+   "value": 194643910,
+   "year": 2022,
+   "sourceName": "Tunisia"
+  },
+  {
+   "key": "TUR",
+   "value": 7624422140,
+   "year": 2022,
+   "sourceName": "Turkey"
+  },
+  {
+   "key": "TUV",
+   "value": 7350,
+   "year": 2022,
+   "sourceName": "Tuvalu"
+  },
+  {
+   "key": "TZA",
+   "value": 401710080,
+   "year": 2022,
+   "sourceName": "Tanzania"
+  },
+  {
+   "key": "UGA",
+   "value": 223824360,
+   "year": 2022,
+   "sourceName": "Uganda"
+  },
+  {
+   "key": "UKR",
+   "value": 3114921610,
+   "year": 2022,
+   "sourceName": "Ukraine"
+  },
+  {
+   "key": "UMI",
+   "value": 53950,
+   "year": 2022,
+   "sourceName": "United States Minor Outlying I"
+  },
+  {
+   "key": "URY",
+   "value": 485839880,
+   "year": 2022,
+   "sourceName": "Uruguay"
+  },
+  {
+   "key": "USA",
+   "value": 57727386740,
+   "year": 2022,
+   "sourceName": "United States"
+  },
+  {
+   "key": "UZB",
+   "value": 146622330,
+   "year": 2022,
+   "sourceName": "Uzbekistan"
+  },
+  {
+   "key": "VAT",
+   "value": 19720,
+   "year": 2022,
+   "sourceName": "Holy See"
+  },
+  {
+   "key": "VCT",
+   "value": 7840150,
+   "year": 2022,
+   "sourceName": "St. Vincent and the Grenadines"
+  },
+  {
+   "key": "VEN",
+   "value": 297459000,
+   "year": 2022,
+   "sourceName": "Venezuela"
+  },
+  {
+   "key": "VGB",
+   "value": 4130500,
+   "year": 2022,
+   "sourceName": "British Virgin Islands"
+  },
+  {
+   "key": "VNM",
+   "value": 8435059420,
+   "year": 2022,
+   "sourceName": "Vietnam"
+  },
+  {
+   "key": "VUT",
+   "value": 3417360,
+   "year": 2022,
+   "sourceName": "Vanuatu"
+  },
+  {
+   "key": "WLF",
+   "value": 5890,
+   "year": 2022,
+   "sourceName": "Wallis and Futura Isl."
+  },
+  {
+   "key": "WSM",
+   "value": 4288300,
+   "year": 2022,
+   "sourceName": "Samoa"
+  },
+  {
+   "key": "YEM",
+   "value": 44150250,
+   "year": 2022,
+   "sourceName": "Yemen"
+  },
+  {
+   "key": "ZAF",
+   "value": 4135433350,
+   "year": 2022,
+   "sourceName": "South Africa"
+  },
+  {
+   "key": "ZMB",
+   "value": 370480440,
+   "year": 2022,
+   "sourceName": "Zambia"
+  },
+  {
+   "key": "ZWE",
+   "value": 1130281920,
+   "year": 2022,
+   "sourceName": "Zimbabwe"
+  }
+ ]
+}

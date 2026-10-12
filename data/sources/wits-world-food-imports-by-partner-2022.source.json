@@ -1,0 +1,39 @@
+{
+  "input": "data/raw/WITS2022FoodImports.json",
+  "format": "json",
+  "rowsPath": "WITS_2022_Food_Imports_USD",
+  "entityField": "country",
+  "valueField": "imports_usd",
+  "year": 2022,
+  "dataset": {
+    "id": "wits-world-food-imports-by-partner-2022",
+    "title": "World food-products imports sourced from each partner, 2022",
+    "category": "food",
+    "indicator": {
+      "code": "WITS 16-24_FoodProd, World imports by partner",
+      "name": "World food imports from this partner (≈ food exports)",
+      "unit": "USD",
+      "description": "Value of Food Products (HS 16–24) that all reporting countries imported FROM this country/territory in 2022, i.e. its food exports as recorded by importers."
+    },
+    "source": {
+      "name": "World Bank WITS (from UN Comtrade)",
+      "url": "https://wits.worldbank.org/CountryProfile/en/Country/WLD/Year/2022/TradeFlow/Import/Partner/by-country/Product/16-24_FoodProd",
+      "license": "WITS / UN Comtrade terms of use (attribution required; check before redistribution)"
+    },
+    "year": 2022,
+    "notes": [
+      "Imported from WITS2022FoodImports.json committed to this repo. The file's label says 'imports', but it is the WITS table 'World — Food Products — Import — by Partner' for 2022: WITS lists the top partners as United States, Germany, France, Netherlands and Italy, matching this file's five largest values, and the list contains WITS pseudo-partners (Bunkers, Free Zones, Unspecified).",
+      "WITS displays this table in US$ thousand; the file's values are ~1000× that display (e.g. United States 57.7 billion) and are treated as USD."
+    ],
+    "caveats": [
+      "This measures how much food the world buys FROM an entity (a supplier role), not that entity's own food import dependence. It is shown as context and is NOT used in any dependency score.",
+      "Absolute values are not adjusted for population or economy size."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "lower_more_dependent",
+      "method": "log-minmax",
+      "rationale": "Context only: partner-side flow (≈ exports) in absolute USD. A real food dependency measure (import share of supply) is needed — see 'data needed'."
+    }
+  }
+}

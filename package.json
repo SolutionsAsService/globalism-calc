@@ -1,17 +1,49 @@
 {
   "name": "globalism-calc",
-  "version": "1.0.0",
-  "description": "A calculator web application to assess the dependency of nations on globalism.",
-  "main": "index.js",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "How dependent are countries, states and territories on others to survive? Food, energy and more, from transparent public data.",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
-    "start": "node index.js"
+    "dev": "npm run data:prepare && vite",
+    "build": "npm run data && tsc --noEmit && vite build",
+    "start": "node scripts/serve.mjs",
+    "preview": "npm run build && npm start",
+    "test": "npm run data:prepare && vitest run",
+    "typecheck": "tsc --noEmit",
+    "data": "npm run data:import && npm run data:prepare",
+    "data:entities": "tsx scripts/build-entities.ts",
+    "data:import": "tsx scripts/import.ts",
+    "data:prepare": "tsx scripts/prepare-public.ts"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "ejs": "^3.1.6",
-    "body-parser": "^1.19.0",
-    "axios": "^0.21.1"
+    "d3-geo": "^3.1.1",
+    "d3-scale": "^4.0.2",
+    "d3-scale-chromatic": "^3.1.0",
+    "d3-selection": "^3.0.0",
+    "d3-zoom": "^3.0.0",
+    "topojson-client": "^3.1.0"
   },
-  "author": "Your Name",
-  "license": "ISC"
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.1",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-scale-chromatic": "^3.1.0",
+    "@types/d3-selection": "^3.0.12",
+    "@types/d3-zoom": "^3.0.9",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^26.6.5",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
+    "i18n-iso-countries": "^7.14.0",
+    "jsdom": "^30.1.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4",
+    "world-atlas": "^2.0.2"
+  }
 }

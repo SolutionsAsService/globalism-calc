@@ -1,0 +1,133 @@
+[
+  {
+    "id": "food",
+    "label": "Food",
+    "description": "How much of a population's food supply has to come from abroad.",
+    "defaultWeight": 1,
+    "wanted": [
+      {
+        "name": "Cereal import dependency ratio (%, 3-yr avg)",
+        "source": "FAO Suite of Food Security Indicators (FAOSTAT)",
+        "url": "https://www.fao.org/faostat/en/#data/FS",
+        "why": "Direct share of cereal supply that is imported; already 0-100."
+      },
+      {
+        "name": "Import quantity ÷ domestic supply (Food Balance Sheets)",
+        "source": "FAOSTAT Food Balance Sheets",
+        "url": "https://www.fao.org/faostat/en/#data/FBS",
+        "why": "Import share of consumption across all food groups (kcal or tonnes)."
+      },
+      {
+        "name": "Food imports (% of merchandise imports), TM.VAL.FOOD.ZS.UN",
+        "source": "World Bank WDI",
+        "url": "https://data.worldbank.org/indicator/TM.VAL.FOOD.ZS.UN"
+      }
+    ]
+  },
+  {
+    "id": "energy",
+    "label": "Fuel & energy",
+    "description": "Net energy imports relative to energy use: can the lights stay on without imports?",
+    "defaultWeight": 1,
+    "wanted": [
+      {
+        "name": "Energy imports, net (% of energy use), EG.IMP.CONS.ZS",
+        "source": "World Bank WDI (from IEA)",
+        "url": "https://data.worldbank.org/indicator/EG.IMP.CONS.ZS",
+        "why": "Exact import-share-of-consumption measure; negative = net exporter (scores 0)."
+      },
+      {
+        "name": "Net imports ÷ total energy supply, by fuel",
+        "source": "IEA World Energy Balances / Energy Institute Statistical Review",
+        "url": "https://www.energyinst.org/statistical-review"
+      },
+      {
+        "name": "Petroleum & other liquids net imports",
+        "source": "U.S. EIA International",
+        "url": "https://www.eia.gov/international/data/world"
+      }
+    ]
+  },
+  {
+    "id": "trade",
+    "label": "Trade exposure",
+    "description": "Economy-wide exposure to world trade (exports + imports relative to GDP). Openness, not survival needs: weighted lower by default.",
+    "defaultWeight": 0.5,
+    "wanted": [
+      {
+        "name": "Imports of goods and services (% of GDP), NE.IMP.GNFS.ZS",
+        "source": "World Bank WDI",
+        "url": "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
+        "why": "Import-only side; closer to dependence than total trade."
+      }
+    ]
+  },
+  {
+    "id": "medicine",
+    "label": "Medicine",
+    "description": "Reliance on imported pharmaceuticals and medical supplies.",
+    "defaultWeight": 1,
+    "wanted": [
+      {
+        "name": "Pharmaceutical imports (HS 30) vs. domestic production",
+        "source": "UN Comtrade / WITS + UNIDO INDSTAT",
+        "url": "https://comtradeplus.un.org/"
+      },
+      {
+        "name": "Local production of essential medicines",
+        "source": "WHO",
+        "url": "https://www.who.int/data"
+      }
+    ]
+  },
+  {
+    "id": "minerals",
+    "label": "Minerals & metals",
+    "description": "Reliance on imported critical minerals and metals.",
+    "defaultWeight": 1,
+    "wanted": [
+      {
+        "name": "Net import reliance by mineral (% of apparent consumption)",
+        "source": "USGS Mineral Commodity Summaries (US) / BGS World Mineral Statistics",
+        "url": "https://www.usgs.gov/centers/national-minerals-information-center"
+      },
+      {
+        "name": "Ores & metals imports (% of merchandise imports), TM.VAL.MMTL.ZS.UN",
+        "source": "World Bank WDI",
+        "url": "https://data.worldbank.org/indicator/TM.VAL.MMTL.ZS.UN"
+      }
+    ]
+  },
+  {
+    "id": "manufactured",
+    "label": "Manufactured goods",
+    "description": "Reliance on imported manufactured goods and machinery.",
+    "defaultWeight": 1,
+    "wanted": [
+      {
+        "name": "Manufactures imports (% of merchandise imports), TM.VAL.MANF.ZS.UN",
+        "source": "World Bank WDI",
+        "url": "https://data.worldbank.org/indicator/TM.VAL.MANF.ZS.UN"
+      },
+      {
+        "name": "Manufacturing value added per capita",
+        "source": "UNIDO",
+        "url": "https://stat.unido.org/"
+      }
+    ]
+  },
+  {
+    "id": "water",
+    "label": "Water",
+    "description": "Share of renewable freshwater that originates outside the borders.",
+    "defaultWeight": 1,
+    "wanted": [
+      {
+        "name": "Dependency ratio (% of total renewable water resources originating outside the country)",
+        "source": "FAO AQUASTAT",
+        "url": "https://data.apps.fao.org/aquastat/",
+        "why": "Already a 0-100 dependence measure."
+      }
+    ]
+  }
+]
