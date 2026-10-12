@@ -85,12 +85,22 @@ export interface IndicatorScores {
   dataset: Dataset;
   raw: Map<string, number | null>;
   score: Map<string, Score>;
+  /** Year of each entity's value (rows can differ when a dataset keeps the latest year per entity). */
+  years: Map<string, number>;
+  /** Source flag on each entity's value, if any (e.g. EIA "p"). */
+  flags: Map<string, string>;
 }
 
 export function scoreDataset(ds: Dataset): IndicatorScores {
   const raw = new Map<string, number | null>();
-  for (const r of ds.rows) raw.set(r.key, r.value);
-  return { dataset: ds, raw, score: scoreValues(raw, ds.scoring) };
+  const years = new Map<string, number>();
+  const flags = new Map<string, string>();
+  for (const r of ds.rows) {
+    raw.set(r.key, r.value);
+    years.set(r.key, r.year);
+    if (r.flag) flags.set(r.key, r.flag);
+  }
+  return { dataset: ds, raw, score: scoreValues(raw, ds.scoring), years, flags };
 }
 
 /** Category score = weighted mean of included indicator scores that exist for this entity; null if none. */

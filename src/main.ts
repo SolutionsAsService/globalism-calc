@@ -1,6 +1,7 @@
 import './styles.css';
-import { scaleSequential, scaleSequentialLog } from 'd3-scale';
-import { interpolateYlOrRd, interpolateBlues } from 'd3-scale-chromatic';
+import { scaleSequential, scaleSequentialLog, scaleSequentialSymlog, scaleDivergingSymlog } from 'd3-scale';
+import { interpolateYlOrRd, interpolateBlues, interpolateRdBu } from 'd3-scale-chromatic';
+import { balanceTable, defaultIndicator, FLAG_TITLE, hasViews, picker, sourcesCard, trendCard, unitText, valueText } from './app/energy';
 import { loadModel, compositeFor, hasAnyRow, type Model } from './app/model';
 import { createMap, legend, type Metric, type MapView } from './app/map';
 import { el, fmtScore, fmtValue, typeLabel } from './app/format';
@@ -36,20 +37,51 @@ function fromHash() {
   S.compare = S.compare.filter((k) => M.byKey.has(k));
 }
 
+const samples = (f: (t: number) => string) => Array.from({ length: 11 }, (_, i) => f(i / 10));
+/** symlog with constant 1: sign(x) · log(1 + |x|). */
+const symlog = (x: number) => Math.sign(x) * Math.log1p(Math.abs(x));
+const symexp = (y: number) => Math.sign(y) * Math.expm1(Math.abs(y));
+
 function rawMetric(ind: IndicatorScores): Metric {
-  const { unit, name } = ind.dataset.indicator;
+  const d = ind.dataset;
+  const { unit, name } = d.indicator;
   const vals = [...ind.raw.values()].filter((v): v is number => v != null);
   const min = Math.min(...vals), max = Math.max(...vals);
+  const fmt = (v: number) => fmtValue(v, unit);
+  const years = new Set([...ind.raw].filter(([, v]) => v != null).map(([k]) => ind.years.get(k)));
+  const yearText = years.size > 1 ? `latest year per entity, up to ${d.year}` : String(d.year);
+  const scoreText = d.scoring.include ? 'Score: ' + describeScoring(d.scoring, unit) : `Not used in any score${d.scoring.rationale ? ': ' + d.scoring.rationale : '.'}`;
+  const base = {
+    kind: 'raw' as const, unit, get: (k: string) => ind.raw.get(k) ?? null, domain: [min, max] as [number, number],
+    yearOf: (k: string) => ind.years.get(k), flagOf: (k: string) => ind.flags.get(k),
+    formula: `${d.indicator.description && d.import.from.startsWith('derived:') ? d.indicator.description + ' ' : ''}Raw value from ${d.source.name}, ${yearText}. ${scoreText}`,
+  };
+  if (min < 0 && max > 0) {
+    // Net flows: diverging around 0 (red = net importer, blue = net exporter), symlog so a few giants don't wash out the rest.
+    const interp = (t: number) => interpolateRdBu(1 - t);
+    const scale = scaleDivergingSymlog(interp).domain([min, 0, max]);
+    return { ...base, label: `${name} (${unitText(d)}; red = net importer, blue = net exporter; symmetric log scale)`,
+      color: (v) => scale(v), gradient: samples(interp), ticks: [min, 0, max].map((v) => ({ v, label: fmt(v) })) };
+  }
+  if (min >= 0 && max > 0 && min === 0 && vals.some((v) => v > 0 && max / v > 1000)) {
+    // Heavy-tailed with zeros (most countries import little, a few import a lot): symlog keeps 0 and small values visible.
+    const scale = scaleSequentialSymlog(interpolateBlues).domain([0, max]);
+    const mid = symexp(symlog(max) / 2);
+    return { ...base, label: `${name} (${unitText(d)}, raw value, symmetric log scale)`, color: (v) => scale(v),
+      gradient: samples(interpolateBlues), ticks: [0, mid, max].map((v) => ({ v, label: fmt(v) })) };
+  }
   const useLog = min > 0 && max / min > 1000;
   const scale = useLog ? scaleSequentialLog(interpolateBlues).domain([min, max]) : scaleSequential(interpolateBlues).domain([min, max]);
   const ticks = useLog
-    ? [min, Math.sqrt(min * max), max].map((v) => ({ v, label: fmtValue(v, unit) }))
-    : [min, (min + max) / 2, max].map((v) => ({ v, label: fmtValue(v, unit) }));
-  return {
-    kind: 'raw', label: `${name} (${unit}, raw value${useLog ? ', log scale' : ''})`, unit,
-    get: (k) => ind.raw.get(k) ?? null, color: (v) => scale(v), domain: [min, max], ticks,
-    formula: `Raw value from ${ind.dataset.source.name}, ${ind.dataset.year}. ${ind.dataset.scoring.include ? 'Score: ' + describeScoring(ind.dataset.scoring, unit) : 'Not used in any score.'}`,
-  };
+    ? [min, Math.sqrt(min * max), max].map((v) => ({ v, label: fmt(v) }))
+    : [min, (min + max) / 2, max].map((v) => ({ v, label: fmt(v) }));
+  return { ...base, label: `${name} (${unitText(d)}, raw value${useLog ? ', log scale' : ''})`, color: (v) => scale(v), ticks };
+}
+
+/** The dataset shown for a category when no indicator is chosen (and the category has no score). */
+function shownIndicator(cat: string): IndicatorScores | undefined {
+  const inds = M.byCat[cat] ?? [];
+  return (S.indicator ? inds.find((i) => i.dataset.id === S.indicator) : undefined) ?? (inds.length ? defaultIndicator(inds) : undefined);
 }
 
 function scoreMetric(label: string, get: (k: string) => number | null, formula: string): Metric {
@@ -73,7 +105,7 @@ function currentMetric(): Metric | null {
   if (!chosen && M.status[S.cat] === 'scored') {
     return scoreMetric(`${catLabel(S.cat)} dependence score (0–100)`, (k) => M.catScores.get(k)?.[S.cat] ?? null, categoryFormula(S.cat));
   }
-  return rawMetric(chosen ?? inds[0]);
+  return rawMetric(chosen ?? shownIndicator(S.cat)!);
 }
 
 function visibleEntities(): Entity[] {
@@ -139,7 +171,11 @@ function renderAtlas(main: HTMLElement) {
   const mapCard = el('section', { class: 'card map-card', 'aria-labelledby': 'map-title' });
   const head = el('div', { class: 'map-head' }, el('h2', { id: 'map-title' }, S.cat === 'composite' ? 'Composite dependence index' : cat!.label));
   if (cat) head.append(el('p', { class: 'muted' }, cat.description));
-  if (inds.length) {
+  const viewMode = inds.length > 0 && hasViews(inds) && !(M.status[cat!.id] === 'scored' && !S.indicator);
+  const shown = cat ? shownIndicator(cat.id) : undefined;
+  if (viewMode && shown?.dataset.view) {
+    head.append(picker(inds, shown, (id) => navigate({ indicator: id })));
+  } else if (inds.length) {
     const sel = el('select', { id: 'indicator-select', onchange: (ev: Event) => navigate({ indicator: (ev.target as HTMLSelectElement).value || undefined }) });
     if (M.status[cat!.id] === 'scored') sel.append(el('option', { value: '' }, 'Category score (0–100)'));
     for (const i of inds) sel.append(el('option', { value: i.dataset.id, selected: S.indicator === i.dataset.id }, `${i.dataset.indicator.name} (${i.dataset.year}, raw)`));
@@ -150,8 +186,8 @@ function renderAtlas(main: HTMLElement) {
   if (cat && M.status[cat.id] === 'needed') mapCard.append(dataNeededBanner(cat.id));
   if (cat && M.status[cat.id] === 'context') {
     mapCard.append(el('div', { class: 'banner warn', role: 'note' },
-      el('strong', {}, 'Context only. '), 'No dataset in this category measures dependence yet, so there is no score. The map shows raw values. ',
-      ...(inds[0]?.dataset.caveats?.slice(0, 1) ?? []), ' ', el('a', { href: '#need-' + cat.id, onclick: (ev: Event) => { ev.preventDefault(); document.getElementById('need-' + cat.id)?.scrollIntoView({ behavior: 'smooth' }); } }, 'Data needed ↓')));
+      el('strong', {}, 'Context only. '), 'No dataset in this category is used in the dependence score yet, so there is no category score. The map shows raw values. ',
+      ...(shown?.dataset.caveats?.slice(0, 1) ?? []), ' ', el('a', { href: '#need-' + cat.id, onclick: (ev: Event) => { ev.preventDefault(); document.getElementById('need-' + cat.id)?.scrollIntoView({ behavior: 'smooth' }); } }, 'Data needed ↓')));
   }
   if (S.cat === 'composite') {
     const used = M.categories.filter((c) => M.status[c.id] === 'scored' && (S.weights[c.id] ?? 0) > 0).map((c) => c.label);
@@ -176,7 +212,10 @@ function renderAtlas(main: HTMLElement) {
 
   const weights = weightsCard();
   const grid = el('div', { class: 'atlas-grid' }, mapCard, detail, weights);
-  main.append(grid, rankingCard(metric));
+  main.append(grid);
+  if (cat && shown && hasViews(inds) && metric?.kind === 'raw') main.append(trendCard(inds, shown, S.selected, entityName));
+  main.append(rankingCard(metric));
+  if (cat && hasViews(inds)) main.append(sourcesCard(inds));
   if (cat && M.status[cat.id] !== 'scored') main.append(wantedCard(cat.id));
 }
 
@@ -252,7 +291,15 @@ function renderDetail(box: HTMLElement) {
     row.append(el('div', { class: 'cat-row-head' },
       el('span', { class: 'cat-name' }, c.label),
       st === 'scored' ? scoreBar(s) : el('span', { class: 'badge' }, statusText[st])));
-    for (const ind of M.byCat[c.id] ?? []) row.append(indicatorBlock(ind, e.key));
+    const cinds = M.byCat[c.id] ?? [];
+    if (hasViews(cinds)) {
+      row.append(balanceTable(cinds, e.key));
+      const src = cinds[0].dataset.source;
+      row.append(el('div', { class: 'small muted' }, el('a', { href: src.url, target: '_blank', rel: 'noopener' }, src.name), ` · ${src.license}`));
+      for (const ind of cinds.filter((i) => !i.dataset.view)) row.append(indicatorBlock(ind, e.key));
+    } else {
+      for (const ind of cinds) row.append(indicatorBlock(ind, e.key));
+    }
     box.append(row);
   }
   box.append(el('div', { class: 'detail-actions' },
@@ -269,11 +316,10 @@ function scoreBar(s: number | null): HTMLElement {
 function indicatorBlock(ind: IndicatorScores, key: string): HTMLElement {
   const d = ind.dataset;
   const has = ind.raw.has(key);
-  const v = ind.raw.get(key) ?? null;
   const sc = ind.score.get(key) ?? null;
   return el('div', { class: 'indicator' },
     el('div', { class: 'ind-name' }, d.indicator.name, d.scoring.include ? null : el('span', { class: 'badge' }, 'context only')),
-    el('div', { class: 'ind-value' }, has ? fmtValue(v, d.indicator.unit) : 'not in dataset', ' · ', String(d.year),
+    el('div', { class: 'ind-value' }, has ? valueText(ind, key) : 'not in dataset', ' · ', String(ind.years.get(key) ?? d.year),
       d.scoring.include ? ` · score ${fmtScore(sc)}` : ''),
     el('div', { class: 'small muted' }, el('a', { href: d.source.url, target: '_blank', rel: 'noopener' }, d.source.name), ` · ${d.source.license}`),
     d.caveats?.length ? el('div', { class: 'small caveat' }, d.caveats[0]) : null,
@@ -304,7 +350,10 @@ function rankingCard(metric: Metric | null): HTMLElement {
     { id: 'type', label: 'Type', get: (e) => typeLabel[e.type], fmt: (v) => String(v), num: false },
   ];
   if (metric) cols.push({ id: 'metric', label: metric.kind === 'score' ? (S.cat === 'composite' ? 'Composite' : catLabel(S.cat) + ' score') : `Raw (${metric.unit})`,
-    get: (e) => metric.get(e.key), fmt: (v) => (metric.kind === 'score' ? fmtScore(v as number | null) : fmtValue(v as number | null, metric.unit)), num: true });
+    get: (e) => metric.get(e.key), num: true,
+    fmt: (v) => (metric.kind === 'score' ? fmtScore(v as number | null) : fmtValue(v as number | null, metric.unit)) });
+  const yearSet = metric?.yearOf ? new Set(visibleEntities().filter((e) => metric.get(e.key) != null).map((e) => metric.yearOf!(e.key))) : new Set();
+  if (metric?.yearOf && yearSet.size > 1) cols.push({ id: 'year', label: 'Year', get: (e) => (metric.get(e.key) != null ? metric.yearOf!(e.key) ?? null : null), fmt: (v) => (v == null ? '—' : String(v)), num: true });
   if (S.cat !== 'composite') cols.push({ id: 'composite', label: 'Composite', get: (e) => compositeFor(M, e.key, S.weights).dependence, fmt: (v) => fmtScore(v as number | null), num: true });
   for (const c of scoredCats) if (c.id !== S.cat || metric?.kind === 'raw') cols.push({ id: 'cat:' + c.id, label: c.label, get: (e) => M.catScores.get(e.key)?.[c.id] ?? null, fmt: (v) => fmtScore(v as number | null), num: true });
 
@@ -336,8 +385,12 @@ function rankingCard(metric: Metric | null): HTMLElement {
       for (const c of cols) {
         const v = c.get(e);
         if (c.id === 'name') tr.append(el('td', {}, el('button', { type: 'button', class: 'link-btn', onclick: () => navigate({ selected: e.key }) }, e.name)));
-        else tr.append(el('td', { class: (c.num ? 'num' : '') + (v == null ? ' missing' : '') },
-          c.num && metric?.kind === 'score' && typeof v === 'number' && c.id !== 'type' ? el('span', { class: 'dot', style: `background:${scoreColor(v)}`, 'aria-hidden': 'true' }) : null, c.fmt(v)));
+        else {
+          const flag = c.id === 'metric' && v != null ? metric?.flagOf?.(e.key) : undefined;
+          tr.append(el('td', { class: (c.num ? 'num' : '') + (v == null ? ' missing' : '') },
+            c.num && metric?.kind === 'score' && typeof v === 'number' && c.id !== 'type' ? el('span', { class: 'dot', style: `background:${scoreColor(v)}`, 'aria-hidden': 'true' }) : null, c.fmt(v),
+            flag ? el('abbr', { class: 'flag', title: FLAG_TITLE[flag] ?? `Source flag "${flag}"` }, flag) : null));
+        }
       }
       tbody.append(tr);
     });
@@ -377,7 +430,11 @@ function renderCompare(main: HTMLElement) {
       ...ks.map((k) => el('td', {}, st === 'scored' ? scoreBar(M.catScores.get(k)?.[c.id] ?? null) : ''))));
     for (const ind of M.byCat[c.id] ?? []) {
       tbody.append(el('tr', {}, el('th', { scope: 'row', class: 'sub' }, `${ind.dataset.indicator.name} (${ind.dataset.year})`),
-        ...ks.map((k) => el('td', { class: ind.raw.get(k) == null ? 'missing' : '' }, ind.raw.has(k) ? fmtValue(ind.raw.get(k) ?? null, ind.dataset.indicator.unit) : 'not in dataset'))));
+        ...ks.map((k) => {
+          const y = ind.years.get(k);
+          const other = ind.raw.get(k) != null && y !== undefined && y !== ind.dataset.year;
+          return el('td', { class: ind.raw.get(k) == null ? 'missing' : '' }, valueText(ind, k), other ? el('span', { class: 'yr' }, String(y)) : null);
+        })));
     }
   }
   card.append(el('div', { class: 'table-wrap' }, el('table', { class: 'cmp-table' },
@@ -419,8 +476,9 @@ function renderMethod(main: HTMLElement) {
       el('dl', { class: 'meta' },
         ...meta('Category', catLabel(d.category)),
         ...meta('Indicator', `${d.indicator.name}${d.indicator.code ? ' [' + d.indicator.code + ']' : ''}`),
-        ...meta('Unit', d.indicator.unit), ...meta('Year', String(d.year)),
+        ...meta('Unit', unitText(d)), ...meta('Year', d.series ? `${d.year} (latest; series from ${d.series.start})` : String(d.year)),
         ...meta('Source', el('a', { href: d.source.url, target: '_blank', rel: 'noopener' }, d.source.name)),
+        ...(d.source.citation ? meta('Citation', d.source.citation) : []),
         ...meta('License', d.source.license),
         ...meta('Coverage', `${withVal} entities with values, ${raw.size - withVal} listed without a value`),
         ...meta('Scoring', d.scoring.include ? describeScoring(d.scoring, d.indicator.unit) : 'Not scored (context only)'),
@@ -430,7 +488,8 @@ function renderMethod(main: HTMLElement) {
       ...(d.caveats ?? []).map((c) => el('p', { class: 'small caveat' }, '⚠ ', c)),
       ...(d.notes ?? []).map((n) => el('p', { class: 'small muted' }, n)),
       el('details', {}, el('summary', {}, `Import report: ${d.import.skipped.length} source labels skipped`),
-        el('p', { class: 'small muted' }, `From ${d.import.from} via ${d.import.spec}; ${d.import.rowsRead} rows read, ${d.import.matched} matched.`),
+        el('p', { class: 'small muted' }, `From ${d.import.from} via ${d.import.spec}; ${d.import.rowsRead} rows read, ${d.import.matched} matched.`,
+          d.import.markers && Object.keys(d.import.markers).length ? ` Non-numeric markers kept as missing: ${Object.entries(d.import.markers).map(([k, n]) => `"${k}" ×${n}`).join(', ')}.` : ''),
         el('ul', { class: 'small' }, ...d.import.skipped.map((s) => el('li', {}, `${s.name}: ${s.reason}`)))),
     ));
   }

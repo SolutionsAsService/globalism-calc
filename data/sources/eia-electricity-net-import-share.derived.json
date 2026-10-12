@@ -1,0 +1,51 @@
+{
+  "derive": {
+    "op": "net-share",
+    "imports": "eia-electricity-imports",
+    "exports": "eia-electricity-exports",
+    "base": "eia-electricity-net-consumption"
+  },
+  "dataset": {
+    "id": "eia-electricity-net-import-share",
+    "title": "Electricity net imports as % of net consumption (EIA, derived)",
+    "category": "energy",
+    "indicator": {
+      "name": "Electricity net imports (% of net consumption)",
+      "unit": "% of net consumption",
+      "description": "100 × (electricity imports − electricity exports) ÷ electricity net consumption, same country and year, all three in BKWH (billion kilowatt-hours) from EIA. Positive = share of consumption covered by net imports; negative = net exporter."
+    },
+    "source": {
+      "name": "U.S. Energy Information Administration (EIA), International Energy Statistics",
+      "url": "https://www.eia.gov/international/data/world",
+      "license": "Public domain (U.S. Government data); EIA asks to be credited as the source",
+      "citation": "Derived from U.S. EIA International Energy Statistics exports \"electricity-imports-SeriesExport-10-12-2026-18-32-26.json\", \"electricity-exports-SeriesExport-10-12-2026-18-32-54.json\" and \"net-electric-consumption-SeriesExport-10-12-2026-18-31-43.json\".",
+      "retrieved": "2026-10-12"
+    },
+    "year": 2024,
+    "notes": [
+      "Computed by npm run data:import: for each entity, the latest year in which imports, exports and net consumption all have a number and consumption is above 0. Entities with no such year are kept as missing.",
+      "This is the only import-dependence share these EIA exports support: electricity is the only fuel with both trade and consumption in the same unit. Crude oil, natural gas, LPG and coal have no consumption series here."
+    ],
+    "caveats": [
+      "Covers grid electricity only. A country that generates its own power from imported fuel (e.g. Japan or South Korea with imported LNG and coal) shows close to 0 here, so this is not overall energy dependence.",
+      "Net consumption excludes transmission and distribution losses, so for small systems that import most of their power net imports can exceed 100% of net consumption (e.g. Lesotho)."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "fixed-range",
+      "range": [
+        0,
+        100
+      ],
+      "rationale": "A real import-dependence share (0–100, net exporters ≤ 0), but for electricity only. Scoring it as the whole \"Fuel & energy\" category would rate fuel importers that burn imported fuel at home near 0, so it is shown and compared but not scored yet. Set scoring.include to true in data/sources/eia-electricity-net-import-share.derived.json to score it."
+    },
+    "view": {
+      "group": "electricity",
+      "groupLabel": "Electricity",
+      "flow": "net-import-share",
+      "flowLabel": "Net imports % of consumption",
+      "order": 5
+    }
+  }
+}

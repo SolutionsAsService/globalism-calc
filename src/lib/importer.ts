@@ -1,6 +1,7 @@
-import type { Dataset, DatasetMeta, DatasetRow, Entity, ImportReport } from './types';
+import type { Dataset, DatasetMeta, DatasetRow, DatasetSeries, Entity, ImportReport } from './types';
 import { buildMatcher, type AliasFile } from './names';
 import { csvToObjects } from './csv';
+import { flattenEiaSeriesExport } from './eia';
 
 /**
  * A source spec (data/sources/<id>.source.json) describes how to turn one raw file into a normalized dataset.
@@ -9,7 +10,8 @@ import { csvToObjects } from './csv';
 export interface SourceSpec {
   /** Path of the raw file, relative to the repo root. */
   input: string;
-  format: 'json' | 'csv';
+  /** eia-series: EIA International "SeriesExport" JSON; flattened to rows with iso, productid, activityid, unit, year, value, flag, marker. */
+  format: 'json' | 'csv' | 'eia-series';
   /** JSON only: dot path to the array of row objects (e.g. "countries" or "data.items"). Omit if the file is an array. */
   rowsPath?: string;
   /** CSV only. */
@@ -28,6 +30,14 @@ export interface SourceSpec {
   scale?: number;
   /** Optional filter: only keep rows where row[field] === value (e.g. a product or indicator code). */
   where?: Record<string, string>;
+  /** Field holding the unit of each row; every kept row must have unit === dataset.indicator.unit (no unit guessing). */
+  unitField?: string;
+  /** Field holding a source flag for the value (copied to the output row as `flag`). */
+  flagField?: string;
+  /** Field holding a non-numeric source marker (e.g. "NA"); counted in import.markers. */
+  markerField?: string;
+  /** Long format only: also keep the full annual series per entity (Dataset.series), e.g. for trend charts and derived datasets. */
+  keepSeries?: boolean;
   /** Fail when a label can't be matched (default true). Set false only while exploring. */
   strict?: boolean;
   dataset: DatasetMeta;
@@ -53,6 +63,7 @@ function getPath(obj: unknown, path?: string): unknown {
 
 export function readRows(spec: SourceSpec, text: string): Record<string, unknown>[] {
   if (spec.format === 'csv') return csvToObjects(text, spec.csv);
+  if (spec.format === 'eia-series') return flattenEiaSeriesExport(text) as unknown as Record<string, unknown>[];
   const parsed = JSON.parse(text);
   const rows = getPath(parsed, spec.rowsPath);
   if (!Array.isArray(rows)) throw new Error(`rowsPath "${spec.rowsPath ?? ''}" did not resolve to an array`);
@@ -82,16 +93,28 @@ export function normalize(
   const unmatched: string[] = [];
   const best = new Map<string, DatasetRow & { names: Set<string> }>();
   const duplicates = new Map<string, Set<string>>();
+  const markers: Record<string, number> = {};
+  const series = new Map<string, Map<number, { value: number | null; flag?: string }>>();
+  if (spec.keepSeries && !spec.yearField) throw new Error(`${specPath}: keepSeries requires yearField`);
   let rowsRead = 0;
 
   for (const r of rows) {
     if (spec.where && !Object.entries(spec.where).every(([k, v]) => String(r[k] ?? '') === v)) continue;
     rowsRead++;
+    if (spec.markerField && r[spec.markerField] != null) {
+      const mk = String(r[spec.markerField]);
+      markers[mk] = (markers[mk] ?? 0) + 1;
+    }
     const label = String(r[spec.entityField] ?? '').trim();
     if (!label) continue;
     const m = matcher.match(label);
     if (!m) { unmatched.push(label); continue; }
-    if ('skip' in m) { skipped.push({ name: label, reason: m.skip }); continue; }
+    if ('skip' in m) { if (!skipped.some((s) => s.name === label)) skipped.push({ name: label, reason: m.skip }); continue; }
+    if (spec.unitField && String(r[spec.unitField] ?? '') !== spec.dataset.indicator.unit) {
+      throw new Error(`${specPath}: "${label}" has unit "${String(r[spec.unitField] ?? '')}" but the dataset declares "${spec.dataset.indicator.unit}"`);
+    }
+    const flagRaw = spec.flagField ? r[spec.flagField] : undefined;
+    const flag = flagRaw != null && flagRaw !== '' ? String(flagRaw) : undefined;
 
     let value: number | null = null;
     let year: number | undefined = spec.year;
@@ -108,14 +131,20 @@ export function normalize(
     }
     if (year === undefined || !Number.isFinite(year)) throw new Error(`${specPath}: no year for "${label}" (set year, yearField or valueColumns)`);
     if (value !== null) value *= scale;
+    if (spec.keepSeries) {
+      const s = series.get(m.key) ?? new Map();
+      s.set(year, { value, ...(flag ? { flag } : {}) });
+      series.set(m.key, s);
+    }
 
     const prev = best.get(m.key);
-    if (!prev) { best.set(m.key, { key: m.key, value, year, sourceName: label, names: new Set([label]) }); continue; }
+    if (!prev) { best.set(m.key, { key: m.key, value, year, sourceName: label, ...(flag ? { flag } : {}), names: new Set([label]) }); continue; }
     prev.names.add(label);
     if (spec.yearField && prev.year !== year) {
       // Long format: keep the latest year that has a value.
       if ((value !== null && (prev.value === null || year > prev.year)) || (prev.value === null && value === null && year > prev.year)) {
         Object.assign(prev, { value, year, sourceName: label });
+        if (flag) prev.flag = flag; else delete prev.flag;
       }
       continue;
     }
@@ -133,6 +162,23 @@ export function normalize(
     .map(({ names: _n, ...row }) => row)
     .sort((a, b) => a.key.localeCompare(b.key));
 
+  let outSeries: DatasetSeries | undefined;
+  if (spec.keepSeries) {
+    const years = [...series.values()].flatMap((s) => [...s.keys()]);
+    const start = Math.min(...years), end = Math.max(...years);
+    const values: DatasetSeries['values'] = {};
+    const flags: NonNullable<DatasetSeries['flags']> = {};
+    for (const key of [...series.keys()].sort()) {
+      const s = series.get(key)!;
+      const arr: (number | null)[] = [];
+      for (let y = start; y <= end; y++) arr.push(s.get(y)?.value ?? null);
+      if (arr.every((v) => v === null)) continue; // nothing to plot; the row already records the entity as missing
+      values[key] = arr;
+      for (const [y, o] of s) if (o.flag && o.value !== null) (flags[key] ??= {})[String(y)] = o.flag;
+    }
+    outSeries = { start, end, values, ...(Object.keys(flags).length ? { flags } : {}) };
+  }
+
   return {
     schemaVersion: 1,
     ...spec.dataset,
@@ -144,7 +190,9 @@ export function normalize(
       missingValues: outRows.filter((r) => r.value === null).length,
       skipped,
       duplicates: [...duplicates].map(([key, names]) => ({ key, names: [...names] })),
+      ...(spec.markerField ? { markers } : {}),
     },
     rows: outRows,
+    ...(outSeries ? { series: outSeries } : {}),
   };
 }

@@ -1,0 +1,46 @@
+{
+  "derive": {
+    "op": "net",
+    "imports": "eia-natural-gas-imports",
+    "exports": "eia-natural-gas-exports"
+  },
+  "dataset": {
+    "id": "eia-natural-gas-net-imports",
+    "title": "Dry natural gas net imports (EIA, derived)",
+    "category": "energy",
+    "indicator": {
+      "name": "Dry natural gas net imports (imports − exports)",
+      "unit": "BCF",
+      "unitLabel": "billion cubic feet",
+      "description": "EIA dry natural gas imports minus exports for the same country and year, in BCF (billion cubic feet). Positive = net importer, negative = net exporter."
+    },
+    "source": {
+      "name": "U.S. Energy Information Administration (EIA), International Energy Statistics",
+      "url": "https://www.eia.gov/international/data/world",
+      "license": "Public domain (U.S. Government data); EIA asks to be credited as the source",
+      "citation": "Derived from U.S. EIA International Energy Statistics exports \"nat-gas-import-SeriesExport-10-12-2026-18-14-20.json\" and \"nat-gas-exports-SeriesExport-10-12-2026-18-16-21.json\".",
+      "retrieved": "2026-10-12"
+    },
+    "year": 2024,
+    "notes": [
+      "Computed by npm run data:import from eia-natural-gas-imports and eia-natural-gas-exports: for each entity, the latest year in which both have a number. Entities with no such year are kept as missing.",
+      "Both inputs state the same unit (BCF); the importer refuses to combine series with different units."
+    ],
+    "caveats": [
+      "Absolute volume in source units: not adjusted for consumption, population or economy size, so large economies dominate. It shows the net trade balance, not a dependence share."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "minmax",
+      "rationale": "Net trade volume in absolute units; without consumption of the same fuel it is not a dependence share, so it is context only."
+    },
+    "view": {
+      "group": "natural-gas",
+      "groupLabel": "Dry natural gas",
+      "flow": "net-imports",
+      "flowLabel": "Net imports",
+      "order": 2
+    }
+  }
+}

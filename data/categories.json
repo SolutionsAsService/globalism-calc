@@ -37,14 +37,15 @@
         "why": "Exact import-share-of-consumption measure; negative = net exporter (scores 0)."
       },
       {
+        "name": "Dry natural gas and coal consumption by country (plus a coal exports export)",
+        "source": "U.S. EIA International Energy Statistics",
+        "url": "https://www.eia.gov/international/data/world",
+        "why": "Same product and unit as the EIA gas (BCF) and coal (TST) trade already in the atlas, so (imports − exports) ÷ consumption gives a real net-import share per fuel. For oil, crude imports and petroleum-product consumption are different products, so they should not be divided."
+      },
+      {
         "name": "Net imports ÷ total energy supply, by fuel",
         "source": "IEA World Energy Balances / Energy Institute Statistical Review",
         "url": "https://www.energyinst.org/statistical-review"
-      },
-      {
-        "name": "Petroleum & other liquids net imports",
-        "source": "U.S. EIA International",
-        "url": "https://www.eia.gov/international/data/world"
       }
     ]
   },

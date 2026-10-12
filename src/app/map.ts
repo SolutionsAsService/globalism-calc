@@ -17,6 +17,11 @@ export interface Metric {
   domain: [number, number];
   ticks: { v: number; label: string }[];
   formula: string;
+  /** Legend gradient stops (left to right) when the scale is not linear/log in value space (e.g. symlog, diverging). */
+  gradient?: string[];
+  /** Year and source flag of each entity's value (raw metrics). */
+  yearOf?(key: string): number | undefined;
+  flagOf?(key: string): string | undefined;
 }
 
 type F = Feature<Geometry, { name: string }> & { id?: string };
@@ -96,7 +101,7 @@ export function createMap(container: HTMLElement, topo: unknown, entities: Entit
 export function legend(metric: Metric | null): HTMLElement {
   const box = el('div', { class: 'legend' });
   if (!metric) return box;
-  const stops = Array.from({ length: 11 }, (_, i) => {
+  const stops = metric.gradient ? metric.gradient.map((c, i, all) => `${c} ${Math.round((100 * i) / (all.length - 1))}%`) : Array.from({ length: 11 }, (_, i) => {
     const [a, b] = metric.domain;
     const v = metric.kind === 'raw' && a > 0 ? Math.exp(Math.log(a) + (i / 10) * (Math.log(b) - Math.log(a))) : a + (i / 10) * (b - a);
     return `${metric.color(v)} ${i * 10}%`;

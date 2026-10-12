@@ -1,0 +1,59 @@
+{
+  "input": "data/raw/eia/hydrocarbon-gas-imports-SeriesExport-10-12-2026-18-28-34.json",
+  "format": "eia-series",
+  "entityField": "iso",
+  "valueField": "value",
+  "yearField": "year",
+  "where": {
+    "productid": "13",
+    "activityid": "3"
+  },
+  "unitField": "unit",
+  "flagField": "flag",
+  "markerField": "marker",
+  "keepSeries": true,
+  "dataset": {
+    "id": "eia-lpg-ethane-imports",
+    "title": "LPG and ethane imports (EIA)",
+    "category": "energy",
+    "indicator": {
+      "code": "INTL.13-3-<ISO>-TBPD.A",
+      "name": "LPG and ethane imports",
+      "unit": "TBPD",
+      "unitLabel": "thousand barrels per day",
+      "description": "LPG and ethane imports per country, annual, in TBPD (thousand barrels per day), as published by EIA. Series 1980–2014 (latest year with data)."
+    },
+    "source": {
+      "name": "U.S. Energy Information Administration (EIA), International Energy Statistics",
+      "url": "https://www.eia.gov/international/data/world",
+      "license": "Public domain (U.S. Government data); EIA asks to be credited as the source",
+      "citation": "U.S. EIA International Energy Statistics, data browser export \"hydrocarbon-gas-imports-SeriesExport-10-12-2026-18-28-34.json\", exported 2026-10-12 18:28:34 UTC (time from the filename; UTC inferred because the files were committed at 18:41 UTC the same day).",
+      "retrieved": "2026-10-12"
+    },
+    "year": 2014,
+    "notes": [
+      "Imported from data/raw/eia/hydrocarbon-gas-imports-SeriesExport-10-12-2026-18-28-34.json (EIA SeriesExport, 228 series, product 13, activity 3, unit TBPD as stated in every series).",
+      "The raw file also has separate \"LPG\" (product 6899) and \"Ethane\" (product 8499) series; the combined \"LPG and ethane\" series (product 13) is shown.",
+      "Each entity shows its latest year with a numeric value (the year is shown next to the value); the full annual series is kept for the trend chart and for derived net-import figures.",
+      "EIA writes \"--\", \"NA\" or \"ie\" instead of a number in some cells. All three are kept as missing values, never as 0 (counts per marker for each file are in its import report). Across these EIA exports, \"ie\" appears only for Guadeloupe, French Guiana, Martinique and Réunion from 2011 on, consistent with EIA's \"included elsewhere\" (reported within France).",
+      "Codes that are not current countries/territories are skipped: World (WORL), former states (U.S.S.R., Czechoslovakia, Yugoslavia, Serbia and Montenegro, East/West Germany, Netherlands Antilles) and EIA groupings (Hawaiian Trade Zone, U.S. Pacific Islands, U.S. Territories, Wake Island). EIA's Kosovo code XKS is mapped to XKX."
+    ],
+    "caveats": [
+      "Absolute volume in source units: not adjusted for consumption, population or economy size, so large economies dominate. It shows trade flows, not a dependence share.",
+      "This EIA series ends in 2014 (latest values 2012–2014), so it is much older than the other energy datasets."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "log-minmax",
+      "rationale": "Absolute volume; without each country's consumption of the same fuel it cannot be turned into an import-dependence share, so it is context only."
+    },
+    "view": {
+      "group": "lpg-ethane",
+      "groupLabel": "LPG & ethane",
+      "flow": "imports",
+      "flowLabel": "Imports",
+      "order": 3
+    }
+  }
+}

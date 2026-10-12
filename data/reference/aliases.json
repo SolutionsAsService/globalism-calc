@@ -59,7 +59,8 @@
     "Channel Islands": "CHI",
     "Russian Federation": "RUS",
     "Tanzania": "TZA",
-    "Syrian Arab Republic": "SYR"
+    "Syrian Arab Republic": "SYR",
+    "XKS": "XKX"
   },
   "nonEntities": {
     "Africa Eastern and Southern": "World Bank regional/income aggregate (not an entity)",
@@ -164,6 +165,18 @@
     "Free Zones": "WITS pseudo-partner, not an entity",
     "Special Categories": "WITS pseudo-partner, not an entity",
     "Unspecified": "WITS pseudo-partner, not an entity",
-    "Other Asia, nes": "WITS 'Other Asia, not elsewhere specified' (in practice largely Taiwan, but not attributable with certainty), not mapped"
+    "Other Asia, nes": "WITS 'Other Asia, not elsewhere specified' (in practice largely Taiwan, but not attributable with certainty), not mapped",
+    "WORL": "EIA world total (aggregate)",
+    "SUN": "Former U.S.S.R. (historical EIA series)",
+    "CSK": "Former Czechoslovakia (historical EIA series)",
+    "YUG": "Former Yugoslavia (historical EIA series)",
+    "SCG": "Former Serbia and Montenegro (historical EIA series)",
+    "DDR": "Germany, East (historical EIA series)",
+    "DEUW": "Germany, West (historical EIA series)",
+    "NLDA": "Netherlands Antilles, dissolved 2010 (historical EIA series)",
+    "HITZ": "Hawaiian Trade Zone (EIA pseudo-area)",
+    "USIQ": "U.S. Pacific Islands (EIA grouping)",
+    "USOH": "U.S. Territories (EIA grouping)",
+    "WAK": "Wake Island: part of U.S. Minor Outlying Islands (UMI); not mapped to UMI to avoid treating one island as the whole group"
   }
 }

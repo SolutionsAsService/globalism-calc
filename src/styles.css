@@ -141,3 +141,30 @@ tr.selected td { background: var(--warn-bg); }
 .meta dt { color: var(--muted); }
 .meta dd { margin: 0; }
 .site-footer { padding: 1rem clamp(1rem, 3vw, 2rem) 2rem; color: var(--muted); font-size: .85rem; text-align: center; }
+
+/* energy (category datasets with fuel × flow views) */
+.energy-picker { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; }
+.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg-btn { font: inherit; font-size: .88rem; padding: .35rem .7rem; border: 0; border-right: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; }
+.seg-btn:last-child { border-right: 0; }
+.seg-btn[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.balance-wrap { margin-top: .4rem; max-height: none; }
+table.balance { font-size: .8rem; table-layout: fixed; }
+table.balance th, table.balance td { padding: .3rem .3rem; white-space: normal; overflow-wrap: anywhere; }
+table.balance thead th:first-child, table.balance tbody th { width: 34%; }
+table.balance tr.sub th, table.balance th.sub { font-weight: 400; color: var(--muted); padding-left: .9rem; }
+.yr { display: block; font-size: .7rem; color: var(--muted); }
+td.num .yr { text-align: right; }
+.flag { margin-left: .2rem; font-size: .7rem; vertical-align: super; color: var(--warn); text-decoration: none; cursor: help; }
+.trend-legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; font-size: .85rem; margin: .2rem 0 .4rem; }
+.trend-legend .key { display: inline-flex; align-items: center; gap: .35rem; }
+.trend-legend .swatch { width: 18px; height: 0; border-top: 3px solid var(--c); }
+.trend-legend .swatch.dash { border-top-style: dashed; }
+.trend-svg { display: block; width: 100%; max-width: 900px; height: auto; }
+.trend-svg .grid { stroke: var(--border); stroke-width: 1; }
+.trend-svg .axis-zero { stroke: var(--muted); stroke-width: 1; }
+.trend-svg .tick { fill: var(--muted); font-size: 11px; }
+.trend-table { max-width: 640px; }
+.sources-table td.wrap { white-space: normal; max-width: 34ch; }
+.sources-table code { font-size: .78rem; word-break: break-all; }
+.notes li { margin-bottom: .3rem; }
