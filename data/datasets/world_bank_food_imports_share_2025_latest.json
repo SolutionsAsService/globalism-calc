@@ -1,0 +1,4536 @@
+{
+  "dataset_id": "world_bank_food_imports_share_merchandise_imports",
+  "dataset_title": "Food imports (% of merchandise imports)",
+  "description": "Latest available country/economy and aggregate observations for food as a share of merchandise imports, transcribed from the supplied World Bank Data table.",
+  "indicator": {
+    "name": "Food imports (% of merchandise imports)",
+    "code": "TM.VAL.FOOD.ZS.UN",
+    "definition": "Food imports as a percentage of total merchandise imports.",
+    "unit": "percent",
+    "interpretation": "A value of 15 means food represented 15% of merchandise imports for the reported observation year.",
+    "coverage_displayed_by_source": "1962–2025"
+  },
+  "source_metadata": {
+    "publisher": "World Bank Group",
+    "database": "World Development Indicators (WDI)",
+    "source_page": "https://data.worldbank.org/indicator/TM.VAL.FOOD.ZS.UN",
+    "underlying_sources": [
+      {
+        "name": "Comtrade database, United Nations",
+        "publisher": "UN Statistics Division"
+      },
+      {
+        "name": "World Integrated Trade Solution system",
+        "abbreviation": "WITS"
+      },
+      {
+        "name": "Staff estimates",
+        "publisher": "World Bank"
+      }
+    ],
+    "license": "CC BY-4.0",
+    "source_table_columns": [
+      "Country",
+      "Most Recent Year",
+      "Most Recent Value"
+    ],
+    "observation_semantics": "Each row contains the most recent observation shown for that entity; different entities may have different observation years.",
+    "missing_data_handling": "Blank year and value cells are represented as null. A blank is not interpreted as zero.",
+    "transcription_notes": [
+      "All rows and values were transcribed from the user-provided table, including the listed aggregate rows and missing-data rows.",
+      "The page label displayed 'World (1973) 15', while the table lists World for 2025 with value 9. This discrepancy is documented; the structured entity preserves the table row.",
+      "Values are stored numerically. The source table displays whole-number percentages."
+    ]
+  },
+  "summary": {
+    "record_count": 247,
+    "records_with_values": 228,
+    "records_missing_values": 19,
+    "aggregate_record_count": 30,
+    "country_or_economy_record_count": 217,
+    "earliest_reported_year": 1978,
+    "latest_reported_year": 2025,
+    "minimum_reported_percent": 3.0,
+    "maximum_reported_percent": 46.0,
+    "highest_reported_entities": [
+      {
+        "entity_name": "Eritrea",
+        "year": 2003,
+        "value_percent": 46.0
+      }
+    ]
+  },
+  "entities": [
+    {
+      "entity_id": "wb_economy_eritrea",
+      "entity_name": "Eritrea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2003,
+      "most_recent_value_percent": 46.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_yemen_rep",
+      "entity_name": "Yemen, Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 44.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_comoros",
+      "entity_name": "Comoros",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 42.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_guinea_bissau",
+      "entity_name": "Guinea-Bissau",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 42.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_kiribati",
+      "entity_name": "Kiribati",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 41.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_djibouti",
+      "entity_name": "Djibouti",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 39.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_niger",
+      "entity_name": "Niger",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 38.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_benin",
+      "entity_name": "Benin",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 33.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_cabo_verde",
+      "entity_name": "Cabo Verde",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 33.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sierra_leone",
+      "entity_name": "Sierra Leone",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 32.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_haiti",
+      "entity_name": "Haiti",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2017,
+      "most_recent_value_percent": 32.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sao_tome_and_principe",
+      "entity_name": "Sao Tome and Principe",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 32.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_equatorial_guinea",
+      "entity_name": "Equatorial Guinea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 1983,
+      "most_recent_value_percent": 32.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_west_bank_and_gaza",
+      "entity_name": "West Bank and Gaza",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 31.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_aruba",
+      "entity_name": "Aruba",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 31.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sudan",
+      "entity_name": "Sudan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 30.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_tonga",
+      "entity_name": "Tonga",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 30.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_samoa",
+      "entity_name": "Samoa",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 30.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_faroe_islands",
+      "entity_name": "Faroe Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 29.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_algeria",
+      "entity_name": "Algeria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 28.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_timor_leste",
+      "entity_name": "Timor-Leste",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 28.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_micronesia_fed_sts",
+      "entity_name": "Micronesia, Fed. Sts.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2013,
+      "most_recent_value_percent": 28.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_antigua_and_barbuda",
+      "entity_name": "Antigua and Barbuda",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 28.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_st_lucia",
+      "entity_name": "St. Lucia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2020,
+      "most_recent_value_percent": 28.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_afghanistan",
+      "entity_name": "Afghanistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 27.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_guinea",
+      "entity_name": "Guinea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2016,
+      "most_recent_value_percent": 27.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_tajikistan",
+      "entity_name": "Tajikistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 26.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_seychelles",
+      "entity_name": "Seychelles",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 26.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_iran_islamic_rep",
+      "entity_name": "Iran, Islamic Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 26.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_st_vincent_and_the_grenadines",
+      "entity_name": "St. Vincent and the Grenadines",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 26.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_st_kitts_and_nevis",
+      "entity_name": "St. Kitts and Nevis",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2017,
+      "most_recent_value_percent": 25.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_turks_and_caicos_islands",
+      "entity_name": "Turks and Caicos Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2012,
+      "most_recent_value_percent": 25.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_cuba",
+      "entity_name": "Cuba",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2022,
+      "most_recent_value_percent": 25.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_dominica",
+      "entity_name": "Dominica",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 25.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_vanuatu",
+      "entity_name": "Vanuatu",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2011,
+      "most_recent_value_percent": 25.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_chad",
+      "entity_name": "Chad",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 1995,
+      "most_recent_value_percent": 24.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_grenada",
+      "entity_name": "Grenada",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 24.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_mauritania",
+      "entity_name": "Mauritania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 24.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_montenegro",
+      "entity_name": "Montenegro",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 24.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_liberia",
+      "entity_name": "Liberia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 23.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_palau",
+      "entity_name": "Palau",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 23.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_lesotho",
+      "entity_name": "Lesotho",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 23.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bermuda",
+      "entity_name": "Bermuda",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 23.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_trinidad_and_tobago",
+      "entity_name": "Trinidad and Tobago",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 23.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_cote_d_ivoire",
+      "entity_name": "Cote d'Ivoire",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 23.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_somalia_fed_rep",
+      "entity_name": "Somalia, Fed. Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 1982,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_rwanda",
+      "entity_name": "Rwanda",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2022,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_barbados",
+      "entity_name": "Barbados",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_mauritius",
+      "entity_name": "Mauritius",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_mozambique",
+      "entity_name": "Mozambique",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_solomon_islands",
+      "entity_name": "Solomon Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_jamaica",
+      "entity_name": "Jamaica",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_maldives",
+      "entity_name": "Maldives",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_gambia_the",
+      "entity_name": "Gambia, The",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_cameroon",
+      "entity_name": "Cameroon",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_andorra",
+      "entity_name": "Andorra",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_libya",
+      "entity_name": "Libya",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_tuvalu",
+      "entity_name": "Tuvalu",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2008,
+      "most_recent_value_percent": 22.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_cayman_islands",
+      "entity_name": "Cayman Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 21.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_congo_rep",
+      "entity_name": "Congo, Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 21.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_syrian_arab_republic",
+      "entity_name": "Syrian Arab Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2010,
+      "most_recent_value_percent": 21.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_central_african_republic",
+      "entity_name": "Central African Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 21.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_jordan",
+      "entity_name": "Jordan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 21.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_togo",
+      "entity_name": "Togo",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 21.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_el_salvador",
+      "entity_name": "El Salvador",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 20.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bahamas_the",
+      "entity_name": "Bahamas, The",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 20.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_greenland",
+      "entity_name": "Greenland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 20.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_eswatini",
+      "entity_name": "Eswatini",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 20.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_honduras",
+      "entity_name": "Honduras",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_fiji",
+      "entity_name": "Fiji",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_belize",
+      "entity_name": "Belize",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_egypt_arab_rep",
+      "entity_name": "Egypt, Arab Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_senegal",
+      "entity_name": "Senegal",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_panama",
+      "entity_name": "Panama",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_zimbabwe",
+      "entity_name": "Zimbabwe",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_dominican_republic",
+      "entity_name": "Dominican Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_lebanon",
+      "entity_name": "Lebanon",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 19.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_venezuela_rb",
+      "entity_name": "Venezuela, RB",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2013,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_madagascar",
+      "entity_name": "Madagascar",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_macao_sar_china",
+      "entity_name": "Macao SAR, China",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bosnia_and_herzegovina",
+      "entity_name": "Bosnia and Herzegovina",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_latvia",
+      "entity_name": "Latvia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_nepal",
+      "entity_name": "Nepal",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2022,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_french_polynesia",
+      "entity_name": "French Polynesia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_guatemala",
+      "entity_name": "Guatemala",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 17.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_kenya",
+      "entity_name": "Kenya",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 17.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_albania",
+      "entity_name": "Albania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 17.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_nicaragua",
+      "entity_name": "Nicaragua",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 17.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_papua_new_guinea",
+      "entity_name": "Papua New Guinea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_botswana",
+      "entity_name": "Botswana",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_kuwait",
+      "entity_name": "Kuwait",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_portugal",
+      "entity_name": "Portugal",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_new_caledonia",
+      "entity_name": "New Caledonia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2015,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_gabon",
+      "entity_name": "Gabon",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_angola",
+      "entity_name": "Angola",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_suriname",
+      "entity_name": "Suriname",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_cyprus",
+      "entity_name": "Cyprus",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bahrain",
+      "entity_name": "Bahrain",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_luxembourg",
+      "entity_name": "Luxembourg",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_croatia",
+      "entity_name": "Croatia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sri_lanka",
+      "entity_name": "Sri Lanka",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_greece",
+      "entity_name": "Greece",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_oman",
+      "entity_name": "Oman",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_moldova",
+      "entity_name": "Moldova",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_philippines",
+      "entity_name": "Philippines",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_netherlands",
+      "entity_name": "Netherlands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_iraq",
+      "entity_name": "Iraq",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_uruguay",
+      "entity_name": "Uruguay",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_pakistan",
+      "entity_name": "Pakistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_colombia",
+      "entity_name": "Colombia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_ethiopia",
+      "entity_name": "Ethiopia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_armenia",
+      "entity_name": "Armenia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_burundi",
+      "entity_name": "Burundi",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_denmark",
+      "entity_name": "Denmark",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_mali",
+      "entity_name": "Mali",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 14.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bulgaria",
+      "entity_name": "Bulgaria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_estonia",
+      "entity_name": "Estonia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_georgia",
+      "entity_name": "Georgia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_costa_rica",
+      "entity_name": "Costa Rica",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_namibia",
+      "entity_name": "Namibia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_malta",
+      "entity_name": "Malta",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_lithuania",
+      "entity_name": "Lithuania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_ghana",
+      "entity_name": "Ghana",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bangladesh",
+      "entity_name": "Bangladesh",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_spain",
+      "entity_name": "Spain",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_new_zealand",
+      "entity_name": "New Zealand",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_belgium",
+      "entity_name": "Belgium",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_lao_pdr",
+      "entity_name": "Lao PDR",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_kyrgyz_republic",
+      "entity_name": "Kyrgyz Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_uzbekistan",
+      "entity_name": "Uzbekistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_azerbaijan",
+      "entity_name": "Azerbaijan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_saudi_arabia",
+      "entity_name": "Saudi Arabia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_nigeria",
+      "entity_name": "Nigeria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_ecuador",
+      "entity_name": "Ecuador",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_north_macedonia",
+      "entity_name": "North Macedonia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_italy",
+      "entity_name": "Italy",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_peru",
+      "entity_name": "Peru",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_turkmenistan",
+      "entity_name": "Turkmenistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2000,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sweden",
+      "entity_name": "Sweden",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_chile",
+      "entity_name": "Chile",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_france",
+      "entity_name": "France",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_tunisia",
+      "entity_name": "Tunisia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bhutan",
+      "entity_name": "Bhutan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_virgin_islands_u_s",
+      "entity_name": "Virgin Islands (U.S.)",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 1978,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_israel",
+      "entity_name": "Israel",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_malawi",
+      "entity_name": "Malawi",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_burkina_faso",
+      "entity_name": "Burkina Faso",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_qatar",
+      "entity_name": "Qatar",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_kazakhstan",
+      "entity_name": "Kazakhstan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_iceland",
+      "entity_name": "Iceland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_norway",
+      "entity_name": "Norway",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_mongolia",
+      "entity_name": "Mongolia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_morocco",
+      "entity_name": "Morocco",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_russian_federation",
+      "entity_name": "Russian Federation",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_uganda",
+      "entity_name": "Uganda",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_congo_dem_rep",
+      "entity_name": "Congo, Dem. Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_ukraine",
+      "entity_name": "Ukraine",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_romania",
+      "entity_name": "Romania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_myanmar",
+      "entity_name": "Myanmar",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_belarus",
+      "entity_name": "Belarus",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_indonesia",
+      "entity_name": "Indonesia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_poland",
+      "entity_name": "Poland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_united_kingdom",
+      "entity_name": "United Kingdom",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_japan",
+      "entity_name": "Japan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_austria",
+      "entity_name": "Austria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_germany",
+      "entity_name": "Germany",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 10.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_canada",
+      "entity_name": "Canada",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_ireland",
+      "entity_name": "Ireland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_finland",
+      "entity_name": "Finland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_viet_nam",
+      "entity_name": "Viet Nam",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_brunei_darussalam",
+      "entity_name": "Brunei Darussalam",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_malaysia",
+      "entity_name": "Malaysia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_tanzania",
+      "entity_name": "Tanzania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_china",
+      "entity_name": "China",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_zambia",
+      "entity_name": "Zambia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_argentina",
+      "entity_name": "Argentina",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_paraguay",
+      "entity_name": "Paraguay",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_bolivia",
+      "entity_name": "Bolivia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_cambodia",
+      "entity_name": "Cambodia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_hungary",
+      "entity_name": "Hungary",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_slovak_republic",
+      "entity_name": "Slovak Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_south_africa",
+      "entity_name": "South Africa",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_czechia",
+      "entity_name": "Czechia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_turkiye",
+      "entity_name": "Turkiye",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_united_states",
+      "entity_name": "United States",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_australia",
+      "entity_name": "Australia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_korea_rep",
+      "entity_name": "Korea, Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_mexico",
+      "entity_name": "Mexico",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_guyana",
+      "entity_name": "Guyana",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_thailand",
+      "entity_name": "Thailand",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_serbia",
+      "entity_name": "Serbia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2007,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_slovenia",
+      "entity_name": "Slovenia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_brazil",
+      "entity_name": "Brazil",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_united_arab_emirates",
+      "entity_name": "United Arab Emirates",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 5.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_india",
+      "entity_name": "India",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 5.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_switzerland",
+      "entity_name": "Switzerland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 4.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_singapore",
+      "entity_name": "Singapore",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 4.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_hong_kong_sar_china",
+      "entity_name": "Hong Kong SAR, China",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 3.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_world",
+      "entity_name": "World",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_pacific_island_small_states",
+      "entity_name": "Pacific island small states",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 24.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_caribbean_small_states",
+      "entity_name": "Caribbean small states",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 20.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_middle_east_north_africa_afghanistan_pakistan_excluding_high_income",
+      "entity_name": "Middle East, North Africa, Afghanistan & Pakistan (excluding high income)",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_small_states",
+      "entity_name": "Small states",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_least_developed_countries_un_classification",
+      "entity_name": "Least developed countries: UN classification",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 16.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_heavily_indebted_poor_countries_hipc",
+      "entity_name": "Heavily indebted poor countries (HIPC)",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_other_small_states",
+      "entity_name": "Other small states",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 15.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_middle_east_north_africa_afghanistan_pakistan",
+      "entity_name": "Middle East, North Africa, Afghanistan & Pakistan",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 13.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_arab_world",
+      "entity_name": "Arab World",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sub_saharan_africa",
+      "entity_name": "Sub-Saharan Africa",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sub_saharan_africa_excluding_high_income",
+      "entity_name": "Sub-Saharan Africa (excluding high income)",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_euro_area",
+      "entity_name": "Euro area",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 12.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_european_union",
+      "entity_name": "European Union",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_europe_central_asia",
+      "entity_name": "Europe & Central Asia",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 11.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_oecd_members",
+      "entity_name": "OECD members",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_central_europe_and_the_baltics",
+      "entity_name": "Central Europe and the Baltics",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_europe_central_asia_excluding_high_income",
+      "entity_name": "Europe & Central Asia (excluding high income)",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_latin_america_caribbean",
+      "entity_name": "Latin America & Caribbean",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_east_asia_pacific_excluding_high_income",
+      "entity_name": "East Asia & Pacific (excluding high income)",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_latin_america_caribbean_excluding_high_income",
+      "entity_name": "Latin America & Caribbean (excluding high income)",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_east_asia_pacific",
+      "entity_name": "East Asia & Pacific",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_north_america",
+      "entity_name": "North America",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 7.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_south_asia",
+      "entity_name": "South Asia",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 6.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_low_income",
+      "entity_name": "Low income",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 18.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_high_income",
+      "entity_name": "High income",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_lower_middle_income",
+      "entity_name": "Lower middle income",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 9.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_low_middle_income",
+      "entity_name": "Low & middle income",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_middle_income",
+      "entity_name": "Middle income",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_upper_middle_income",
+      "entity_name": "Upper middle income",
+      "entity_type": "world_bank_aggregate",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 8.0,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_kosovo",
+      "entity_name": "Kosovo",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_british_virgin_islands",
+      "entity_name": "British Virgin Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_sint_maarten_dutch_part",
+      "entity_name": "Sint Maarten (Dutch part)",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_south_sudan",
+      "entity_name": "South Sudan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_san_marino",
+      "entity_name": "San Marino",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_korea_dem_people_s_rep",
+      "entity_name": "Korea, Dem. People's Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_puerto_rico_us",
+      "entity_name": "Puerto Rico (US)",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_naoero",
+      "entity_name": "Naoero",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_northern_mariana_islands",
+      "entity_name": "Northern Mariana Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_marshall_islands",
+      "entity_name": "Marshall Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_monaco",
+      "entity_name": "Monaco",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_st_martin_french_part",
+      "entity_name": "St. Martin (French part)",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_liechtenstein",
+      "entity_name": "Liechtenstein",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_isle_of_man",
+      "entity_name": "Isle of Man",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_guam",
+      "entity_name": "Guam",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_gibraltar",
+      "entity_name": "Gibraltar",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_curacao",
+      "entity_name": "Curacao",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_channel_islands",
+      "entity_name": "Channel Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "wb_economy_american_samoa",
+      "entity_name": "American Samoa",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.FOOD.ZS.UN",
+      "indicator_name": "Food imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_sources": [
+        "Comtrade database, United Nations; publisher: UN Statistics Division",
+        "World Integrated Trade Solution system (WITS)",
+        "Staff estimates, World Bank"
+      ],
+      "license": "CC BY-4.0"
+    }
+  ],
+  "relationship_model": {
+    "graph_role": "country/economy-level trade-composition indicator",
+    "edges_included": false,
+    "edge_policy": "No bilateral import relationships are inferred because this table reports the composition of each entity's total merchandise imports, not the origin of food imports.",
+    "recommended_relationships_for_graph_integration": [
+      {
+        "relationship_type": "has_indicator_observation",
+        "source": "economy entity",
+        "target": "indicator observation",
+        "properties": [
+          "indicator_code",
+          "year",
+          "value_percent",
+          "unit",
+          "source"
+        ]
+      },
+      {
+        "relationship_type": "same_economy_as",
+        "source": "economy entity",
+        "target": "other dataset economy entity",
+        "join_key_recommendation": "Use World Bank economy codes where available; name-based IDs in this file are local fallback identifiers."
+      }
+    ]
+  }
+}
