@@ -1,0 +1,4523 @@
+{
+  "dataset_id": "world_bank_manufactures_imports_share_merchandise_imports",
+  "title": "Manufactures imports (% of merchandise imports)",
+  "dataset_type": "economic_indicator",
+  "domain": [
+    "international_trade",
+    "manufacturing",
+    "imports",
+    "economic_structure",
+    "supply_chain_dependency"
+  ],
+  "indicator": {
+    "name": "Manufactures imports (% of merchandise imports)",
+    "code": "TM.VAL.MRCH.MF.ZS",
+    "definition": "Manufactures imports as a percentage of total merchandise imports.",
+    "unit": "percent",
+    "interpretation": "A higher value indicates that manufactures account for a larger share of an economy's merchandise imports. It does not measure absolute import value or identify specific trading partners."
+  },
+  "source_metadata": {
+    "publisher": "World Bank",
+    "database": "World Development Indicators (WDI)",
+    "source_page": "https://data.worldbank.org/indicator/TM.VAL.MRCH.MF.ZS",
+    "provider_sources": [
+      {
+        "name": "Comtrade database",
+        "organization": "United Nations",
+        "publisher": "UN Statistics Division"
+      },
+      {
+        "name": "World Integrated Trade Solution",
+        "abbreviation": "WITS"
+      },
+      {
+        "name": "World Bank staff estimates",
+        "abbreviation": "WB"
+      }
+    ],
+    "license": "CC BY-4.0",
+    "source_as_pasted": "World Bank indicator page and table supplied by the user.",
+    "time_coverage_shown": "1962–2025",
+    "table_column_labels": [
+      "Country",
+      "Most Recent Year",
+      "Most Recent Value"
+    ],
+    "data_semantics": "The year and value are each economy's most recent observation as shown in the supplied table; records therefore do not all refer to the same year.",
+    "missing_data_handling": "Blank year and value cells are represented as null and value_status=missing_in_source.",
+    "transcription_notes": [
+      "Names and reported values are preserved from the supplied table.",
+      "World Bank aggregate groupings are represented as aggregate entities, separate from country/economy records.",
+      "The source page displays a World (2006) label and value 69 in one page widget, while the supplied table separately lists World (2025) = 68; the JSON preserves the supplied table's World record and notes the page-widget discrepancy."
+    ]
+  },
+  "summary": {
+    "record_count": 247,
+    "records_with_values": 228,
+    "records_missing_values": 19,
+    "aggregate_records": 30,
+    "country_or_economy_records": 188,
+    "territory_or_economy_records": 29,
+    "minimum_reported_value_percent": 15,
+    "maximum_reported_value_percent": 84
+  },
+  "entities": [
+    {
+      "entity_id": "economy:afghanistan",
+      "entity_name": "Afghanistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 41,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:albania",
+      "entity_name": "Albania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:algeria",
+      "entity_name": "Algeria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 65,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:american_samoa",
+      "entity_name": "American Samoa",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:andorra",
+      "entity_name": "Andorra",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 70,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:angola",
+      "entity_name": "Angola",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 67,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:antigua_and_barbuda",
+      "entity_name": "Antigua and Barbuda",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:argentina",
+      "entity_name": "Argentina",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 83,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:armenia",
+      "entity_name": "Armenia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 56,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:aruba",
+      "entity_name": "Aruba",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:australia",
+      "entity_name": "Australia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:austria",
+      "entity_name": "Austria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 75,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:azerbaijan",
+      "entity_name": "Azerbaijan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 53,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:bahamas_the",
+      "entity_name": "Bahamas, The",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:bahrain",
+      "entity_name": "Bahrain",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:bangladesh",
+      "entity_name": "Bangladesh",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 67,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:barbados",
+      "entity_name": "Barbados",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 59,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:belarus",
+      "entity_name": "Belarus",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 49,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:belgium",
+      "entity_name": "Belgium",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 66,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:belize",
+      "entity_name": "Belize",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:benin",
+      "entity_name": "Benin",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 50,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:bermuda",
+      "entity_name": "Bermuda",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:bhutan",
+      "entity_name": "Bhutan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 70,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:bolivia",
+      "entity_name": "Bolivia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:bosnia_and_herzegovina",
+      "entity_name": "Bosnia and Herzegovina",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:botswana",
+      "entity_name": "Botswana",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 62,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:brazil",
+      "entity_name": "Brazil",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 80,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:british_virgin_islands",
+      "entity_name": "British Virgin Islands",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:brunei_darussalam",
+      "entity_name": "Brunei Darussalam",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 24,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:bulgaria",
+      "entity_name": "Bulgaria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:burkina_faso",
+      "entity_name": "Burkina Faso",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 47,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:burundi",
+      "entity_name": "Burundi",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:cabo_verde",
+      "entity_name": "Cabo Verde",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 51,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:cambodia",
+      "entity_name": "Cambodia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 73,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:cameroon",
+      "entity_name": "Cameroon",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 52,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:canada",
+      "entity_name": "Canada",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 75,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:cayman_islands",
+      "entity_name": "Cayman Islands",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 59,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:central_african_republic",
+      "entity_name": "Central African Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 51,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:chad",
+      "entity_name": "Chad",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 1995,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:channel_islands",
+      "entity_name": "Channel Islands",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:chile",
+      "entity_name": "Chile",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 70,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:china",
+      "entity_name": "China",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 51,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:colombia",
+      "entity_name": "Colombia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:comoros",
+      "entity_name": "Comoros",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 47,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:congo_dem_rep",
+      "entity_name": "Congo, Dem. Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:congo_rep",
+      "entity_name": "Congo, Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:costa_rica",
+      "entity_name": "Costa Rica",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:cote_d_ivoire",
+      "entity_name": "Cote d'Ivoire",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 53,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:croatia",
+      "entity_name": "Croatia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 66,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:cuba",
+      "entity_name": "Cuba",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2022,
+      "most_recent_value_percent": 38,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:curacao",
+      "entity_name": "Curacao",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:cyprus",
+      "entity_name": "Cyprus",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:czechia",
+      "entity_name": "Czechia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 83,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:denmark",
+      "entity_name": "Denmark",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 76,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:djibouti",
+      "entity_name": "Djibouti",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 52,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:dominica",
+      "entity_name": "Dominica",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 54,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:dominican_republic",
+      "entity_name": "Dominican Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 67,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:ecuador",
+      "entity_name": "Ecuador",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:egypt_arab_rep",
+      "entity_name": "Egypt, Arab Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 50,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:el_salvador",
+      "entity_name": "El Salvador",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:equatorial_guinea",
+      "entity_name": "Equatorial Guinea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 1983,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:eritrea",
+      "entity_name": "Eritrea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2003,
+      "most_recent_value_percent": 52,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:estonia",
+      "entity_name": "Estonia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:eswatini",
+      "entity_name": "Eswatini",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 58,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:ethiopia",
+      "entity_name": "Ethiopia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:faroe_islands",
+      "entity_name": "Faroe Islands",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 54,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:fiji",
+      "entity_name": "Fiji",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:finland",
+      "entity_name": "Finland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:france",
+      "entity_name": "France",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:french_polynesia",
+      "entity_name": "French Polynesia",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 40,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:gabon",
+      "entity_name": "Gabon",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 76,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:gambia_the",
+      "entity_name": "Gambia, The",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 45,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:georgia",
+      "entity_name": "Georgia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 72,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:germany",
+      "entity_name": "Germany",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:ghana",
+      "entity_name": "Ghana",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 58,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:gibraltar",
+      "entity_name": "Gibraltar",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:greece",
+      "entity_name": "Greece",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 59,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:greenland",
+      "entity_name": "Greenland",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:grenada",
+      "entity_name": "Grenada",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 56,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:guam",
+      "entity_name": "Guam",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:guatemala",
+      "entity_name": "Guatemala",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 66,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:guinea",
+      "entity_name": "Guinea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2016,
+      "most_recent_value_percent": 58,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:guinea_bissau",
+      "entity_name": "Guinea-Bissau",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 39,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:guyana",
+      "entity_name": "Guyana",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 80,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:haiti",
+      "entity_name": "Haiti",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2017,
+      "most_recent_value_percent": 55,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:honduras",
+      "entity_name": "Honduras",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:hong_kong_sar_china",
+      "entity_name": "Hong Kong SAR, China",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 81,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:hungary",
+      "entity_name": "Hungary",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:iceland",
+      "entity_name": "Iceland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:india",
+      "entity_name": "India",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 50,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:indonesia",
+      "entity_name": "Indonesia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 65,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:iran_islamic_rep",
+      "entity_name": "Iran, Islamic Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 58,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:iraq",
+      "entity_name": "Iraq",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 76,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:ireland",
+      "entity_name": "Ireland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 84,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:isle_of_man",
+      "entity_name": "Isle of Man",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:israel",
+      "entity_name": "Israel",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 75,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:italy",
+      "entity_name": "Italy",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 67,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:jamaica",
+      "entity_name": "Jamaica",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 53,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:japan",
+      "entity_name": "Japan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:jordan",
+      "entity_name": "Jordan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:kazakhstan",
+      "entity_name": "Kazakhstan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 81,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:kenya",
+      "entity_name": "Kenya",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 58,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:kiribati",
+      "entity_name": "Kiribati",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 43,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:korea_dem_people_s_rep",
+      "entity_name": "Korea, Dem. People's Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:korea_rep",
+      "entity_name": "Korea, Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 62,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:kosovo",
+      "entity_name": "Kosovo",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:kuwait",
+      "entity_name": "Kuwait",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 75,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:kyrgyz_republic",
+      "entity_name": "Kyrgyz Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:lao_pdr",
+      "entity_name": "Lao PDR",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 62,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:latvia",
+      "entity_name": "Latvia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:lebanon",
+      "entity_name": "Lebanon",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 40,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:lesotho",
+      "entity_name": "Lesotho",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 59,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:liberia",
+      "entity_name": "Liberia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 43,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:libya",
+      "entity_name": "Libya",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:liechtenstein",
+      "entity_name": "Liechtenstein",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:lithuania",
+      "entity_name": "Lithuania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:luxembourg",
+      "entity_name": "Luxembourg",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 67,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:macao_sar_china",
+      "entity_name": "Macao SAR, China",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 70,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:madagascar",
+      "entity_name": "Madagascar",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 59,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:malawi",
+      "entity_name": "Malawi",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 65,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:malaysia",
+      "entity_name": "Malaysia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 72,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:maldives",
+      "entity_name": "Maldives",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 53,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:mali",
+      "entity_name": "Mali",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 49,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:malta",
+      "entity_name": "Malta",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 66,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:marshall_islands",
+      "entity_name": "Marshall Islands",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:mauritania",
+      "entity_name": "Mauritania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 41,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:mauritius",
+      "entity_name": "Mauritius",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 52,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:mexico",
+      "entity_name": "Mexico",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 78,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:micronesia_fed_sts",
+      "entity_name": "Micronesia, Fed. Sts.",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2013,
+      "most_recent_value_percent": 36,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:moldova",
+      "entity_name": "Moldova",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:monaco",
+      "entity_name": "Monaco",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:mongolia",
+      "entity_name": "Mongolia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 65,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:montenegro",
+      "entity_name": "Montenegro",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:morocco",
+      "entity_name": "Morocco",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:mozambique",
+      "entity_name": "Mozambique",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 51,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:myanmar",
+      "entity_name": "Myanmar",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:namibia",
+      "entity_name": "Namibia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:naoero",
+      "entity_name": "Naoero",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:nepal",
+      "entity_name": "Nepal",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2022,
+      "most_recent_value_percent": 53,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:netherlands",
+      "entity_name": "Netherlands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 65,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:new_caledonia",
+      "entity_name": "New Caledonia",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2015,
+      "most_recent_value_percent": 56,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:new_zealand",
+      "entity_name": "New Zealand",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:nicaragua",
+      "entity_name": "Nicaragua",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:niger",
+      "entity_name": "Niger",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 48,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:nigeria",
+      "entity_name": "Nigeria",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 53,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:north_macedonia",
+      "entity_name": "North Macedonia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:northern_mariana_islands",
+      "entity_name": "Northern Mariana Islands",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:norway",
+      "entity_name": "Norway",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 73,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:oman",
+      "entity_name": "Oman",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 56,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:pakistan",
+      "entity_name": "Pakistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 50,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:palau",
+      "entity_name": "Palau",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 51,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:panama",
+      "entity_name": "Panama",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:papua_new_guinea",
+      "entity_name": "Papua New Guinea",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 65,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:paraguay",
+      "entity_name": "Paraguay",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 79,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:peru",
+      "entity_name": "Peru",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 68,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:philippines",
+      "entity_name": "Philippines",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 70,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:poland",
+      "entity_name": "Poland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 77,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:portugal",
+      "entity_name": "Portugal",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 72,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:puerto_rico_us",
+      "entity_name": "Puerto Rico (US)",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:qatar",
+      "entity_name": "Qatar",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:romania",
+      "entity_name": "Romania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 78,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:russian_federation",
+      "entity_name": "Russian Federation",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 80,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:rwanda",
+      "entity_name": "Rwanda",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2022,
+      "most_recent_value_percent": 50,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:samoa",
+      "entity_name": "Samoa",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 48,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:san_marino",
+      "entity_name": "San Marino",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:sao_tome_and_principe",
+      "entity_name": "Sao Tome and Principe",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 37,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:saudi_arabia",
+      "entity_name": "Saudi Arabia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 72,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:senegal",
+      "entity_name": "Senegal",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 46,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:serbia",
+      "entity_name": "Serbia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2007,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:seychelles",
+      "entity_name": "Seychelles",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 52,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:sierra_leone",
+      "entity_name": "Sierra Leone",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:singapore",
+      "entity_name": "Singapore",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:sint_maarten_dutch_part",
+      "entity_name": "Sint Maarten (Dutch part)",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:slovak_republic",
+      "entity_name": "Slovak Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 82,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:slovenia",
+      "entity_name": "Slovenia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 83,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:solomon_islands",
+      "entity_name": "Solomon Islands",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:somalia_fed_rep",
+      "entity_name": "Somalia, Fed. Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 1982,
+      "most_recent_value_percent": 55,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:south_africa",
+      "entity_name": "South Africa",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 62,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:south_sudan",
+      "entity_name": "South Sudan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:spain",
+      "entity_name": "Spain",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 67,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:sri_lanka",
+      "entity_name": "Sri Lanka",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:st_kitts_and_nevis",
+      "entity_name": "St. Kitts and Nevis",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2017,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:st_lucia",
+      "entity_name": "St. Lucia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2020,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:st_martin_french_part",
+      "entity_name": "St. Martin (French part)",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": null,
+      "most_recent_value_percent": null,
+      "value_status": "missing_in_source",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:st_vincent_and_the_grenadines",
+      "entity_name": "St. Vincent and the Grenadines",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:sudan",
+      "entity_name": "Sudan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2018,
+      "most_recent_value_percent": 56,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:suriname",
+      "entity_name": "Suriname",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 72,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:sweden",
+      "entity_name": "Sweden",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 70,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:switzerland",
+      "entity_name": "Switzerland",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 51,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:syrian_arab_republic",
+      "entity_name": "Syrian Arab Republic",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2010,
+      "most_recent_value_percent": 54,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:tajikistan",
+      "entity_name": "Tajikistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 62,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:tanzania",
+      "entity_name": "Tanzania",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 74,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:thailand",
+      "entity_name": "Thailand",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:timor_leste",
+      "entity_name": "Timor-Leste",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 50,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:togo",
+      "entity_name": "Togo",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:tonga",
+      "entity_name": "Tonga",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 48,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:trinidad_and_tobago",
+      "entity_name": "Trinidad and Tobago",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:tunisia",
+      "entity_name": "Tunisia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:turkiye",
+      "entity_name": "Turkiye",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:turkmenistan",
+      "entity_name": "Turkmenistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2000,
+      "most_recent_value_percent": 80,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:turks_and_caicos_islands",
+      "entity_name": "Turks and Caicos Islands",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2012,
+      "most_recent_value_percent": 43,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:tuvalu",
+      "entity_name": "Tuvalu",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2008,
+      "most_recent_value_percent": 15,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:uganda",
+      "entity_name": "Uganda",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 47,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:ukraine",
+      "entity_name": "Ukraine",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 66,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:united_arab_emirates",
+      "entity_name": "United Arab Emirates",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 55,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:united_kingdom",
+      "entity_name": "United Kingdom",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:united_states",
+      "entity_name": "United States",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 79,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:uruguay",
+      "entity_name": "Uruguay",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 70,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:uzbekistan",
+      "entity_name": "Uzbekistan",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 72,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:vanuatu",
+      "entity_name": "Vanuatu",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2011,
+      "most_recent_value_percent": 52,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:venezuela_rb",
+      "entity_name": "Venezuela, RB",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2013,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:viet_nam",
+      "entity_name": "Viet Nam",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 75,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "territory:virgin_islands_u_s",
+      "entity_name": "Virgin Islands (U.S.)",
+      "entity_type": "territory_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 1978,
+      "most_recent_value_percent": 24,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:west_bank_and_gaza",
+      "entity_name": "West Bank and Gaza",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 46,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:yemen_rep",
+      "entity_name": "Yemen, Rep.",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 41,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:zambia",
+      "entity_name": "Zambia",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 64,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "economy:zimbabwe",
+      "entity_name": "Zimbabwe",
+      "entity_type": "country_or_economy",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 58,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:world",
+      "entity_name": "World",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 68,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:arab_world",
+      "entity_name": "Arab World",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:caribbean_small_states",
+      "entity_name": "Caribbean small states",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:central_europe_and_the_baltics",
+      "entity_name": "Central Europe and the Baltics",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 77,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:east_asia_pacific",
+      "entity_name": "East Asia & Pacific",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 62,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:east_asia_pacific_excluding_high_income",
+      "entity_name": "East Asia & Pacific (excluding high income)",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 56,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:euro_area",
+      "entity_name": "Euro area",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:europe_central_asia",
+      "entity_name": "Europe & Central Asia",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 69,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:europe_central_asia_excluding_high_income",
+      "entity_name": "Europe & Central Asia (excluding high income)",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:european_union",
+      "entity_name": "European Union",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 72,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:heavily_indebted_poor_countries_hipc",
+      "entity_name": "Heavily indebted poor countries (HIPC)",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:latin_america_caribbean",
+      "entity_name": "Latin America & Caribbean",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 76,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:latin_america_caribbean_excluding_high_income",
+      "entity_name": "Latin America & Caribbean (excluding high income)",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 77,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:least_developed_countries_un_classification",
+      "entity_name": "Least developed countries: UN classification",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 63,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:middle_east_north_africa_afghanistan_pakistan",
+      "entity_name": "Middle East, North Africa, Afghanistan & Pakistan",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2023,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:middle_east_north_africa_afghanistan_pakistan_excluding_high_income",
+      "entity_name": "Middle East, North Africa, Afghanistan & Pakistan (excluding high income)",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:north_america",
+      "entity_name": "North America",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 78,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:oecd_members",
+      "entity_name": "OECD members",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:other_small_states",
+      "entity_name": "Other small states",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 59,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:pacific_island_small_states",
+      "entity_name": "Pacific island small states",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2021,
+      "most_recent_value_percent": 58,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:small_states",
+      "entity_name": "Small states",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:south_asia",
+      "entity_name": "South Asia",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 50,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:sub_saharan_africa",
+      "entity_name": "Sub-Saharan Africa",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:sub_saharan_africa_excluding_high_income",
+      "entity_name": "Sub-Saharan Africa (excluding high income)",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2024,
+      "most_recent_value_percent": 57,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:high_income",
+      "entity_name": "High income",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 71,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:low_middle_income",
+      "entity_name": "Low & middle income",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:low_income",
+      "entity_name": "Low income",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2019,
+      "most_recent_value_percent": 59,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:lower_middle_income",
+      "entity_name": "Lower middle income",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 53,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:middle_income",
+      "entity_name": "Middle income",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 60,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    },
+    {
+      "entity_id": "aggregate:upper_middle_income",
+      "entity_name": "Upper middle income",
+      "entity_type": "aggregate",
+      "indicator_code": "TM.VAL.MRCH.MF.ZS",
+      "indicator_name": "Manufactures imports (% of merchandise imports)",
+      "most_recent_year": 2025,
+      "most_recent_value_percent": 61,
+      "value_status": "reported",
+      "unit": "percent",
+      "source": "World Bank, World Development Indicators",
+      "underlying_source": [
+        "Comtrade database, United Nations (UN), publisher: UN Statistics Division",
+        "World Integrated Trade Solution (WITS)",
+        "Staff estimates, World Bank (WB)"
+      ],
+      "license": "CC BY-4.0"
+    }
+  ],
+  "relationship_model": {
+    "node_type": "country_or_economy | territory_or_economy | aggregate",
+    "edges_included": false,
+    "reason": "This indicator gives the composition of imports, not bilateral trade flows. It can enrich country/economy nodes but cannot establish exporter-importer connections.",
+    "suggested_node_attributes": [
+      "manufactures_imports_share_percent",
+      "manufactures_imports_observation_year",
+      "manufactures_imports_source"
+    ],
+    "data_join_note": "Join to other datasets using normalized economy identifiers or ISO 3166/WB country codes where available; source labels alone may require explicit name mapping."
+  }
+}
