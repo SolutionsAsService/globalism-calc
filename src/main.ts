@@ -2,11 +2,12 @@ import './styles.css';
 import { scaleSequential, scaleSequentialLog, scaleSequentialSymlog, scaleDivergingSymlog } from 'd3-scale';
 import { interpolateYlOrRd, interpolateBlues, interpolateRdBu } from 'd3-scale-chromatic';
 import { balanceTable, defaultIndicator, electricityPanel, ELECTRICITY, FLAG_TITLE, hasViews, picker, sourcesCard, trendCard, unitText, valueText } from './app/energy';
-import { loadModel, compositeFor, hasAnyRow, type Model } from './app/model';
+import { loadModel, compositeFor, hasAnyRow, rebuild, type Model } from './app/model';
 import { createMap, legend, type Metric, type MapView } from './app/map';
 import { el, fmtScore, fmtValue, typeLabel } from './app/format';
 import { describeScoring, type IndicatorScores } from './lib/scoring';
-import { parseHash, toHash, loadWeights, saveWeights, type State } from './app/state';
+import { parseHash, toHash, loadWeights, saveWeights, loadDsOverrides, saveDsOverrides, type State } from './app/state';
+import { renderData } from './app/data-view';
 import type { Entity } from './lib/types';
 
 const root = document.getElementById('app')!;
@@ -125,7 +126,7 @@ function header(): HTMLElement {
       el('span', { class: 'logo', 'aria-hidden': 'true' }, '◍'),
       el('div', {}, el('h1', {}, 'Globalism Calc'), el('p', { class: 'tagline' }, 'How dependent is each place on others to survive?')),
     ),
-    el('nav', { 'aria-label': 'Main' }, link('atlas', 'Atlas'), link('compare', 'Compare'), link('method', 'Method & data')),
+    el('nav', { 'aria-label': 'Main' }, link('atlas', 'Atlas'), link('compare', 'Compare'), link('data', 'Datasets & map'), link('method', 'Method')),
   );
 }
 
@@ -137,7 +138,7 @@ function tabs(): HTMLElement {
     const b = el('button', {
       role: 'tab', type: 'button', class: `tab status-${st}`, id: `tab-${id}`,
       'aria-selected': String(S.cat === id), tabindex: S.cat === id ? 0 : -1, 'aria-controls': 'main',
-      onclick: () => navigate({ cat: id, indicator: undefined, view: S.view === 'method' ? 'atlas' : S.view }),
+      onclick: () => navigate({ cat: id, indicator: undefined, view: S.view === 'method' || S.view === 'data' ? 'atlas' : S.view }),
       onkeydown: (ev: Event) => {
         const k = (ev as KeyboardEvent).key;
         const i = ids.indexOf(S.cat);
@@ -156,6 +157,11 @@ function render() {
   root.replaceChildren(header(), tabs(), main);
   if (S.view === 'compare') renderCompare(main);
   else if (S.view === 'method') renderMethod(main);
+  else if (S.view === 'data') renderData(main, {
+    M, S, defaultWeights, catLabel,
+    setOverrides: (ds) => { S = { ...S, ds }; saveDsOverrides(ds); M = rebuild(M, ds); render(); },
+    setWeights: (w) => { S = { ...S, weights: w }; saveWeights(w); render(); },
+  });
   else renderAtlas(main);
   root.append(el('footer', { class: 'site-footer' },
     'Scores are relative and only as good as the data behind them. Missing data is shown as missing, never estimated. ',
@@ -572,7 +578,8 @@ async function boot() {
     return;
   }
   defaultWeights = Object.fromEntries(M.categories.map((c) => [c.id, c.defaultWeight]));
-  S = { view: 'atlas', cat: 'composite', compare: [], weights: loadWeights(defaultWeights), search: '', typeFilter: 'all', sort: { col: 'metric', dir: -1 } };
+  S = { view: 'atlas', cat: 'composite', compare: [], weights: loadWeights(defaultWeights), ds: loadDsOverrides(), search: '', typeFilter: 'all', sort: { col: 'metric', dir: -1 } };
+  if (Object.keys(S.ds).length) M = rebuild(M, S.ds);
   fromHash();
   window.addEventListener('hashchange', () => { fromHash(); render(); });
   render();

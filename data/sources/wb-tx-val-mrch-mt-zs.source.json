@@ -1,0 +1,40 @@
+{
+  "input": "data/raw/uploads/world_bank_ores_and_metals_exports_share_2025_latest.json",
+  "format": "json",
+  "rowsPath": "entities",
+  "entityField": "entity_name",
+  "valueField": "most_recent_value_percent",
+  "yearField": "most_recent_year",
+  "minYear": 2010,
+  "dataset": {
+    "id": "wb-tx-val-mrch-mt-zs",
+    "title": "Ores and metals exports (% of merchandise exports) (latest)",
+    "category": "minerals",
+    "indicator": {
+      "code": "TX.VAL.MRCH.MT.ZS",
+      "name": "Ores and metals exports (% of merchandise exports)",
+      "unit": "%",
+      "description": "Ores and metals exports as a percentage of total merchandise exports."
+    },
+    "source": {
+      "name": "World Bank, World Development Indicators (TX.VAL.MRCH.MT.ZS)",
+      "url": "https://data.worldbank.org/indicator/TX.VAL.MRCH.MT.ZS",
+      "license": "CC BY 4.0",
+      "citation": "World Bank WDI TX.VAL.MRCH.MT.ZS, underlying UN Comtrade / WITS. Table transcribed and uploaded to this repo (data/raw/uploads/world_bank_ores_and_metals_exports_share_2025_latest.json)."
+    },
+    "year": 2025,
+    "notes": [
+      "Auto-imported from an uploaded \"most recent value\" table: each entity keeps its own latest year (0–2025), so old observations sit next to recent ones.",
+      "World Bank aggregates are skipped; blank cells stay missing (never zero). Observations older than 2010 are not used (they were 1975–2008 for a few economies such as Somalia, Chad and Equatorial Guinea)."
+    ],
+    "caveats": [
+      "Share of merchandise exports: shows how much an economy earns from this product group, not how much it depends on imports. Context only."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "percentile",
+      "rationale": "Export composition is context (exposure to world prices), not dependence on others."
+    }
+  }
+}

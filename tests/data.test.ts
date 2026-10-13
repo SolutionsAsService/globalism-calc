@@ -145,23 +145,25 @@ describe('EIA energy datasets', () => {
 describe('model over real data', () => {
   const m = buildModel(entities, categories, datasets);
   it('categories without datasets are marked data needed and score null', () => {
-    for (const id of ['medicine', 'minerals', 'manufactured', 'water']) {
-      expect(m.status[id]).toBe('needed');
-      expect(m.catScores.get('USA')?.[id]).toBeNull();
-    }
-    expect(m.status.food).toBe('context');
-    expect(m.status.energy).toBe('scored'); // by the electricity import exposure; EIA flows stay context
-    expect(m.status.trade).toBe('scored');
+    expect(m.status.water).toBe('needed');
+    expect(m.catScores.get('USA')?.water).toBeNull();
+    // food, minerals and manufactured by the World Bank import-share uploads, medicine by the ITC pharma net-import share,
+    // energy by the electricity import exposure (EIA flows stay context).
+    for (const id of ['food', 'energy', 'trade', 'medicine', 'minerals', 'manufactured']) expect(m.status[id]).toBe('scored');
   });
   it('composite only uses categories with data, within 0..100', () => {
     const w = Object.fromEntries(categories.map((c) => [c.id, c.defaultWeight]));
     const r = compositeFor(m, 'USA', w);
-    expect(r.used).toEqual(['energy', 'trade']);
     const c = m.catScores.get('USA')!;
-    expect(r.dependence).toBeCloseTo((w.energy * c.energy! + w.trade * c.trade!) / (w.energy + w.trade), 10);
-    // Energy weight 0 = back to trade only (the configurable switch in the UI).
-    expect(compositeFor(m, 'USA', { ...w, energy: 0 }).dependence).toBe(c.trade);
-    expect(compositeFor(m, 'AND', w).dependence).toBeNull();
+    const used = categories.map((x) => x.id).filter((id) => w[id] > 0 && c[id] != null);
+    expect(r.used).toEqual(used);
+    expect(used).toEqual(['food', 'energy', 'trade', 'medicine', 'minerals', 'manufactured']);
+    const mean = (ids: string[]) => ids.reduce((s, id) => s + w[id] * c[id]!, 0) / ids.reduce((s, id) => s + w[id], 0);
+    expect(r.dependence).toBeCloseTo(mean(used), 10);
+    // A category weight of 0 drops it (the configurable switch in the UI).
+    expect(compositeFor(m, 'USA', { ...w, energy: 0 }).dependence).toBeCloseTo(mean(used.filter((id) => id !== 'energy')), 10);
+    const none = entities.find((e) => categories.every((x) => m.catScores.get(e.key)?.[x.id] == null))!;
+    expect(compositeFor(m, none.key, w).dependence).toBeNull();
     for (const e of entities) {
       const d = compositeFor(m, e.key, w).dependence;
       if (d != null) expect(d >= 0 && d <= 100).toBe(true);

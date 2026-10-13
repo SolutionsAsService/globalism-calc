@@ -107,6 +107,18 @@ Entity `type` is `country`, `territory` (with `parent`, the sovereign), `subnati
 3. **Run `npm run data:import`.** The importer is strict: any label it can't match fails the import and is listed. Add it to `data/reference/aliases.json` under `aliases` (label → key) or `nonEntities` (label → reason: regional aggregates, "World", pseudo-partners). Blank cells, `..`, `NA` and `null` become explicit missing values. Conflicting duplicate rows are an error.
 4. **Run `npm test`** (it checks that committed datasets match a fresh import and that every dataset has complete metadata), then commit the raw file, the spec and the generated dataset. Any category with a scored dataset switches from "data needed" to scored automatically.
 
+### Uploading a table straight into `data/datasets/`
+
+Files uploaded through GitHub ("Add files via upload") into `data/datasets/` no longer break the site:
+
+- `npm run data:import` (part of `npm run build`) detects any file there that is not a normalized dataset, moves it untouched to `data/raw/uploads/`, and
+  - for **World Bank "most recent value" tables** (`indicator.code` + `entities[].most_recent_value_percent`) writes `data/sources/wb-<code>.source.json` itself: category from the indicator code (food, minerals, manufactured, energy, trade), percentile scoring, exports = context only, values older than 2010 dropped, aggregates skipped. Review the generated spec and commit it.
+  - for any other shape it stops with a message: write a spec as above (see `itc-pharma-*.source.json` for an `entities` list with several value columns).
+- `npm run data:prepare` skips (with a warning) anything in `data/datasets/` that is not normalized, so a stray upload can never take the app down.
+- `python3 scripts/audit-uploads.py` checks uploaded tables for internal consistency (summary counts and min/max, value ↔ year ↔ status, USD = thousands × 1000, balance = exports − imports, duplicates) and lists stale observations.
+
+The **Datasets & map** view (`#/data`) shows every loaded dataset → category → composite as a dependency map (line width = weight, dashed = context), and lets you switch datasets in or out of the score and change their weights and the category weights. Choices are stored in the browser (`localStorage`), the published data is unchanged.
+
 ### EIA International exports (`format: "eia-series"`)
 
 Exports from the [EIA International data browser](https://www.eia.gov/international/data/world) ("SeriesExport-MM-DD-YYYY-HH-MM-SS.json": an array of series, one per country, with `iso`, `unit`, `productid`, `activityid` and annual `data`) are read directly. The importer flattens them to long rows (`iso, productid, activityid, unit, year, value, flag, marker`), so a spec looks like:
@@ -169,6 +181,19 @@ G generation, N net electricity imports, g_f generation from fuel f (Ember, TWh)
 | Medicine, Minerals & metals, Manufactured goods, Water | **data needed** | none yet (suggested sources are listed in `data/categories.json` and in the app) |
 
 So the composite currently uses Fuel & energy and Trade exposure (default weights 1 and 0.5) where they exist, and the UI says so ("Based on 2 of 7 categories", plus a low-coverage note per entity).
+
+### Uploaded tables (October 2026)
+
+| Dataset | Category | Scored | Entities | Notes |
+|---|---|---|---|---|
+| `wb-tm-val-food-zs-un` Food imports, % of merchandise imports (WB TM.VAL.FOOD.ZS.UN) | Food | yes, percentile | 190 | latest year per entity 2010–2025 |
+| `wb-tm-val-mrch-mf-zs` Manufactures imports, % of merchandise imports | Manufactured goods | yes, percentile | 190 | |
+| `wb-tm-val-mrch-mt-zs` Ores and metals imports, % of merchandise imports | Minerals | yes, percentile | 190 | |
+| `wb-tx-val-mrch-mt-zs` Ores and metals exports, % of merchandise exports | Minerals | context | 189 | export exposure, not dependence |
+| `itc-pharma-imports-2024` / `itc-pharma-exports-2024` HS 30, USD | Medicine | context | 210 | ITC Trade Map via Wikipedia |
+| `itc-pharma-net-import-share-2024` 100 × (imports − exports) ÷ imports | Medicine | yes, fixed 0–100 | 210 | derived; net exporters score 0 |
+
+Audit of the uploads (`scripts/audit-uploads.py`): all internal totals and fields are consistent. Findings: the World Bank tables carry very old "latest" values for a few economies (Somalia 1982, Equatorial Guinea 1983, US Virgin Islands 1978, Chad 1975/1995, Turkmenistan 2000, Eritrea 2003, Guinea-Bissau 2005, Serbia 2007, Tuvalu 2008), now excluded by `minYear: 2010`; the manufactures file uses `title`/`underlying_source` where its siblings use `dataset_title`/`underlying_sources` (harmless); the pharma table is a secondary source (Wikipedia transcription of ITC) whose entity total is about 0.3 bn USD short of its World row. Share-of-imports indicators describe the *composition* of imports, not import dependence, which is why they are rank-scored and flagged in their caveats.
 
 ## Most useful next datasets
 

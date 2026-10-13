@@ -1,0 +1,40 @@
+{
+  "input": "data/raw/uploads/world_bank_food_imports_share_2025_latest.json",
+  "format": "json",
+  "rowsPath": "entities",
+  "entityField": "entity_name",
+  "valueField": "most_recent_value_percent",
+  "yearField": "most_recent_year",
+  "minYear": 2010,
+  "dataset": {
+    "id": "wb-tm-val-food-zs-un",
+    "title": "Food imports (% of merchandise imports) (latest)",
+    "category": "food",
+    "indicator": {
+      "code": "TM.VAL.FOOD.ZS.UN",
+      "name": "Food imports (% of merchandise imports)",
+      "unit": "%",
+      "description": "Food imports as a percentage of total merchandise imports."
+    },
+    "source": {
+      "name": "World Bank, World Development Indicators (TM.VAL.FOOD.ZS.UN)",
+      "url": "https://data.worldbank.org/indicator/TM.VAL.FOOD.ZS.UN",
+      "license": "CC BY 4.0",
+      "citation": "World Bank WDI TM.VAL.FOOD.ZS.UN, underlying UN Comtrade / WITS. Table transcribed and uploaded to this repo (data/raw/uploads/world_bank_food_imports_share_2025_latest.json)."
+    },
+    "year": 2025,
+    "notes": [
+      "Auto-imported from an uploaded \"most recent value\" table: each entity keeps its own latest year (0–2025), so old observations sit next to recent ones.",
+      "World Bank aggregates are skipped; blank cells stay missing (never zero). Observations older than 2010 are not used (they were 1975–2008 for a few economies such as Somalia, Chad and Equatorial Guinea)."
+    ],
+    "caveats": [
+      "Composition of merchandise imports, not import dependence: a high share can mean a big need for imports of this group or simply few other imports. Shares are rounded in the source table."
+    ],
+    "scoring": {
+      "include": true,
+      "direction": "higher_more_dependent",
+      "method": "percentile",
+      "rationale": "Share of imports with no natural ceiling for this purpose; rank-based so outliers do not dominate."
+    }
+  }
+}

@@ -4,6 +4,7 @@
  */
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync, rmSync } from 'node:fs';
 import type { Dataset, Manifest } from '../src/lib/types';
+import { isNormalized } from '../src/lib/uploads';
 
 const out = 'public/data';
 rmSync(out, { recursive: true, force: true });
@@ -13,6 +14,7 @@ mkdirSync(`${out}/geo`, { recursive: true });
 const datasets: Manifest['datasets'] = [];
 for (const f of readdirSync('data/datasets').filter((f) => f.endsWith('.json')).sort()) {
   const ds: Dataset = JSON.parse(readFileSync(`data/datasets/${f}`, 'utf8'));
+  if (!isNormalized(ds)) { console.warn(`! skipped data/datasets/${f}: not a normalized dataset (raw upload?). Run npm run data:import to adopt it.`); continue; }
   writeFileSync(`${out}/datasets/${f}`, JSON.stringify(ds));
   datasets.push({ id: ds.id, file: `datasets/${f}`, category: ds.category, title: ds.title });
 }

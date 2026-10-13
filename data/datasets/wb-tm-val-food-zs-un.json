@@ -1,0 +1,1419 @@
+{
+ "schemaVersion": 1,
+ "id": "wb-tm-val-food-zs-un",
+ "title": "Food imports (% of merchandise imports) (latest)",
+ "category": "food",
+ "indicator": {
+  "code": "TM.VAL.FOOD.ZS.UN",
+  "name": "Food imports (% of merchandise imports)",
+  "unit": "%",
+  "description": "Food imports as a percentage of total merchandise imports."
+ },
+ "source": {
+  "name": "World Bank, World Development Indicators (TM.VAL.FOOD.ZS.UN)",
+  "url": "https://data.worldbank.org/indicator/TM.VAL.FOOD.ZS.UN",
+  "license": "CC BY 4.0",
+  "citation": "World Bank WDI TM.VAL.FOOD.ZS.UN, underlying UN Comtrade / WITS. Table transcribed and uploaded to this repo (data/raw/uploads/world_bank_food_imports_share_2025_latest.json)."
+ },
+ "year": 2025,
+ "notes": [
+  "Auto-imported from an uploaded \"most recent value\" table: each entity keeps its own latest year (0–2025), so old observations sit next to recent ones.",
+  "World Bank aggregates are skipped; blank cells stay missing (never zero). Observations older than 2010 are not used (they were 1975–2008 for a few economies such as Somalia, Chad and Equatorial Guinea)."
+ ],
+ "caveats": [
+  "Composition of merchandise imports, not import dependence: a high share can mean a big need for imports of this group or simply few other imports. Shares are rounded in the source table."
+ ],
+ "scoring": {
+  "include": true,
+  "direction": "higher_more_dependent",
+  "method": "percentile",
+  "rationale": "Share of imports with no natural ceiling for this purpose; rank-based so outliers do not dominate."
+ },
+ "import": {
+  "from": "data/raw/uploads/world_bank_food_imports_share_2025_latest.json",
+  "spec": "data/sources/wb-tm-val-food-zs-un.source.json",
+  "rowsRead": 239,
+  "matched": 209,
+  "missingValues": 19,
+  "skipped": [
+   {
+    "name": "World",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Pacific island small states",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Caribbean small states",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Middle East, North Africa, Afghanistan & Pakistan (excluding high income)",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Small states",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Least developed countries: UN classification",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Heavily indebted poor countries (HIPC)",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Other small states",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Middle East, North Africa, Afghanistan & Pakistan",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Arab World",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Sub-Saharan Africa",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Sub-Saharan Africa (excluding high income)",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Euro area",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "European Union",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Europe & Central Asia",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "OECD members",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Central Europe and the Baltics",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Europe & Central Asia (excluding high income)",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Latin America & Caribbean",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "East Asia & Pacific (excluding high income)",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Latin America & Caribbean (excluding high income)",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "East Asia & Pacific",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "North America",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "South Asia",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Low income",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "High income",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Lower middle income",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Low & middle income",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Middle income",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   },
+   {
+    "name": "Upper middle income",
+    "reason": "World Bank regional/income aggregate (not an entity)"
+   }
+  ],
+  "duplicates": [],
+  "minYear": 2010
+ },
+ "rows": [
+  {
+   "key": "ABW",
+   "value": 31,
+   "year": 2023,
+   "sourceName": "Aruba"
+  },
+  {
+   "key": "AFG",
+   "value": 27,
+   "year": 2019,
+   "sourceName": "Afghanistan"
+  },
+  {
+   "key": "AGO",
+   "value": 16,
+   "year": 2025,
+   "sourceName": "Angola"
+  },
+  {
+   "key": "ALB",
+   "value": 17,
+   "year": 2024,
+   "sourceName": "Albania"
+  },
+  {
+   "key": "AND",
+   "value": 22,
+   "year": 2025,
+   "sourceName": "Andorra"
+  },
+  {
+   "key": "ARE",
+   "value": 5,
+   "year": 2023,
+   "sourceName": "United Arab Emirates"
+  },
+  {
+   "key": "ARG",
+   "value": 8,
+   "year": 2025,
+   "sourceName": "Argentina"
+  },
+  {
+   "key": "ARM",
+   "value": 14,
+   "year": 2025,
+   "sourceName": "Armenia"
+  },
+  {
+   "key": "ASM",
+   "value": null,
+   "year": 2025,
+   "sourceName": "American Samoa"
+  },
+  {
+   "key": "ATG",
+   "value": 28,
+   "year": 2024,
+   "sourceName": "Antigua and Barbuda"
+  },
+  {
+   "key": "AUS",
+   "value": 7,
+   "year": 2025,
+   "sourceName": "Australia"
+  },
+  {
+   "key": "AUT",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "Austria"
+  },
+  {
+   "key": "AZE",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "Azerbaijan"
+  },
+  {
+   "key": "BDI",
+   "value": 14,
+   "year": 2023,
+   "sourceName": "Burundi"
+  },
+  {
+   "key": "BEL",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Belgium"
+  },
+  {
+   "key": "BEN",
+   "value": 33,
+   "year": 2024,
+   "sourceName": "Benin"
+  },
+  {
+   "key": "BFA",
+   "value": 11,
+   "year": 2024,
+   "sourceName": "Burkina Faso"
+  },
+  {
+   "key": "BGD",
+   "value": 13,
+   "year": 2018,
+   "sourceName": "Bangladesh"
+  },
+  {
+   "key": "BGR",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Bulgaria"
+  },
+  {
+   "key": "BHR",
+   "value": 15,
+   "year": 2024,
+   "sourceName": "Bahrain"
+  },
+  {
+   "key": "BHS",
+   "value": 20,
+   "year": 2024,
+   "sourceName": "Bahamas, The"
+  },
+  {
+   "key": "BIH",
+   "value": 18,
+   "year": 2025,
+   "sourceName": "Bosnia and Herzegovina"
+  },
+  {
+   "key": "BLR",
+   "value": 10,
+   "year": 2021,
+   "sourceName": "Belarus"
+  },
+  {
+   "key": "BLZ",
+   "value": 19,
+   "year": 2025,
+   "sourceName": "Belize"
+  },
+  {
+   "key": "BMU",
+   "value": 23,
+   "year": 2025,
+   "sourceName": "Bermuda"
+  },
+  {
+   "key": "BOL",
+   "value": 8,
+   "year": 2025,
+   "sourceName": "Bolivia"
+  },
+  {
+   "key": "BRA",
+   "value": 6,
+   "year": 2025,
+   "sourceName": "Brazil"
+  },
+  {
+   "key": "BRB",
+   "value": 22,
+   "year": 2025,
+   "sourceName": "Barbados"
+  },
+  {
+   "key": "BRN",
+   "value": 8,
+   "year": 2025,
+   "sourceName": "Brunei Darussalam"
+  },
+  {
+   "key": "BTN",
+   "value": 11,
+   "year": 2025,
+   "sourceName": "Bhutan"
+  },
+  {
+   "key": "BWA",
+   "value": 16,
+   "year": 2023,
+   "sourceName": "Botswana"
+  },
+  {
+   "key": "CAF",
+   "value": 21,
+   "year": 2024,
+   "sourceName": "Central African Republic"
+  },
+  {
+   "key": "CAN",
+   "value": 9,
+   "year": 2025,
+   "sourceName": "Canada"
+  },
+  {
+   "key": "CHE",
+   "value": 4,
+   "year": 2025,
+   "sourceName": "Switzerland"
+  },
+  {
+   "key": "CHI",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Channel Islands"
+  },
+  {
+   "key": "CHL",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "Chile"
+  },
+  {
+   "key": "CHN",
+   "value": 8,
+   "year": 2025,
+   "sourceName": "China"
+  },
+  {
+   "key": "CIV",
+   "value": 23,
+   "year": 2025,
+   "sourceName": "Cote d'Ivoire"
+  },
+  {
+   "key": "CMR",
+   "value": 22,
+   "year": 2023,
+   "sourceName": "Cameroon"
+  },
+  {
+   "key": "COD",
+   "value": 11,
+   "year": 2024,
+   "sourceName": "Congo, Dem. Rep."
+  },
+  {
+   "key": "COG",
+   "value": 21,
+   "year": 2023,
+   "sourceName": "Congo, Rep."
+  },
+  {
+   "key": "COL",
+   "value": 14,
+   "year": 2025,
+   "sourceName": "Colombia"
+  },
+  {
+   "key": "COM",
+   "value": 42,
+   "year": 2023,
+   "sourceName": "Comoros"
+  },
+  {
+   "key": "CPV",
+   "value": 33,
+   "year": 2024,
+   "sourceName": "Cabo Verde"
+  },
+  {
+   "key": "CRI",
+   "value": 13,
+   "year": 2024,
+   "sourceName": "Costa Rica"
+  },
+  {
+   "key": "CUB",
+   "value": 25,
+   "year": 2022,
+   "sourceName": "Cuba"
+  },
+  {
+   "key": "CUW",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Curacao"
+  },
+  {
+   "key": "CYM",
+   "value": 21,
+   "year": 2024,
+   "sourceName": "Cayman Islands"
+  },
+  {
+   "key": "CYP",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Cyprus"
+  },
+  {
+   "key": "CZE",
+   "value": 7,
+   "year": 2025,
+   "sourceName": "Czechia"
+  },
+  {
+   "key": "DEU",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "Germany"
+  },
+  {
+   "key": "DJI",
+   "value": 39,
+   "year": 2023,
+   "sourceName": "Djibouti"
+  },
+  {
+   "key": "DMA",
+   "value": 25,
+   "year": 2023,
+   "sourceName": "Dominica"
+  },
+  {
+   "key": "DNK",
+   "value": 14,
+   "year": 2025,
+   "sourceName": "Denmark"
+  },
+  {
+   "key": "DOM",
+   "value": 19,
+   "year": 2025,
+   "sourceName": "Dominican Republic"
+  },
+  {
+   "key": "DZA",
+   "value": 28,
+   "year": 2024,
+   "sourceName": "Algeria"
+  },
+  {
+   "key": "ECU",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "Ecuador"
+  },
+  {
+   "key": "EGY",
+   "value": 19,
+   "year": 2025,
+   "sourceName": "Egypt, Arab Rep."
+  },
+  {
+   "key": "ESP",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Spain"
+  },
+  {
+   "key": "EST",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Estonia"
+  },
+  {
+   "key": "ETH",
+   "value": 14,
+   "year": 2023,
+   "sourceName": "Ethiopia"
+  },
+  {
+   "key": "FIN",
+   "value": 9,
+   "year": 2025,
+   "sourceName": "Finland"
+  },
+  {
+   "key": "FJI",
+   "value": 19,
+   "year": 2025,
+   "sourceName": "Fiji"
+  },
+  {
+   "key": "FRA",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "France"
+  },
+  {
+   "key": "FRO",
+   "value": 29,
+   "year": 2025,
+   "sourceName": "Faroe Islands"
+  },
+  {
+   "key": "FSM",
+   "value": 28,
+   "year": 2013,
+   "sourceName": "Micronesia, Fed. Sts."
+  },
+  {
+   "key": "GAB",
+   "value": 16,
+   "year": 2023,
+   "sourceName": "Gabon"
+  },
+  {
+   "key": "GBR",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "United Kingdom"
+  },
+  {
+   "key": "GEO",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Georgia"
+  },
+  {
+   "key": "GHA",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Ghana"
+  },
+  {
+   "key": "GIB",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Gibraltar"
+  },
+  {
+   "key": "GIN",
+   "value": 27,
+   "year": 2016,
+   "sourceName": "Guinea"
+  },
+  {
+   "key": "GMB",
+   "value": 22,
+   "year": 2024,
+   "sourceName": "Gambia, The"
+  },
+  {
+   "key": "GNB",
+   "value": 42,
+   "year": 2018,
+   "sourceName": "Guinea-Bissau"
+  },
+  {
+   "key": "GRC",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Greece"
+  },
+  {
+   "key": "GRD",
+   "value": 24,
+   "year": 2024,
+   "sourceName": "Grenada"
+  },
+  {
+   "key": "GRL",
+   "value": 20,
+   "year": 2018,
+   "sourceName": "Greenland"
+  },
+  {
+   "key": "GTM",
+   "value": 17,
+   "year": 2025,
+   "sourceName": "Guatemala"
+  },
+  {
+   "key": "GUM",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Guam"
+  },
+  {
+   "key": "GUY",
+   "value": 6,
+   "year": 2025,
+   "sourceName": "Guyana"
+  },
+  {
+   "key": "HKG",
+   "value": 3,
+   "year": 2025,
+   "sourceName": "Hong Kong SAR, China"
+  },
+  {
+   "key": "HND",
+   "value": 19,
+   "year": 2024,
+   "sourceName": "Honduras"
+  },
+  {
+   "key": "HRV",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Croatia"
+  },
+  {
+   "key": "HTI",
+   "value": 32,
+   "year": 2017,
+   "sourceName": "Haiti"
+  },
+  {
+   "key": "HUN",
+   "value": 7,
+   "year": 2025,
+   "sourceName": "Hungary"
+  },
+  {
+   "key": "IDN",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "Indonesia"
+  },
+  {
+   "key": "IMN",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Isle of Man"
+  },
+  {
+   "key": "IND",
+   "value": 5,
+   "year": 2025,
+   "sourceName": "India"
+  },
+  {
+   "key": "IRL",
+   "value": 9,
+   "year": 2025,
+   "sourceName": "Ireland"
+  },
+  {
+   "key": "IRN",
+   "value": 26,
+   "year": 2023,
+   "sourceName": "Iran, Islamic Rep."
+  },
+  {
+   "key": "IRQ",
+   "value": 14,
+   "year": 2024,
+   "sourceName": "Iraq"
+  },
+  {
+   "key": "ISL",
+   "value": 11,
+   "year": 2025,
+   "sourceName": "Iceland"
+  },
+  {
+   "key": "ISR",
+   "value": 11,
+   "year": 2025,
+   "sourceName": "Israel"
+  },
+  {
+   "key": "ITA",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "Italy"
+  },
+  {
+   "key": "JAM",
+   "value": 22,
+   "year": 2025,
+   "sourceName": "Jamaica"
+  },
+  {
+   "key": "JOR",
+   "value": 21,
+   "year": 2024,
+   "sourceName": "Jordan"
+  },
+  {
+   "key": "JPN",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "Japan"
+  },
+  {
+   "key": "KAZ",
+   "value": 11,
+   "year": 2025,
+   "sourceName": "Kazakhstan"
+  },
+  {
+   "key": "KEN",
+   "value": 17,
+   "year": 2025,
+   "sourceName": "Kenya"
+  },
+  {
+   "key": "KGZ",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Kyrgyz Republic"
+  },
+  {
+   "key": "KHM",
+   "value": 7,
+   "year": 2024,
+   "sourceName": "Cambodia"
+  },
+  {
+   "key": "KIR",
+   "value": 41,
+   "year": 2021,
+   "sourceName": "Kiribati"
+  },
+  {
+   "key": "KNA",
+   "value": 25,
+   "year": 2017,
+   "sourceName": "St. Kitts and Nevis"
+  },
+  {
+   "key": "KOR",
+   "value": 6,
+   "year": 2025,
+   "sourceName": "Korea, Rep."
+  },
+  {
+   "key": "KWT",
+   "value": 16,
+   "year": 2025,
+   "sourceName": "Kuwait"
+  },
+  {
+   "key": "LAO",
+   "value": 13,
+   "year": 2023,
+   "sourceName": "Lao PDR"
+  },
+  {
+   "key": "LBN",
+   "value": 19,
+   "year": 2024,
+   "sourceName": "Lebanon"
+  },
+  {
+   "key": "LBR",
+   "value": 23,
+   "year": 2023,
+   "sourceName": "Liberia"
+  },
+  {
+   "key": "LBY",
+   "value": 22,
+   "year": 2019,
+   "sourceName": "Libya"
+  },
+  {
+   "key": "LCA",
+   "value": 28,
+   "year": 2020,
+   "sourceName": "St. Lucia"
+  },
+  {
+   "key": "LIE",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Liechtenstein"
+  },
+  {
+   "key": "LKA",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Sri Lanka"
+  },
+  {
+   "key": "LSO",
+   "value": 23,
+   "year": 2024,
+   "sourceName": "Lesotho"
+  },
+  {
+   "key": "LTU",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Lithuania"
+  },
+  {
+   "key": "LUX",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Luxembourg"
+  },
+  {
+   "key": "LVA",
+   "value": 18,
+   "year": 2025,
+   "sourceName": "Latvia"
+  },
+  {
+   "key": "MAC",
+   "value": 18,
+   "year": 2025,
+   "sourceName": "Macao SAR, China"
+  },
+  {
+   "key": "MAF",
+   "value": null,
+   "year": 2025,
+   "sourceName": "St. Martin (French part)"
+  },
+  {
+   "key": "MAR",
+   "value": 11,
+   "year": 2025,
+   "sourceName": "Morocco"
+  },
+  {
+   "key": "MCO",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Monaco"
+  },
+  {
+   "key": "MDA",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Moldova"
+  },
+  {
+   "key": "MDG",
+   "value": 18,
+   "year": 2024,
+   "sourceName": "Madagascar"
+  },
+  {
+   "key": "MDV",
+   "value": 22,
+   "year": 2025,
+   "sourceName": "Maldives"
+  },
+  {
+   "key": "MEX",
+   "value": 6,
+   "year": 2025,
+   "sourceName": "Mexico"
+  },
+  {
+   "key": "MHL",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Marshall Islands"
+  },
+  {
+   "key": "MKD",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "North Macedonia"
+  },
+  {
+   "key": "MLI",
+   "value": 14,
+   "year": 2023,
+   "sourceName": "Mali"
+  },
+  {
+   "key": "MLT",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "Malta"
+  },
+  {
+   "key": "MMR",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "Myanmar"
+  },
+  {
+   "key": "MNE",
+   "value": 24,
+   "year": 2025,
+   "sourceName": "Montenegro"
+  },
+  {
+   "key": "MNG",
+   "value": 11,
+   "year": 2023,
+   "sourceName": "Mongolia"
+  },
+  {
+   "key": "MNP",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Northern Mariana Islands"
+  },
+  {
+   "key": "MOZ",
+   "value": 22,
+   "year": 2025,
+   "sourceName": "Mozambique"
+  },
+  {
+   "key": "MRT",
+   "value": 24,
+   "year": 2024,
+   "sourceName": "Mauritania"
+  },
+  {
+   "key": "MUS",
+   "value": 22,
+   "year": 2025,
+   "sourceName": "Mauritius"
+  },
+  {
+   "key": "MWI",
+   "value": 11,
+   "year": 2025,
+   "sourceName": "Malawi"
+  },
+  {
+   "key": "MYS",
+   "value": 8,
+   "year": 2025,
+   "sourceName": "Malaysia"
+  },
+  {
+   "key": "NAM",
+   "value": 13,
+   "year": 2024,
+   "sourceName": "Namibia"
+  },
+  {
+   "key": "NCL",
+   "value": 16,
+   "year": 2015,
+   "sourceName": "New Caledonia"
+  },
+  {
+   "key": "NER",
+   "value": 38,
+   "year": 2024,
+   "sourceName": "Niger"
+  },
+  {
+   "key": "NGA",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "Nigeria"
+  },
+  {
+   "key": "NIC",
+   "value": 17,
+   "year": 2024,
+   "sourceName": "Nicaragua"
+  },
+  {
+   "key": "NLD",
+   "value": 14,
+   "year": 2025,
+   "sourceName": "Netherlands"
+  },
+  {
+   "key": "NOR",
+   "value": 11,
+   "year": 2025,
+   "sourceName": "Norway"
+  },
+  {
+   "key": "NPL",
+   "value": 18,
+   "year": 2022,
+   "sourceName": "Nepal"
+  },
+  {
+   "key": "NRU",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Naoero"
+  },
+  {
+   "key": "NZL",
+   "value": 13,
+   "year": 2025,
+   "sourceName": "New Zealand"
+  },
+  {
+   "key": "OMN",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Oman"
+  },
+  {
+   "key": "PAK",
+   "value": 14,
+   "year": 2025,
+   "sourceName": "Pakistan"
+  },
+  {
+   "key": "PAN",
+   "value": 19,
+   "year": 2025,
+   "sourceName": "Panama"
+  },
+  {
+   "key": "PER",
+   "value": 12,
+   "year": 2024,
+   "sourceName": "Peru"
+  },
+  {
+   "key": "PHL",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Philippines"
+  },
+  {
+   "key": "PLW",
+   "value": 23,
+   "year": 2018,
+   "sourceName": "Palau"
+  },
+  {
+   "key": "PNG",
+   "value": 16,
+   "year": 2023,
+   "sourceName": "Papua New Guinea"
+  },
+  {
+   "key": "POL",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "Poland"
+  },
+  {
+   "key": "PRI",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Puerto Rico (US)"
+  },
+  {
+   "key": "PRK",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Korea, Dem. People's Rep."
+  },
+  {
+   "key": "PRT",
+   "value": 16,
+   "year": 2025,
+   "sourceName": "Portugal"
+  },
+  {
+   "key": "PRY",
+   "value": 8,
+   "year": 2025,
+   "sourceName": "Paraguay"
+  },
+  {
+   "key": "PSE",
+   "value": 31,
+   "year": 2023,
+   "sourceName": "West Bank and Gaza"
+  },
+  {
+   "key": "PYF",
+   "value": 18,
+   "year": 2025,
+   "sourceName": "French Polynesia"
+  },
+  {
+   "key": "QAT",
+   "value": 11,
+   "year": 2024,
+   "sourceName": "Qatar"
+  },
+  {
+   "key": "ROU",
+   "value": 10,
+   "year": 2025,
+   "sourceName": "Romania"
+  },
+  {
+   "key": "RUS",
+   "value": 11,
+   "year": 2021,
+   "sourceName": "Russian Federation"
+  },
+  {
+   "key": "RWA",
+   "value": 22,
+   "year": 2022,
+   "sourceName": "Rwanda"
+  },
+  {
+   "key": "SAU",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "Saudi Arabia"
+  },
+  {
+   "key": "SDN",
+   "value": 30,
+   "year": 2018,
+   "sourceName": "Sudan"
+  },
+  {
+   "key": "SEN",
+   "value": 19,
+   "year": 2024,
+   "sourceName": "Senegal"
+  },
+  {
+   "key": "SGP",
+   "value": 4,
+   "year": 2025,
+   "sourceName": "Singapore"
+  },
+  {
+   "key": "SLB",
+   "value": 22,
+   "year": 2018,
+   "sourceName": "Solomon Islands"
+  },
+  {
+   "key": "SLE",
+   "value": 32,
+   "year": 2018,
+   "sourceName": "Sierra Leone"
+  },
+  {
+   "key": "SLV",
+   "value": 20,
+   "year": 2025,
+   "sourceName": "El Salvador"
+  },
+  {
+   "key": "SMR",
+   "value": null,
+   "year": 2025,
+   "sourceName": "San Marino"
+  },
+  {
+   "key": "SSD",
+   "value": null,
+   "year": 2025,
+   "sourceName": "South Sudan"
+  },
+  {
+   "key": "STP",
+   "value": 32,
+   "year": 2023,
+   "sourceName": "Sao Tome and Principe"
+  },
+  {
+   "key": "SUR",
+   "value": 15,
+   "year": 2025,
+   "sourceName": "Suriname"
+  },
+  {
+   "key": "SVK",
+   "value": 7,
+   "year": 2025,
+   "sourceName": "Slovak Republic"
+  },
+  {
+   "key": "SVN",
+   "value": 6,
+   "year": 2025,
+   "sourceName": "Slovenia"
+  },
+  {
+   "key": "SWE",
+   "value": 12,
+   "year": 2025,
+   "sourceName": "Sweden"
+  },
+  {
+   "key": "SWZ",
+   "value": 20,
+   "year": 2023,
+   "sourceName": "Eswatini"
+  },
+  {
+   "key": "SXM",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Sint Maarten (Dutch part)"
+  },
+  {
+   "key": "SYC",
+   "value": 26,
+   "year": 2024,
+   "sourceName": "Seychelles"
+  },
+  {
+   "key": "SYR",
+   "value": 21,
+   "year": 2010,
+   "sourceName": "Syrian Arab Republic"
+  },
+  {
+   "key": "TCA",
+   "value": 25,
+   "year": 2012,
+   "sourceName": "Turks and Caicos Islands"
+  },
+  {
+   "key": "TGO",
+   "value": 21,
+   "year": 2025,
+   "sourceName": "Togo"
+  },
+  {
+   "key": "THA",
+   "value": 6,
+   "year": 2025,
+   "sourceName": "Thailand"
+  },
+  {
+   "key": "TJK",
+   "value": 26,
+   "year": 2023,
+   "sourceName": "Tajikistan"
+  },
+  {
+   "key": "TLS",
+   "value": 28,
+   "year": 2023,
+   "sourceName": "Timor-Leste"
+  },
+  {
+   "key": "TON",
+   "value": 30,
+   "year": 2025,
+   "sourceName": "Tonga"
+  },
+  {
+   "key": "TTO",
+   "value": 23,
+   "year": 2025,
+   "sourceName": "Trinidad and Tobago"
+  },
+  {
+   "key": "TUN",
+   "value": 12,
+   "year": 2024,
+   "sourceName": "Tunisia"
+  },
+  {
+   "key": "TUR",
+   "value": 7,
+   "year": 2025,
+   "sourceName": "Turkiye"
+  },
+  {
+   "key": "TZA",
+   "value": 8,
+   "year": 2025,
+   "sourceName": "Tanzania"
+  },
+  {
+   "key": "UGA",
+   "value": 11,
+   "year": 2024,
+   "sourceName": "Uganda"
+  },
+  {
+   "key": "UKR",
+   "value": 10,
+   "year": 2024,
+   "sourceName": "Ukraine"
+  },
+  {
+   "key": "URY",
+   "value": 14,
+   "year": 2024,
+   "sourceName": "Uruguay"
+  },
+  {
+   "key": "USA",
+   "value": 7,
+   "year": 2025,
+   "sourceName": "United States"
+  },
+  {
+   "key": "UZB",
+   "value": 12,
+   "year": 2024,
+   "sourceName": "Uzbekistan"
+  },
+  {
+   "key": "VCT",
+   "value": 26,
+   "year": 2023,
+   "sourceName": "St. Vincent and the Grenadines"
+  },
+  {
+   "key": "VEN",
+   "value": 18,
+   "year": 2013,
+   "sourceName": "Venezuela, RB"
+  },
+  {
+   "key": "VGB",
+   "value": null,
+   "year": 2025,
+   "sourceName": "British Virgin Islands"
+  },
+  {
+   "key": "VNM",
+   "value": 9,
+   "year": 2023,
+   "sourceName": "Viet Nam"
+  },
+  {
+   "key": "VUT",
+   "value": 25,
+   "year": 2011,
+   "sourceName": "Vanuatu"
+  },
+  {
+   "key": "WSM",
+   "value": 30,
+   "year": 2024,
+   "sourceName": "Samoa"
+  },
+  {
+   "key": "XKX",
+   "value": null,
+   "year": 2025,
+   "sourceName": "Kosovo"
+  },
+  {
+   "key": "YEM",
+   "value": 44,
+   "year": 2024,
+   "sourceName": "Yemen, Rep."
+  },
+  {
+   "key": "ZAF",
+   "value": 7,
+   "year": 2025,
+   "sourceName": "South Africa"
+  },
+  {
+   "key": "ZMB",
+   "value": 8,
+   "year": 2024,
+   "sourceName": "Zambia"
+  },
+  {
+   "key": "ZWE",
+   "value": 19,
+   "year": 2024,
+   "sourceName": "Zimbabwe"
+  }
+ ]
+}

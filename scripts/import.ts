@@ -3,16 +3,34 @@
  * then computes every data/sources/*.derived.json from the normalized datasets (see src/lib/derive.ts).
  * Run: npm run data:import [-- data/sources/foo.source.json]
  */
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, renameSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { normalize, readRowsCached, type SourceSpec } from '../src/lib/importer';
 import { deriveDataset, deriveInputs, type DerivedSpec } from '../src/lib/derive';
 import type { Dataset, Entity } from '../src/lib/types';
 import type { AliasFile } from '../src/lib/names';
+import { autoSpec, isNormalized } from '../src/lib/uploads';
 
 const entities: Entity[] = JSON.parse(readFileSync('data/reference/entities.json', 'utf8'));
 const aliasFile: AliasFile = JSON.parse(readFileSync('data/reference/aliases.json', 'utf8'));
+
+// Files dropped straight into data/datasets (e.g. GitHub "Add files via upload") are raw uploads, not normalized data:
+// move them to data/raw/uploads and give them a source spec (generated for known shapes) so they flow through the importer.
+mkdirSync('data/raw/uploads', { recursive: true });
+const specInputs = () => readdirSync('data/sources').filter((f) => f.endsWith('.source.json')).map((f) => JSON.parse(readFileSync(join('data/sources', f), 'utf8')).input as string);
+for (const f of readdirSync('data/datasets').filter((f) => f.endsWith('.json'))) {
+  const raw = JSON.parse(readFileSync(join('data/datasets', f), 'utf8'));
+  if (isNormalized(raw)) continue;
+  const input = join('data/raw/uploads', f);
+  renameSync(join('data/datasets', f), input);
+  console.log(`↪ data/datasets/${f} is a raw upload: moved to ${input}`);
+  if (specInputs().includes(input)) continue;
+  const spec = autoSpec(input, raw);
+  if (!spec) { console.error(`✘ ${input}: unknown shape; write data/sources/<id>.source.json for it (see README "Adding a dataset")`); process.exitCode = 1; continue; }
+  writeFileSync(join('data/sources', `${spec.dataset.id}.source.json`), JSON.stringify(spec, null, 2) + '\n');
+  console.log(`  generated data/sources/${spec.dataset.id}.source.json (category ${spec.dataset.category}); review its scoring and notes`);
+}
 
 const args = process.argv.slice(2);
 const specs = args.length ? args : readdirSync('data/sources').filter((f) => f.endsWith('.source.json')).sort().map((f) => join('data/sources', f));
@@ -75,4 +93,4 @@ for (const { specPath, spec } of ordered) {
     console.error(`✘ ${specPath}: ${(e as Error).message}`);
   }
 }
-if (failed) process.exit(1);
+if (failed || process.exitCode) process.exit(1);

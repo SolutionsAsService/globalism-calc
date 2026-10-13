@@ -11,7 +11,15 @@ export interface Model {
   /** Category scores per entity key (null = missing). */
   catScores: Map<string, Record<string, Score>>;
   geo: unknown;
+  /** Datasets as published (before user overrides), so the model can be rebuilt when a toggle changes. */
+  datasets: Dataset[];
 }
+
+/** User overrides of a dataset's scoring: use it in the score or not, and its weight inside its category. */
+export type DatasetOverrides = Record<string, { include?: boolean; weight?: number }>;
+
+const applyOverrides = (ds: Dataset, o: DatasetOverrides): Dataset =>
+  o[ds.id] ? { ...ds, scoring: { ...ds.scoring, ...o[ds.id] } } : ds;
 
 async function getJson<T>(path: string): Promise<T> {
   const res = await fetch(`data/${path}`);
@@ -30,8 +38,8 @@ export async function loadModel(): Promise<Model> {
   return buildModel(entities, categories, datasets as Dataset[], geo);
 }
 
-export function buildModel(entities: Entity[], categories: CategoryDef[], datasets: Dataset[], geo: unknown = null): Model {
-  const indicators = datasets.map(scoreDataset);
+export function buildModel(entities: Entity[], categories: CategoryDef[], datasets: Dataset[], geo: unknown = null, overrides: DatasetOverrides = {}): Model {
+  const indicators = datasets.map((d) => scoreDataset(applyOverrides(d, overrides)));
   const byCat = byCategory(categories, indicators);
   const status: Model['status'] = {};
   for (const c of categories) status[c.id] = categoryStatus(byCat[c.id]);
@@ -41,7 +49,11 @@ export function buildModel(entities: Entity[], categories: CategoryDef[], datase
     for (const c of categories) rec[c.id] = categoryScore(e.key, byCat[c.id] ?? []);
     catScores.set(e.key, rec);
   }
-  return { entities, byKey: new Map(entities.map((e) => [e.key, e])), categories, indicators, byCat, status, catScores, geo };
+  return { entities, byKey: new Map(entities.map((e) => [e.key, e])), categories, indicators, byCat, status, catScores, geo, datasets };
+}
+
+export function rebuild(m: Model, overrides: DatasetOverrides): Model {
+  return buildModel(m.entities, m.categories, m.datasets, m.geo, overrides);
 }
 
 export function compositeFor(m: Model, key: string, weights: Record<string, number>) {

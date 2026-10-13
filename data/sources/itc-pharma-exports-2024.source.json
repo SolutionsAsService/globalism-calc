@@ -1,0 +1,39 @@
+{
+  "input": "data/raw/uploads/global_pharmaceutical_trade_2024.json",
+  "format": "json",
+  "rowsPath": "entities",
+  "entityField": "name",
+  "valueField": "exports_usd",
+  "year": 2024,
+  "keepSeries": true,
+  "dataset": {
+    "id": "itc-pharma-exports-2024",
+    "title": "Pharmaceutical exports (HS 30), 2024",
+    "category": "medicine",
+    "indicator": {
+      "code": "HS 30",
+      "name": "Pharmaceutical exports",
+      "unit": "USD",
+      "description": "Value of pharmaceutical products (HS chapter 30) exported in 2024, US dollars."
+    },
+    "source": {
+      "name": "International Trade Centre (ITC) Trade Map, via Wikipedia 'List of countries by pharmaceutical exports'",
+      "url": "https://en.wikipedia.org/wiki/List_of_countries_by_pharmaceutical_exports",
+      "license": "Wikipedia text CC BY-SA 4.0; ITC Trade Map data, attribution required",
+      "citation": "ITC Trade Map, HS 30, 2024 (thousands of USD in the source, stored here ×1000 as USD). Table uploaded to this repo as data/raw/uploads/global_pharmaceutical_trade_2024.json."
+    },
+    "year": 2024,
+    "notes": [
+      "Secondary source: the table was transcribed from Wikipedia, which cites ITC; check against ITC Trade Map before relying on single values."
+    ],
+    "caveats": [
+      "Totals only: no partner breakdown, so this cannot say who a country depends on."
+    ],
+    "scoring": {
+      "include": false,
+      "direction": "higher_more_dependent",
+      "method": "log-minmax",
+      "rationale": "Absolute value scales with economy size; the net-import share is the scored measure."
+    }
+  }
+}

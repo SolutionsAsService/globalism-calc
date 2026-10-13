@@ -108,12 +108,12 @@ export function normalize(
   const duplicates = new Map<string, Set<string>>();
   const markers: Record<string, number> = {};
   const series = new Map<string, Map<number, { value: number | null; flag?: string }>>();
-  if (spec.keepSeries && !spec.yearField) throw new Error(`${specPath}: keepSeries requires yearField`);
+  if (spec.keepSeries && !spec.yearField && spec.year === undefined) throw new Error(`${specPath}: keepSeries requires yearField or year`);
   let rowsRead = 0;
 
   for (const r of rows) {
     if (spec.where && !Object.entries(spec.where).every(([k, v]) => String(r[k] ?? '') === v)) continue;
-    if (spec.minYear !== undefined && spec.yearField && Number(r[spec.yearField]) < spec.minYear) continue;
+    if (spec.minYear !== undefined && spec.yearField && r[spec.yearField] != null && r[spec.yearField] !== '' && Number(r[spec.yearField]) < spec.minYear) continue;
     rowsRead++;
     if (spec.markerField && r[spec.markerField] != null) {
       const mk = String(r[spec.markerField]);
@@ -142,7 +142,11 @@ export function normalize(
     } else {
       if (!spec.valueField) throw new Error(`${specPath}: valueField or valueColumns is required`);
       value = parseValue(r[spec.valueField]);
-      if (spec.yearField) year = Number(r[spec.yearField]);
+      if (spec.yearField) {
+        const y = r[spec.yearField];
+        // "Most recent value" tables leave the year blank when there is no value: keep the row as missing at the dataset year.
+        year = (y == null || y === '') && value === null ? (spec.year ?? spec.dataset.year) : Number(y);
+      }
     }
     if (year === undefined || !Number.isFinite(year)) throw new Error(`${specPath}: no year for "${label}" (set year, yearField or valueColumns)`);
     if (value !== null) value *= scale;

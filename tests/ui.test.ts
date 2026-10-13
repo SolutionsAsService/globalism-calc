@@ -45,9 +45,10 @@ describe('app', () => {
     expect($('.formula')?.textContent).toMatch(/Σ/);
   });
 
-  it('food tab is context-only and the detail panel shows sources', async () => {
+  it('food tab is scored from the uploaded World Bank table and the detail panel shows sources', async () => {
     await go('#/?cat=food&sel=USA', () => $('.detail h2')?.textContent === 'United States');
-    expect($('.banner.warn')?.textContent).toMatch(/Context only/);
+    expect($('.banner.warn')).toBeNull();
+    expect($('.detail')?.textContent).toMatch(/Food imports/);
     expect($('.detail')?.textContent).toMatch(/World Bank WITS/);
     expect($('.detail')?.textContent).toMatch(/\$57\.7B/);
   });
@@ -143,11 +144,31 @@ describe('app', () => {
     expect($$('.cmp-table thead th').length).toBe(3);
     expect($('.cmp-table')?.textContent).toMatch(/Electricity import exposure/);
     expect($('.cmp-table')?.textContent).toMatch(/more fuel & energy series/);
-    await go('#/method', () => $$('.dataset').length === 44);
+    const manifest = JSON.parse(readFileSync('public/data/manifest.json', 'utf8'));
+    await go('#/method', () => $$('.dataset').length === manifest.datasets.length);
+    expect(manifest.datasets.length).toBeGreaterThanOrEqual(51);
     expect($('main')?.textContent).toMatch(/PARENT-SUB/);
     expect($('#method-electricity')?.textContent).toMatch(/Electricity import exposure/);
     expect($('main')?.textContent).toMatch(/Currently scored: Fuel & energy = this exposure/);
     expect($('main')?.textContent).toMatch(/9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de/);
+  });
+
+  it('datasets view maps every dataset and toggles feed the composite', async () => {
+    const manifest = JSON.parse(readFileSync('public/data/manifest.json', 'utf8'));
+    await go('#/data', () => !!$('svg.dep-map'));
+    expect($$('.ds-table tbody tr').length).toBe(manifest.datasets.length);
+    expect($$('svg.dep-map a').length).toBe(manifest.datasets.length);
+    for (const id of ['wb-tm-val-food-zs-un', 'wb-tm-val-mrch-mf-zs', 'wb-tm-val-mrch-mt-zs', 'itc-pharma-net-import-share-2024'])
+      expect($$('svg.dep-map a').some((a) => (a.getAttribute('href') ?? '').includes('ind=' + id))).toBe(true);
+    expect($('main')?.textContent).toMatch(/uploaded/);
+    // Turn off the pharma net-import share: medicine loses its only scored dataset.
+    const row = $$('.ds-table tbody tr').find((r) => /Pharmaceutical net imports/.test(r.textContent ?? ''))!;
+    const box = row.querySelector('input[type=checkbox]') as HTMLInputElement;
+    box.checked = false; box.dispatchEvent(new Event('change'));
+    await until(() => /changed/.test($$('.ds-table tbody tr').find((r) => /Pharmaceutical net imports/.test(r.textContent ?? ''))?.textContent ?? ''));
+    expect($$('.dm-cat.status-context').length).toBeGreaterThan(0);
+    ($$('button').find((b) => /Reset datasets/.test(b.textContent ?? '')) as HTMLButtonElement).click();
+    await until(() => !/changed/.test($('.ds-table')?.textContent ?? ''));
   });
 
   it('search filters the ranking table', async () => {

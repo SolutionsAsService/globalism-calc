@@ -60,7 +60,13 @@
     "Russian Federation": "RUS",
     "Tanzania": "TZA",
     "Syrian Arab Republic": "SYR",
-    "XKS": "XKX"
+    "XKS": "XKX",
+    "French Southern and Antarctic Territories": "ATF",
+    "Congo": "COG",
+    "DR Congo": "COD",
+    "Somalia, Fed. Rep.": "SOM",
+    "Puerto Rico (US)": "PRI",
+    "Naoero": "NRU"
   },
   "nonEntities": {
     "Africa Eastern and Southern": "World Bank regional/income aggregate (not an entity)",
@@ -215,6 +221,8 @@
     "Serbia and Montenegro": "Former state (dissolved 2006; OWID historical series)",
     "USSR": "Former state (dissolved 1991; OWID historical series)",
     "Yugoslavia": "Former state (OWID historical series)",
-    "ANT": "Netherlands Antilles, dissolved 2010 (OWID ISO code of historical series)"
+    "ANT": "Netherlands Antilles, dissolved 2010 (OWID ISO code of historical series)",
+    "Middle East, North Africa, Afghanistan & Pakistan": "World Bank regional/income aggregate (not an entity)",
+    "Middle East, North Africa, Afghanistan & Pakistan (excluding high income)": "World Bank regional/income aggregate (not an entity)"
   }
 }

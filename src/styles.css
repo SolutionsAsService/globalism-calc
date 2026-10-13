@@ -186,3 +186,30 @@ td.num .yr { text-align: right; }
 .formula-block { font-size: .85rem; background: var(--hatch-bg); padding: .5rem .7rem; border-radius: 8px; overflow-x: auto; }
 table.exposure-table thead th:first-child, table.exposure-table tbody th { width: 40%; }
 table.facts-table tbody th { width: 55%; font-weight: 400; }
+
+/* ---------- datasets & dependency map ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .6rem; margin: .8rem 0; }
+.stat { border: 1px solid var(--border); border-radius: var(--radius); padding: .5rem .7rem; }
+.stat .big { font-size: 1.5rem; font-weight: 700; }
+.dep-wrap { overflow-x: auto; }
+.dep-map { width: 100%; min-width: 720px; height: auto; font-size: 12px; }
+.dep-map text { fill: var(--text); }
+.dep-map .dm-head { font-weight: 700; fill: var(--muted); }
+.dep-map .dm-n { fill: var(--muted); font-variant-numeric: tabular-nums; }
+.dm-edge { fill: none; stroke: var(--accent); opacity: .55; }
+.dm-edge.context { stroke: var(--muted); stroke-dasharray: 4 4; opacity: .45; }
+.dm-node { fill: var(--card); stroke: var(--accent); }
+.dm-node.context { stroke: var(--border); stroke-dasharray: 3 3; }
+.dep-map a:hover .dm-node, .dep-map a:focus .dm-node { fill: var(--warn-bg); }
+.dm-cat { fill: var(--card); stroke: var(--accent-2); stroke-width: 2; }
+.dm-cat.status-context { stroke: var(--muted); }
+.dm-cat.status-needed { stroke: var(--border); stroke-dasharray: 4 3; }
+.dm-total { fill: var(--accent); }
+.dep-map .dm-total + text, .dep-map .dm-total + text + text { fill: #fff; }
+.ds-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.ds-table th, .ds-table td { text-align: left; padding: .4rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.ds-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.ds-table tr.is-context th a { color: var(--muted); }
+.ds-table input[type=range] { width: 90px; }
+.badge.changed { background: var(--warn-bg); color: var(--warn); }
+.ds-table .badge { margin-left: .35rem; }

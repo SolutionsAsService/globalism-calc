@@ -1,4 +1,6 @@
-export type View = 'atlas' | 'compare' | 'method';
+import type { DatasetOverrides } from './model';
+
+export type View = 'atlas' | 'compare' | 'method' | 'data';
 
 export interface State {
   view: View;
@@ -9,6 +11,8 @@ export interface State {
   selected?: string;
   compare: string[];
   weights: Record<string, number>;
+  /** Per-dataset overrides (use in score, weight), persisted. */
+  ds: DatasetOverrides;
   search: string;
   typeFilter: 'all' | 'country' | 'territory';
   sort: { col: string; dir: 1 | -1 };
@@ -31,12 +35,34 @@ export function saveWeights(w: Record<string, number>) {
   try { localStorage.setItem(WEIGHTS_KEY, JSON.stringify(w)); } catch { /* private mode */ }
 }
 
-/** Hash routes: #/?cat=food&sel=USA | #/compare?keys=USA,CHN&cat=... | #/method */
+const DS_KEY = 'globalism-calc:datasets:v1';
+
+export function loadDsOverrides(): DatasetOverrides {
+  try {
+    const saved = JSON.parse(localStorage.getItem(DS_KEY) ?? '{}');
+    const out: DatasetOverrides = {};
+    for (const [id, o] of Object.entries(saved as Record<string, any>)) {
+      const v: { include?: boolean; weight?: number } = {};
+      if (typeof o?.include === 'boolean') v.include = o.include;
+      if (typeof o?.weight === 'number' && o.weight >= 0 && o.weight <= 3) v.weight = o.weight;
+      if (Object.keys(v).length) out[id] = v;
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+export function saveDsOverrides(o: DatasetOverrides) {
+  try { localStorage.setItem(DS_KEY, JSON.stringify(o)); } catch { /* private mode */ }
+}
+
+/** Hash routes: #/?cat=food&sel=USA | #/compare?keys=USA,CHN&cat=... | #/method | #/data */
 export function parseHash(hash: string): Partial<State> {
   const [path, query = ''] = hash.replace(/^#/, '').split('?');
   const q = new URLSearchParams(query);
   const out: Partial<State> = {};
-  out.view = path === '/compare' ? 'compare' : path === '/method' ? 'method' : 'atlas';
+  out.view = path === '/compare' ? 'compare' : path === '/method' ? 'method' : path === '/data' ? 'data' : 'atlas';
   if (q.get('cat')) out.cat = q.get('cat')!;
   if (q.get('ind')) out.indicator = q.get('ind')!;
   if (q.get('sel')) out.selected = q.get('sel')!;
@@ -50,7 +76,7 @@ export function toHash(s: State): string {
   if (s.indicator) q.set('ind', s.indicator);
   if (s.selected) q.set('sel', s.selected);
   if (s.view === 'compare' && s.compare.length) q.set('keys', s.compare.join(','));
-  const path = s.view === 'compare' ? '/compare' : s.view === 'method' ? '/method' : '/';
+  const path = s.view === 'atlas' ? '/' : '/' + s.view;
   const qs = q.toString();
   return '#' + path + (qs ? '?' + qs : '');
 }

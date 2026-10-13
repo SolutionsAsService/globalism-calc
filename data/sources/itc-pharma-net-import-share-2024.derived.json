@@ -1,0 +1,42 @@
+{
+  "derive": {
+    "op": "net-share",
+    "imports": "itc-pharma-imports-2024",
+    "exports": "itc-pharma-exports-2024",
+    "base": "itc-pharma-imports-2024"
+  },
+  "dataset": {
+    "id": "itc-pharma-net-import-share-2024",
+    "title": "Pharmaceutical net imports, % of imports (HS 30), 2024",
+    "category": "medicine",
+    "indicator": {
+      "code": "HS 30",
+      "name": "Pharmaceutical net import share",
+      "unit": "% of pharma imports",
+      "description": "100 × (imports − exports) ÷ imports, HS 30, 2024. 100 = imports everything it uses and exports nothing; ≤ 0 = net exporter."
+    },
+    "source": {
+      "name": "Derived from ITC Trade Map (via Wikipedia) pharmaceutical imports and exports",
+      "url": "https://en.wikipedia.org/wiki/List_of_countries_by_pharmaceutical_exports",
+      "license": "Wikipedia text CC BY-SA 4.0; ITC Trade Map data, attribution required",
+      "citation": "Computed from itc-pharma-imports-2024 and itc-pharma-exports-2024."
+    },
+    "year": 2024,
+    "notes": [
+      "A proxy for medicine import reliance: domestic production is not in the data, so a country that makes and consumes its own medicines but also imports a lot can look dependent."
+    ],
+    "caveats": [
+      "Re-export hubs (Belgium, Netherlands, Ireland, Switzerland) show large trade both ways; their share says little about survival dependence."
+    ],
+    "scoring": {
+      "include": true,
+      "direction": "higher_more_dependent",
+      "method": "fixed-range",
+      "range": [
+        0,
+        100
+      ],
+      "rationale": "Already a 0–100 share for net importers; net exporters (≤ 0) score 0."
+    }
+  }
+}
